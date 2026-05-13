@@ -21,8 +21,10 @@ function FeatureCard({
       }}
       viewport={{ once: true }}
       whileHover={{
-        y: -10,
-        scale: 1.03,
+        y: -14,
+        scale: 1.04,
+        rotateX: 4,
+        rotateY: -4,
       }}
       className="
         group
@@ -32,15 +34,24 @@ function FeatureCard({
         rounded-[32px]
 
         border
-        border-white/10
+        border-white/15
 
-        bg-[#081028]
+        hover:border-blue-400/40
+
+        bg-[#020817]/55
+
+        backdrop-blur-xl
 
         p-8
 
         transition-all
         duration-500
+
+        hover:shadow-[0_20px_80px_rgba(37,99,235,0.25)]
       "
+      style={{
+        transformStyle: 'preserve-3d',
+      }}
     >
       {/* Glow */}
       <div
@@ -84,50 +95,55 @@ function FeatureCard({
       <div className="relative z-10">
         {/* Icon */}
         <div
-  className="
-    mb-8
+          className="
+            mb-8
 
-    flex
-    h-28
-    w-28
-    items-center
-    justify-center
+            flex
+            h-28
+            w-28
+            items-center
+            justify-center
 
-    rounded-full
+            rounded-full
 
-    border
-    border-white/10
+            border
+            border-white/10
 
-    bg-blue-500/20
+            bg-blue-500/20
 
-    shadow-[0_0_60px_rgba(37,99,235,0.45)]
-  "
->
-  <div
-    className="
-      flex
-      h-20
-      w-20
-      items-center
-      justify-center
+            shadow-[0_0_60px_rgba(37,99,235,0.45)]
 
-      rounded-full
+            transition-all
+            duration-500
 
-      bg-[#2563eb]
-    "
-  >
-    <img
-      src={icon}
-      alt={title}
-      className="
-        h-12
-        w-12
+            group-hover:scale-110
+          "
+        >
+          <div
+            className="
+              flex
+              h-20
+              w-20
+              items-center
+              justify-center
 
-        object-contain
-      "
-    />
-  </div>
-</div>
+              rounded-full
+
+              bg-[#2563eb]
+            "
+          >
+            <img
+              src={icon}
+              alt={title}
+              className="
+                h-12
+                w-12
+
+                object-contain
+              "
+            />
+          </div>
+        </div>
 
         {/* Title */}
         <h3
@@ -151,7 +167,7 @@ function FeatureCard({
             text-lg
             leading-relaxed
 
-            text-white/60
+            text-white/70
           "
         >
           {description}

@@ -17,93 +17,94 @@ function CurrencySelect({
     <button
       type="button"
       className="
-        group
-
         w-full
 
-        flex
-        items-center
-        justify-between
-
-        rounded-2xl
+        rounded-[24px]
 
         border
-        border-white/10
+        border-slate-200
 
-        bg-white/[0.08]
+        bg-white
 
-        backdrop-blur-xl
+        px-5
+        py-5
 
-        px-4
-        py-3
+        shadow-sm
 
         transition-all
         duration-300
 
-        hover:bg-white/[0.12]
-        hover:border-blue-400/30
-
-        hover:shadow-[0_10px_30px_rgba(37,99,235,0.15)]
+        hover:border-blue-200
+        hover:shadow-md
       "
     >
-      {/* LEFT */}
-      <div className="flex items-center gap-3">
-        {/* FLAG */}
-        <img
-          src={selected.flag}
-          alt={selected.code}
-          className="
-            w-11
-            h-11
-
-            rounded-full
-            object-cover
-
-            shadow-lg
-            shadow-black/30
-
-            ring-2
-            ring-white/10
-          "
-        />
-
-        {/* TEXT */}
-        <div className="text-left">
-          <p
+      <div className="flex items-center justify-between">
+        {/* LEFT */}
+        <div className="flex items-center gap-4">
+          {/* FLAG */}
+          <div
             className="
-              text-white
+              flex
+              h-14
+              w-14
+              items-center
+              justify-center
 
-              text-lg
-              font-semibold
+              overflow-hidden
+
+              rounded-full
+
+              border
+              border-slate-200
+
+              bg-white
             "
           >
-            {selected.code}
-          </p>
+            <img
+              src={selected.flag}
+              alt={selected.code}
+              className="
+                h-full
+                w-full
 
-          <p
-            className="
-              text-white/55
+                object-cover
+              "
+            />
+          </div>
 
-              text-sm
-            "
-          >
-            {selected.name}
-          </p>
+          {/* TEXT */}
+          <div className="text-left">
+            <p
+              className="
+                text-[20px]
+                font-bold
+
+                text-slate-900
+              "
+            >
+              {selected.code}
+            </p>
+
+            <p
+              className="
+                mt-1
+
+                text-[15px]
+
+                text-slate-500
+              "
+            >
+              {selected.name}
+            </p>
+          </div>
         </div>
+
+        {/* ICON */}
+        <ChevronDown
+          size={22}
+          className="text-slate-500"
+        />
       </div>
-
-      {/* RIGHT */}
-      <ChevronDown
-        size={20}
-        className="
-          text-white/60
-
-          transition-transform
-          duration-300
-
-          group-hover:rotate-180
-        "
-      />
     </button>
   )
 }

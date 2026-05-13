@@ -1,4 +1,4 @@
-import { ArrowUpDown } from 'lucide-react'
+import { ArrowUpDown, TrendingUp, Clock3 } from 'lucide-react'
 
 import CurrencySelect from '../currency/CurrencySelect'
 
@@ -12,297 +12,269 @@ function ConverterCard() {
         relative
 
         w-full
-        max-w-[520px]
-
-        rounded-[36px]
-
-        border
-        border-white/10
-
-        bg-white/[0.06]
-
-        backdrop-blur-2xl
-
-        p-5
-        sm:p-7
-        lg:p-8
-
-        shadow-[0_20px_80px_rgba(0,0,0,0.45)]
+        max-w-[680px]
 
         overflow-hidden
+
+        rounded-[40px]
+
+        bg-white
+
+        p-6
+        sm:p-8
+        lg:p-10
+
+        shadow-[0_25px_80px_rgba(15,23,42,0.18)]
       "
     >
-      {/* Glow */}
+      {/* Accent border */}
       <div
         className="
           absolute
-          inset-0
+          right-0
+          top-0
 
-          bg-gradient-to-br
-          from-blue-500/10
-          via-transparent
-          to-transparent
+          h-full
+          w-3
 
-          pointer-events-none
+          bg-gradient-to-b
+          from-blue-600
+          via-yellow-400
+          to-red-500
         "
       />
 
-      {/* Content */}
-      <div className="relative z-10">
-        {/* TOP */}
-        <div className="flex justify-between items-start gap-5">
+      {/* TOP */}
+      <div className="flex items-start justify-between gap-6">
+        {/* LEFT */}
+        <div className="flex-1">
+          <p
+            className="
+              mb-4
+
+              text-lg
+              font-medium
+
+              text-slate-500
+            "
+          >
+            Vous envoyez
+          </p>
+
+          <h2
+            className="
+              text-[72px]
+              font-black
+              leading-none
+              tracking-[-3px]
+
+              text-slate-900
+            "
+          >
+            100,00
+          </h2>
+
+          <p
+            className="
+              mt-4
+
+              text-2xl
+
+              text-slate-500
+            "
+          >
+            ≈ 100,00 USD
+          </p>
+        </div>
+
+        {/* RIGHT */}
+        <div className="w-[220px]">
+          <CurrencySelect
+            selected={{
+              code: 'USD',
+              name: 'Dollar Américain',
+              flag: usFlag,
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="relative my-10">
+        <div className="h-[1px] w-full bg-slate-200" />
+
+        <button
+          type="button"
+          className="
+            absolute
+            left-1/2
+            top-1/2
+
+            flex
+            h-20
+            w-20
+            -translate-x-1/2
+            -translate-y-1/2
+            items-center
+            justify-center
+
+            rounded-full
+
+            bg-blue-600
+
+            shadow-[0_10px_30px_rgba(37,99,235,0.35)]
+
+            transition-all
+            duration-300
+
+            hover:scale-105
+          "
+        >
+          <ArrowUpDown
+            size={34}
+            className="text-white"
+          />
+        </button>
+      </div>
+
+      {/* BOTTOM */}
+      <div className="mt-12 flex items-start justify-between gap-6">
+        {/* LEFT */}
+        <div className="flex-1">
+          <p
+            className="
+              mb-4
+
+              text-lg
+              font-medium
+
+              text-slate-500
+            "
+          >
+            Vous recevez
+          </p>
+
+          <h2
+            className="
+              text-[64px]
+              font-black
+              leading-none
+              tracking-[-3px]
+
+              text-blue-600
+            "
+          >
+            287 540,00
+          </h2>
+
+          <p
+            className="
+              mt-4
+
+              text-2xl
+
+              text-slate-500
+            "
+          >
+            ≈ 287 540,00 CDF
+          </p>
+        </div>
+
+        {/* RIGHT */}
+        <div className="w-[220px]">
+          <CurrencySelect
+            selected={{
+              code: 'CDF',
+              name: 'Franc Congolais',
+              flag: cdFlag,
+            }}
+          />
+        </div>
+      </div>
+
+      {/* RATE CARD */}
+      <div
+        className="
+          mt-10
+
+          rounded-[28px]
+
+          bg-slate-100
+
+          p-6
+        "
+      >
+        <div className="flex items-center justify-between gap-4">
           {/* LEFT */}
-          <div className="flex-1">
-            <p
+          <div>
+            <div className="flex items-center gap-4">
+              <p
+                className="
+                  text-[32px]
+                  font-black
+
+                  text-slate-900
+                "
+              >
+                1 USD = 2 875,40 CDF
+              </p>
+
+              <p
+                className="
+                  text-2xl
+                  font-bold
+
+                  text-green-500
+                "
+              >
+                ▲ 0,56%
+              </p>
+            </div>
+
+            <div
               className="
-                text-white/60
+                mt-4
 
-                text-sm
-                sm:text-base
-
-                mb-3
+                flex
+                items-center
+                gap-3
               "
             >
-              Vous envoyez
-            </p>
+              <Clock3
+                size={20}
+                className="text-slate-500"
+              />
 
-            <h2
-              className="
-                text-white
+              <p
+                className="
+                  text-lg
 
-                text-[52px]
-                sm:text-[68px]
-                lg:text-[74px]
-
-                leading-none
-                tracking-[-2px]
-
-                font-black
-              "
-            >
-              100
-            </h2>
+                  text-slate-500
+                "
+              >
+                Mis à jour il y a 6 secondes
+              </p>
+            </div>
           </div>
 
           {/* RIGHT */}
-          <div className="w-[190px]">
-            <CurrencySelect
-              selected={{
-                code: 'USD',
-                name: 'Dollar Américain',
-                flag: usFlag,
-              }}
-            />
-          </div>
-        </div>
-
-        {/* SWITCH */}
-        <div className="flex justify-center py-7">
-          <button
-            type="button"
+          <div
             className="
-              group
-
-              relative
-
-              w-20
-              h-20
-
-              rounded-full
-
               flex
+              h-16
+              w-16
               items-center
               justify-center
 
-              bg-gradient-to-br
-              from-[#2563EB]
-              to-[#1D4ED8]
+              rounded-2xl
 
-              shadow-[0_0_40px_rgba(37,99,235,0.45)]
-
-              transition-all
-              duration-300
-
-              hover:scale-110
+              bg-blue-100
             "
           >
-            {/* Glow */}
-            <div
-              className="
-                absolute
-                inset-0
-
-                rounded-full
-
-                bg-blue-500/40
-
-                blur-2xl
-
-                opacity-70
-              "
+            <TrendingUp
+              size={32}
+              className="text-blue-600"
             />
-
-            <ArrowUpDown
-              size={30}
-              className="
-                relative
-                z-10
-
-                text-white
-
-                transition-transform
-                duration-300
-
-                group-hover:rotate-180
-              "
-            />
-          </button>
-        </div>
-
-        {/* BOTTOM */}
-        <div className="flex justify-between items-start gap-5">
-          {/* LEFT */}
-          <div className="flex-1">
-            <p
-              className="
-                text-white/60
-
-                text-sm
-                sm:text-base
-
-                mb-3
-              "
-            >
-              Vous recevez
-            </p>
-
-            <h2
-              className="
-                text-[#60A5FA]
-
-                text-[34px]
-                sm:text-[48px]
-                lg:text-[56px]
-
-                leading-none
-                tracking-[-1px]
-
-                font-black
-              "
-            >
-              223 234,58
-            </h2>
-          </div>
-
-          {/* RIGHT */}
-          <div className="w-[190px]">
-            <CurrencySelect
-              selected={{
-                code: 'CDF',
-                name: 'Franc Congolais',
-                flag: cdFlag,
-              }}
-            />
-          </div>
-        </div>
-
-        {/* RATE CARD */}
-        <div
-          className="
-            mt-8
-
-            rounded-[28px]
-
-            border
-            border-white/10
-
-            bg-white/[0.07]
-
-            backdrop-blur-xl
-
-            p-6
-
-            shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]
-          "
-        >
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <p
-                className="
-                  text-white
-
-                  text-xl
-                  font-semibold
-                "
-              >
-                1 USD = 2232,35 CDF
-              </p>
-
-              <div
-                className="
-                  mt-4
-
-                  flex
-                  items-center
-                  gap-2
-                "
-              >
-                <div
-                  className="
-                    w-2.5
-                    h-2.5
-
-                    rounded-full
-
-                    bg-green-400
-
-                    animate-pulse
-                  "
-                />
-
-                <p
-                  className="
-                    text-green-400
-
-                    text-sm
-                    font-semibold
-                  "
-                >
-                  Temps réel
-                </p>
-              </div>
-            </div>
-
-            {/* Small graph block */}
-            <div
-              className="
-                hidden
-                sm:flex
-
-                w-14
-                h-14
-
-                rounded-2xl
-
-                items-center
-                justify-center
-
-                bg-blue-500/10
-
-                border
-                border-blue-400/20
-              "
-            >
-              <div
-                className="
-                  text-blue-400
-
-                  text-2xl
-                "
-              >
-                ↗
-              </div>
-            </div>
           </div>
         </div>
       </div>

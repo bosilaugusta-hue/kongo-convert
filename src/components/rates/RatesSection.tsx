@@ -1,41 +1,97 @@
-import RateCard from './RateCard'
-
-import usFlag from '../../assets/flags/us.png'
-import euFlag from '../../assets/flags/eu.png'
-import gbFlag from '../../assets/flags/gb.png'
-import zaFlag from '../../assets/flags/za.png'
+import {
+  ArrowUpRight,
+  ArrowDownRight,
+} from "lucide-react"
+import palaisImage from '../../assets/images/PalaisDuPeuple-Kin.png'
 
 function RatesSection() {
+  const rates = [
+    {
+      currency: "USD",
+      value: "2 875,40",
+      change: "+0.56%",
+      positive: true,
+    },
+    {
+      currency: "EUR",
+      value: "3 102,15",
+      change: "+0.24%",
+      positive: true,
+    },
+    {
+      currency: "GBP",
+      value: "3 540,22",
+      change: "-0.18%",
+      positive: false,
+    },
+    {
+      currency: "AED",
+      value: "782,12",
+      change: "+0.42%",
+      positive: true,
+    },
+  ]
+
   return (
-    <section
-      className="
-        relative
+   <section
+  className="
+    relative
+    overflow-hidden
 
-        overflow-hidden
+    py-32
+  "
+>
+{/* Background image */}
+<div
+  className="
+    absolute
+    inset-0
 
-        bg-[#020817]
+    bg-cover
+    bg-center
+    bg-no-repeat
+  "
+  style={{
+    backgroundImage: `url(${palaisImage})`,
+  }}
+/>
 
-        py-24
-      "
-    >
-      {/* Glow background */}
+{/* White overlay */}
+<div
+  className="
+    absolute
+    inset-0
+
+    bg-white/50
+  "
+/>
+
+{/* Blue glow */}
+<div
+  className="
+    absolute
+    inset-0
+
+    bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.18),transparent_70%)]
+  "
+/>
+      {/* Glow */}
       <div
         className="
           absolute
-          top-1/2
           left-1/2
+          top-0
 
           h-[500px]
           w-[500px]
 
           -translate-x-1/2
-          -translate-y-1/2
 
           rounded-full
 
-          bg-blue-600/10
+          bg-blue-500/10
 
-          blur-[140px]
+          blur-3xl
         "
       />
 
@@ -51,177 +107,202 @@ function RatesSection() {
         "
       >
         {/* Header */}
-        <div
-          className="
-            mb-14
-
-            flex
-            flex-col
-            items-start
-            gap-6
-
-            lg:flex-row
-            lg:items-end
-            lg:justify-between
-          "
-        >
-          <div>
-            {/* Badge */}
-            <div
-              className="
-                mb-5
-
-                inline-flex
-                items-center
-                gap-3
-
-                rounded-full
-
-                border border-white/10
-
-                bg-white/[0.03]
-
-                px-5
-                py-2
-
-                backdrop-blur-xl
-              "
-            >
-              <div
-                className="
-                  h-2.5
-                  w-2.5
-
-                  rounded-full
-
-                  bg-green-400
-
-                  animate-pulse
-                "
-              />
-
-              <span
-                className="
-                  text-sm
-                  font-medium
-                  text-white/80
-                "
-              >
-                Marché en direct
-              </span>
-            </div>
-
-            <h2
-              className="
-                max-w-3xl
-
-                text-4xl
-                font-black
-                leading-tight
-                tracking-tight
-                text-white
-
-                md:text-5xl
-              "
-            >
-              Taux de change en
-              <span className="text-blue-500">
-                {' '}
-                temps réel
-              </span>
-            </h2>
-
-            <p
-              className="
-                mt-5
-                max-w-2xl
-
-                text-lg
-                leading-relaxed
-                text-white/60
-              "
-            >
-              Consultez les principaux taux de change utilisés
-              en République Démocratique du Congo avec une mise
-              à jour moderne et rapide.
-            </p>
-          </div>
-
-          {/* Live update */}
-          <div
+        <div className="max-w-3xl">
+          <p
             className="
-              rounded-2xl
+              mb-4
 
-              border border-white/10
+              text-sm
+              font-semibold
+              uppercase
+              tracking-[0.2em]
 
-              bg-white/[0.03]
-
-              px-5
-              py-4
-
-              backdrop-blur-xl
+              text-blue-600
             "
           >
-            <p className="text-sm text-white/50">
-              Dernière mise à jour
-            </p>
+            Marché des devises
+          </p>
 
-            <p
-              className="
-                mt-1
+          <h2
+            className="
+              text-5xl
+              font-black
+              leading-tight
+              tracking-tight
 
-                text-lg
-                font-semibold
-                text-white
-              "
-            >
-              il y a 6 secondes
-            </p>
-          </div>
+              text-slate-900
+
+              md:text-6xl
+            "
+          >
+            Les taux les plus
+            <br />
+            suivis en RDC
+          </h2>
+
+          <p
+            className="
+              mt-6
+
+              max-w-2xl
+
+              text-xl
+              leading-9
+
+              text-slate-600
+            "
+          >
+            Suivez les fluctuations des
+            principales devises utilisées en
+            République Démocratique du Congo.
+          </p>
         </div>
 
-        {/* Grid */}
+        {/* Cards */}
         <div
           className="
+            mt-20
+
             grid
-            grid-cols-1
-            gap-6
+            gap-8
 
             md:grid-cols-2
             xl:grid-cols-4
           "
         >
-          <RateCard
-            pair="USD / CDF"
-            rate="2 875,40"
-            change="+0,56%"
-            positive
-            flag={usFlag}
-          />
+          {rates.map((rate) => (
+            <div
+              key={rate.currency}
+              className="
+                group
 
-          <RateCard
-            pair="EUR / CDF"
-            rate="3 112,65"
-            change="+0,34%"
-            positive
-            flag={euFlag}
-          />
+                rounded-[32px]
 
-          <RateCard
-            pair="GBP / CDF"
-            rate="3 631,20"
-            change="+0,21%"
-            positive
-            flag={gbFlag}
-          />
+                bg-white
 
-          <RateCard
-            pair="ZAR / CDF"
-            rate="157,80"
-            change="-0,18%"
-            positive={false}
-            flag={zaFlag}
-          />
+                p-8
+
+                shadow-[0_10px_40px_rgba(15,23,42,0.06)]
+
+                transition-all
+                duration-300
+
+                hover:-translate-y-2
+                hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]
+              "
+            >
+              {/* Top */}
+              <div className="flex items-start justify-between">
+                <div>
+                  <p
+                    className="
+                      text-lg
+                      font-semibold
+
+                      text-slate-500
+                    "
+                  >
+                    {rate.currency}
+                  </p>
+
+                  <h3
+                    className="
+                      mt-5
+
+                      text-5xl
+                      font-black
+                      tracking-tight
+
+                      text-slate-900
+                    "
+                  >
+                    {rate.value}
+                  </h3>
+                </div>
+
+                <div
+                  className={`
+                    flex
+                    h-14
+                    w-14
+                    items-center
+                    justify-center
+
+                    rounded-2xl
+
+                    ${
+                      rate.positive
+                        ? "bg-green-100"
+                        : "bg-red-100"
+                    }
+                  `}
+                >
+                  {rate.positive ? (
+                    <ArrowUpRight
+                      size={28}
+                      className="text-green-500"
+                    />
+                  ) : (
+                    <ArrowDownRight
+                      size={28}
+                      className="text-red-500"
+                    />
+                  )}
+                </div>
+              </div>
+
+              {/* Bottom */}
+              <div
+                className="
+                  mt-10
+
+                  flex
+                  items-center
+                  justify-between
+                "
+              >
+                <p
+                  className={`
+                    text-lg
+                    font-bold
+
+                    ${
+                      rate.positive
+                        ? "text-green-500"
+                        : "text-red-500"
+                    }
+                  `}
+                >
+                  {rate.change}
+                </p>
+
+                <p
+                  className="
+                    text-sm
+
+                    text-slate-400
+                  "
+                >
+                  Aujourd’hui
+                </p>
+              </div>
+
+              {/* Fake graph */}
+              <div
+                className="
+                  mt-8
+
+                  h-20
+
+                  rounded-2xl
+
+                  bg-gradient-to-r
+                  from-blue-50
+                  to-blue-100
+                "
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

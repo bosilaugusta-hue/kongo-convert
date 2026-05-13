@@ -1,42 +1,87 @@
-import FeatureCard from "./FeatureCard"
+import FeatureCard from './FeatureCard'
 
-import phoneIcon from "../../assets/icons/phone-3d.png"
-import globeIcon from "../../assets/icons/globe-3d.png"
-import lockIcon from "../../assets/icons/lock-3d.png"
-import flashIcon from "../../assets/icons/flash-3d.png"
+import phoneIcon from '../../assets/icons/phone-3d.png'
+import globeIcon from '../../assets/icons/globe-3d.png'
+import lockIcon from '../../assets/icons/lock-3d.png'
+import flashIcon from '../../assets/icons/flash-3d.png'
 
-import palaisImage from "../../assets/images/PalaisDuPeuple-Kin.png"
+import mausoleeImage from '../../assets/images/Mausolee-LaurentDesireKabila_Kinshasa.png'
 
 function FeaturesSection() {
   return (
     <section
-      className="relative overflow-hidden py-32"
-      style={{
-        backgroundImage: `url(${palaisImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="
+        relative
+        overflow-hidden
+
+        py-32
+      "
     >
-      {/* Overlay sombre */}
-      <div className="absolute inset-0 bg-[#020817]/90" />
+      {/* Background image */}
+      <div
+        className="
+          absolute
+          inset-0
 
-      {/* Gradient premium */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020817]/95 via-[#020817]/85 to-[#020817]" />
+          bg-cover
+          bg-center
+          bg-no-repeat
+        "
+        style={{
+          backgroundImage: `url(${mausoleeImage})`,
+        }}
+      />
 
-      {/* Glow bleu */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15),transparent_70%)]" />
+      {/* White cinematic overlay */}
+      <div
+        className="
+          absolute
+          inset-0
 
+          bg-white/72
+        "
+      />
+
+      {/* Blue premium glow */}
+      <div
+        className="
+          absolute
+          inset-0
+
+          bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.12),transparent_70%)]
+        "
+      />
+
+      {/* Blur top */}
+      <div
+        className="
+          absolute
+          top-0
+          left-0
+
+          h-40
+          w-full
+
+          bg-gradient-to-b
+          from-white
+          to-transparent
+        "
+      />
+
+      {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        {/* Header */}
+        {/* TOP */}
         <div className="max-w-5xl">
           <p
             className="
               mb-6
+
               text-sm
               font-semibold
               uppercase
-              tracking-[0.2em]
-              text-blue-500
+              tracking-[0.25em]
+
+              text-[#2563EB]
             "
           >
             Pourquoi KongoConvert ?
@@ -45,46 +90,79 @@ function FeaturesSection() {
           <h2
             className="
               max-w-5xl
+
               text-5xl
+              md:text-6xl
+              lg:text-7xl
+
               font-black
-              leading-[1.1]
+
+              leading-[1.05]
               tracking-tight
-              text-white
-              md:text-7xl
+
+              text-[#020817]
             "
           >
-            Une expérience de
+            Une expérience pensée
             <br />
-            conversion moderne pour
+            pour la nouvelle génération
             <br />
-            la RDC
+            africaine
           </h2>
+
+          <p
+            className="
+              mt-10
+
+              max-w-3xl
+
+              text-lg
+              md:text-xl
+
+              leading-relaxed
+
+              text-slate-700
+            "
+          >
+            Une plateforme moderne inspirée des meilleures fintechs
+            mondiales, adaptée aux besoins de la RDC.
+          </p>
         </div>
 
         {/* Cards */}
-        <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div
+          className="
+            mt-20
+
+            grid
+            gap-8
+
+            md:grid-cols-2
+            xl:grid-cols-4
+          "
+        >
           <FeatureCard
             icon={flashIcon}
-            title="Conversion instantanée"
-            description="Obtenez les taux de change USD, EUR, CDF et plus en quelques secondes."
+            title="Rapide"
+            description="Des conversions instantanées avec des taux toujours à jour."
           />
 
           <FeatureCard
             icon={lockIcon}
-            title="Données fiables"
-            description="Les taux sont mis à jour en temps réel depuis des sources fiables."
+            title="Sécurisé"
+            description="Une plateforme fiable conçue pour protéger vos données."
           />
 
           <FeatureCard
             icon={globeIcon}
-            title="Pensé pour la RDC"
-            description="Une expérience moderne inspirée des fintechs africaines et internationales."
+            title="International"
+            description="Suivez facilement les principales devises utilisées en RDC."
           />
 
           <FeatureCard
             icon={phoneIcon}
-            title="Responsive premium"
-            description="Une expérience fluide sur mobile, tablette et ordinateur."
+            title="Mobile"
+            description="Une expérience fluide et premium sur tous vos appareils."
           />
         </div>
       </div>

@@ -1,125 +1,217 @@
 import ConverterCard from "../converter/ConverterCard"
+
 import heroImage from "../../assets/images/Kinshasa.jpeg"
 import waxPattern from "../../assets/images/wax-pattern.png"
 
 function HeroSection() {
   return (
-    <section
-      className="relative overflow-hidden bg-[#020817]"
-      style={{
-        backgroundImage: `url(${heroImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Overlay sombre */}
-      <div className="absolute inset-0 bg-[#020817]/80" />
-
-      {/* Gradient premium */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#020817]/95 via-[#020817]/75 to-[#020817]/40" />
-
-      {/* Wax côté gauche */}
-      <div className="absolute left-0 top-0 hidden h-full w-20 overflow-hidden lg:block">
+    <section className="relative overflow-hidden bg-[#f8fafc]">
+      {/* Background image */}
+      <div className="absolute inset-0">
         <img
-          src={waxPattern}
-          alt="Wax pattern"
-          className="h-full w-full object-cover opacity-90"
+          src={heroImage}
+          alt="Kinshasa"
+          className="
+            h-full
+            w-full
+
+            object-cover
+
+            brightness-110
+            saturate-125
+          "
+        />
+
+        {/* Light overlay */}
+        <div
+          className="
+            absolute
+            inset-0
+
+            bg-gradient-to-r
+            from-[#f8fafc]/95
+            via-[#f8fafc]/70
+            to-[#f8fafc]/20
+          "
         />
       </div>
 
-      {/* Glow bleu */}
-      <div className="absolute left-1/3 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl" />
+      {/* Wax */}
+      <div
+        className="
+          absolute
+          left-0
+          top-0
 
+          hidden
+          h-full
+          w-32
+
+          overflow-hidden
+
+          lg:block
+        "
+      >
+        <img
+          src={waxPattern}
+          alt="Wax Congo"
+          className="
+            h-full
+            w-full
+
+            object-cover
+
+            opacity-95
+          "
+        />
+      </div>
+
+      {/* Glow */}
+      <div
+        className="
+          absolute
+          left-[20%]
+          top-1/2
+
+          h-[500px]
+          w-[500px]
+
+          -translate-y-1/2
+
+          rounded-full
+
+          bg-blue-500/20
+
+          blur-3xl
+        "
+      />
+
+      {/* Content */}
       <div
         className="
           relative
           z-10
+
           mx-auto
           grid
+
           min-h-screen
           max-w-7xl
+
           items-center
-          gap-10
+
+          gap-16
+
           px-6
           py-24
+
           lg:grid-cols-2
         "
       >
-        {/* Texte */}
+        {/* LEFT */}
         <div>
           {/* Badge */}
           <div
             className="
               mb-8
+
               inline-flex
               items-center
               gap-3
+
               rounded-full
+
               border
-              border-white/10
-              bg-white/5
+              border-slate-200
+
+              bg-white/80
+
               px-6
               py-3
+
+              shadow-sm
+
               backdrop-blur-xl
             "
           >
-            <div className="h-3 w-3 rounded-full bg-emerald-400" />
+            <div className="h-3 w-3 rounded-full bg-green-500" />
 
-            <span className="font-medium text-white">
+            <span
+              className="
+                font-medium
+
+                text-slate-700
+              "
+            >
               Taux en temps réel
             </span>
           </div>
 
-          {/* Titre */}
+          {/* Title */}
           <h1
             className="
               max-w-3xl
+
               text-5xl
               font-black
+
               leading-[0.95]
               tracking-tight
-              text-white
+
+              text-slate-900
+
               md:text-7xl
             "
           >
             Convertissez vos
             <br />
-            devises en toute
+            devises avec
             <br />
-            <span className="text-blue-500">
-              simplicité
+            <span className="text-blue-600">
+              élégance
             </span>
           </h1>
 
           {/* Description */}
           <p
             className="
-              mt-7
+              mt-8
+
               max-w-xl
-              text-lg
-              leading-8
-              text-white/70
+
+              text-xl
+              leading-9
+
+              text-slate-600
             "
           >
-            Le convertisseur moderne conçu pour
-            la République Démocratique du Congo.
+            La plateforme moderne de conversion
+            pensée pour la République Démocratique
+            du Congo.
           </p>
 
-          {/* Boutons */}
-          <div className="mt-10 flex flex-wrap gap-5">
+          {/* Buttons */}
+          <div className="mt-12 flex flex-wrap gap-5">
             <button
               type="button"
               className="
                 rounded-2xl
+
                 bg-blue-600
-                px-7
-                py-4
-                text-base
+
+                px-8
+                py-5
+
+                text-lg
                 font-semibold
+
                 text-white
-                shadow-[0_0_40px_rgba(37,99,235,0.35)]
+
+                shadow-[0_10px_30px_rgba(37,99,235,0.35)]
+
                 transition-all
                 duration-300
+
                 hover:scale-105
               "
             >
@@ -130,18 +222,28 @@ function HeroSection() {
               type="button"
               className="
                 rounded-2xl
+
                 border
-                border-white/10
-                bg-white/5
-                px-7
-                py-4
-                text-base
+                border-slate-200
+
+                bg-white/80
+
+                px-8
+                py-5
+
+                text-lg
                 font-semibold
-                text-white
+
+                text-slate-700
+
+                shadow-sm
+
                 backdrop-blur-xl
+
                 transition-all
                 duration-300
-                hover:bg-white/10
+
+                hover:bg-white
               "
             >
               Voir les taux
@@ -149,8 +251,10 @@ function HeroSection() {
           </div>
         </div>
 
-        {/* Converter */}
-        <ConverterCard />
+        {/* RIGHT */}
+        <div className="flex justify-center lg:justify-end">
+          <ConverterCard />
+        </div>
       </div>
     </section>
   )

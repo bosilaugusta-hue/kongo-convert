@@ -23,23 +23,28 @@ function RateCard({
 
         overflow-hidden
 
-        rounded-[30px]
+        rounded-[32px]
 
-        border border-white/10
+        border
+        border-white/15
 
-        bg-white/[0.03]
-        backdrop-blur-xl
+        bg-[#020817]/72
 
-        p-6
+        backdrop-blur-2xl
+
+        p-7
 
         transition-all
         duration-500
 
-        hover:-translate-y-2
-        hover:border-blue-500/30
-        hover:bg-white/[0.05]
+        hover:-translate-y-3
+        hover:scale-[1.02]
 
-        hover:shadow-[0_0_40px_rgba(37,99,235,0.15)]
+        hover:border-blue-400/30
+
+        shadow-[0_20px_80px_rgba(0,0,0,0.35)]
+
+        hover:shadow-[0_25px_90px_rgba(37,99,235,0.20)]
       "
     >
       {/* Glow background */}
@@ -49,14 +54,29 @@ function RateCard({
           top-0
           right-0
 
-          h-32
-          w-32
+          h-40
+          w-40
 
           rounded-full
 
           bg-blue-500/10
 
           blur-3xl
+        "
+      />
+
+      {/* Glass reflection */}
+      <div
+        className="
+          absolute
+          inset-0
+
+          bg-gradient-to-br
+          from-white/5
+          via-transparent
+          to-transparent
+
+          opacity-60
         "
       />
 
@@ -75,18 +95,18 @@ function RateCard({
         <div className="flex items-center gap-3">
           <div
             className="
-              h-12
-              w-12
-
-              rounded-full
-
-              bg-white/5
-
               flex
+              h-14
+              w-14
               items-center
               justify-center
 
-              border border-white/10
+              rounded-full
+
+              border
+              border-white/10
+
+              bg-white/5
 
               shadow-lg
             "
@@ -95,8 +115,8 @@ function RateCard({
               src={flag}
               alt={pair}
               className="
-                h-8
-                w-8
+                h-9
+                w-9
 
                 rounded-full
                 object-cover
@@ -108,6 +128,8 @@ function RateCard({
             <p
               className="
                 text-sm
+                tracking-wide
+
                 text-white/50
               "
             >
@@ -116,8 +138,9 @@ function RateCard({
 
             <h3
               className="
-                text-lg
-                font-semibold
+                text-xl
+                font-bold
+
                 text-white
               "
             >
@@ -130,23 +153,26 @@ function RateCard({
         <div
           className={`
             flex
-            h-10
-            w-10
+            h-12
+            w-12
             items-center
             justify-center
-            rounded-full
+
+            rounded-2xl
+
+            border
 
             ${
               positive
-                ? 'bg-green-500/10 text-green-400'
-                : 'bg-red-500/10 text-red-400'
+                ? 'border-green-400/20 bg-green-500/10 text-green-400'
+                : 'border-red-400/20 bg-red-500/10 text-red-400'
             }
           `}
         >
           {positive ? (
-            <TrendingUp size={18} />
+            <TrendingUp size={20} />
           ) : (
-            <TrendingDown size={18} />
+            <TrendingDown size={20} />
           )}
         </div>
       </div>
@@ -157,40 +183,56 @@ function RateCard({
           relative
           z-10
 
-          mt-8
+          mt-10
         "
       >
         <p
           className="
-            text-4xl
+            text-[52px]
             font-black
+
+            leading-none
             tracking-tight
+
             text-white
           "
         >
           {rate}
         </p>
 
-        <p
-          className={`
-            mt-3
+        <div
+          className="
+            mt-5
 
             flex
             items-center
-            gap-2
-
-            text-sm
-            font-semibold
-
-            ${
-              positive
-                ? 'text-green-400'
-                : 'text-red-400'
-            }
-          `}
+            justify-between
+          "
         >
-          {change}
-        </p>
+          <p
+            className={`
+              text-base
+              font-semibold
+
+              ${
+                positive
+                  ? 'text-green-400'
+                  : 'text-red-400'
+              }
+            `}
+          >
+            {change}
+          </p>
+
+          <p
+            className="
+              text-sm
+              text-white/40
+            "
+          >
+            Aujourd'hui
+          </p>
+        </div>
       </div>
 
       {/* Fake chart */}
@@ -199,11 +241,21 @@ function RateCard({
           relative
           z-10
 
-          mt-6
+          mt-8
 
-          h-16
+          h-20
+
+          overflow-hidden
+
+          rounded-2xl
+
+          border
+          border-white/5
+
+          bg-white/5
         "
       >
+        {/* Bottom line */}
         <div
           className={`
             absolute
@@ -219,16 +271,17 @@ function RateCard({
                 : 'bg-red-400'
             }
 
-            opacity-30
+            opacity-20
           `}
         />
 
         <svg
-  viewBox="0 0 300 80"
-  className="w-full h-full"
-  fill="none"
->
-  <title>Graphique de variation du taux</title>
+          viewBox="0 0 300 80"
+          className="h-full w-full"
+          fill="none"
+        >
+          <title>Graphique de variation du taux</title>
+
           <path
             d={
               positive

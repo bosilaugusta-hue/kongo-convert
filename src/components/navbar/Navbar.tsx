@@ -1,17 +1,16 @@
-import { useState } from 'react'
+import { useState } from "react"
 
 import {
   ChevronDown,
   Menu,
-  Moon,
-  Sun,
   X,
-} from 'lucide-react'
+} from "lucide-react"
 
-import drcFlag from '../../assets/flags/cd.png'
+import cdFlag from "../../assets/flags/cd.png"
 
 function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] =
+    useState(false)
 
   return (
     <>
@@ -19,79 +18,90 @@ function Navbar() {
       <header
         className="
           fixed
-          top-0
           left-0
+          top-5
           z-50
+
           w-full
-
-          border-b
-          border-white/10
-
-          bg-[#f5f5f7]/95
-          backdrop-blur-xl
         "
       >
         <div
           className="
             mx-auto
+
             flex
             max-w-7xl
             items-center
             justify-between
 
+            rounded-full
+
+            border
+            border-white/40
+
+            bg-white/75
+
             px-6
             py-4
+
+            shadow-[0_10px_40px_rgba(15,23,42,0.08)]
+
+            backdrop-blur-2xl
           "
         >
-          {/* Logo */}
-          <div
-            className="
-              flex
-              items-center
-              gap-3
-            "
-          >
+          {/* LEFT */}
+          <div className="flex items-center gap-4">
+            {/* Logo */}
             <div
               className="
                 flex
-                h-10
-                w-10
+                h-12
+                w-12
                 items-center
                 justify-center
 
                 rounded-2xl
 
-                bg-[#2563eb]
+                bg-gradient-to-br
+                from-blue-600
+                to-blue-500
 
-                text-lg
+                text-xl
                 font-black
-                text-white
 
-                shadow-lg
-                shadow-blue-500/30
+                text-white
               "
             >
               K
             </div>
 
-            <h1
-              className="
-                text-4xl
-                font-black
-                tracking-tight
-              "
-            >
-              <span className="text-[#2563eb]">
-                kongo
-              </span>
+            {/* Brand */}
+            <div>
+              <h1
+                className="
+                  text-[22px]
+                  font-black
+                  tracking-tight
 
-              <span className="text-[#ff3b30]">
-                Convert
-              </span>
-            </h1>
+                  text-slate-900
+                "
+              >
+                KongoConvert
+              </h1>
+
+              <p
+                className="
+                  text-sm
+
+                  text-slate-500
+                "
+              >
+                Fintech RDC
+              </p>
+            </div>
           </div>
 
-          {/* Navigation Desktop */}
+          {/* CENTER */}
           <nav
             className="
               hidden
@@ -102,191 +112,141 @@ function Navbar() {
             "
           >
             {[
-              {
-                name: 'Convertisseur',
-                href: '#convertisseur',
-              },
-              {
-                name: 'Taux',
-                href: '#taux',
-              },
-              {
-                name: 'À propos',
-                href: '#apropos',
-              },
-              {
-                name: 'FAQ',
-                href: '#faq',
-              },
-              {
-                name: 'Contact',
-                href: '#contact',
-              },
+              "Accueil",
+              "Convertisseur",
+              "Taux",
+              "Services",
+              "Contact",
             ].map((item) => (
               <a
-                key={item.name}
-                href={item.href}
+                key={item}
+                href="/"
                 className="
-                  relative
-
-                  text-base
+                  text-[15px]
                   font-semibold
-                  text-[#1f2937]
+
+                  text-slate-600
 
                   transition-all
                   duration-300
 
-                  hover:text-[#2563eb]
+                  hover:text-blue-600
                 "
               >
-                {item.name}
+                {item}
               </a>
             ))}
           </nav>
 
-          {/* Right */}
-          <div
-            className="
-              flex
-              items-center
-              gap-4
-            "
-          >
-            {/* Theme */}
+          {/* RIGHT */}
+          <div className="flex items-center gap-4">
+            {/* Country */}
             <button
               type="button"
               className="
                 hidden
 
-                h-12
-                w-12
-
-                items-center
-                justify-center
-
-                rounded-2xl
-
-                border
-                border-black/5
-
-                bg-white
-
-                text-[#111827]
-
-                shadow-lg
-
-                transition-all
-                duration-300
-
-                hover:scale-105
-                hover:bg-[#f3f4f6]
-
-                lg:flex
-              "
-            >
-              <Sun size={18} />
-            </button>
-
-            {/* Language */}
-            <button
-              type="button"
-              className="
-                hidden
                 items-center
                 gap-3
 
                 rounded-2xl
 
                 border
-                border-black/5
+                border-slate-200
 
                 bg-white
 
                 px-4
                 py-3
 
-                shadow-lg
+                shadow-sm
 
                 transition-all
                 duration-300
 
-                hover:scale-[1.02]
+                hover:border-blue-200
 
                 lg:flex
               "
             >
-              <img
-                src={drcFlag}
-                alt="RDC"
+              <div
                 className="
-                  h-7
-                  w-7
+                  h-8
+                  w-8
+
+                  overflow-hidden
 
                   rounded-full
-                  object-cover
                 "
-              />
+              >
+                <img
+                  src={cdFlag}
+                  alt="RDC"
+                  className="
+                    h-full
+                    w-full
+
+                    object-cover
+                  "
+                />
+              </div>
 
               <span
                 className="
                   font-semibold
-                  text-[#111827]
+
+                  text-slate-700
                 "
               >
                 FR
               </span>
 
               <ChevronDown
-                size={16}
-                className="text-black/60"
+                size={18}
+                className="text-slate-400"
               />
             </button>
 
-            {/* Mobile Button */}
+            {/* Mobile button */}
             <button
               type="button"
               onClick={() =>
-                setMobileMenuOpen(!mobileMenuOpen)
+                setMobileMenuOpen(
+                  !mobileMenuOpen
+                )
               }
               className="
                 flex
-
                 h-12
                 w-12
-
                 items-center
                 justify-center
 
                 rounded-2xl
 
                 border
-                border-black/5
+                border-slate-200
 
                 bg-white
 
-                text-[#111827]
+                text-slate-700
 
-                shadow-lg
-
-                transition-all
-                duration-300
-
-                hover:bg-[#f3f4f6]
+                shadow-sm
 
                 lg:hidden
               "
             >
               {mobileMenuOpen ? (
-                <X size={24} />
+                <X size={22} />
               ) : (
-                <Menu size={24} />
+                <Menu size={22} />
               )}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {mobileMenuOpen && (
         <div
           className="
@@ -294,15 +254,12 @@ function Navbar() {
             inset-0
             z-40
 
-            flex
-            flex-col
-
-            bg-[#020817]/95
+            bg-[#f8fafc]/95
 
             px-8
             pt-32
 
-            backdrop-blur-3xl
+            backdrop-blur-2xl
 
             lg:hidden
           "
@@ -315,130 +272,29 @@ function Navbar() {
             "
           >
             {[
-              {
-                name: 'Convertisseur',
-                href: '#convertisseur',
-              },
-              {
-                name: 'Taux',
-                href: '#taux',
-              },
-              {
-                name: 'À propos',
-                href: '#apropos',
-              },
-              {
-                name: 'FAQ',
-                href: '#faq',
-              },
-              {
-                name: 'Contact',
-                href: '#contact',
-              },
+              "Accueil",
+              "Convertisseur",
+              "Taux",
+              "Services",
+              "Contact",
             ].map((item) => (
               <a
-                key={item.name}
-                href={item.href}
+                key={item}
+                href="/"
                 className="
-                  text-3xl
+                  text-4xl
                   font-black
 
-                  text-white/90
-
-                  transition-all
-                  duration-300
-
-                  hover:text-[#2563eb]
+                  text-slate-900
                 "
                 onClick={() =>
                   setMobileMenuOpen(false)
                 }
               >
-                {item.name}
+                {item}
               </a>
             ))}
           </nav>
-
-          {/* Bottom Mobile */}
-          <div
-            className="
-              mt-14
-
-              flex
-              items-center
-              gap-4
-            "
-          >
-            <button
-              type="button"
-              className="
-                flex
-
-                h-14
-                w-14
-
-                items-center
-                justify-center
-
-                rounded-2xl
-
-                border
-                border-white/10
-
-                bg-white/[0.04]
-
-                text-white
-
-                backdrop-blur-xl
-              "
-            >
-              <Moon size={20} />
-            </button>
-
-            <button
-              type="button"
-              className="
-                flex
-                items-center
-                gap-3
-
-                rounded-2xl
-
-                border
-                border-white/10
-
-                bg-white/[0.04]
-
-                px-5
-                py-4
-
-                text-white
-
-                backdrop-blur-xl
-              "
-            >
-              <img
-                src={drcFlag}
-                alt="RDC"
-                className="
-                  h-7
-                  w-7
-
-                  rounded-full
-                  object-cover
-                "
-              />
-
-              <span className="font-semibold">
-                FR
-              </span>
-
-              <ChevronDown
-                size={16}
-                className="text-white/60"
-              />
-            </button>
-          </div>
         </div>
       )}
     </>
