@@ -1,268 +1,311 @@
-import { useEffect, useState } from 'react'
+import { ArrowUpDown } from 'lucide-react'
 
-import { currencies } from '../../data/currencies'
+import CurrencySelect from '../currency/CurrencySelect'
 
-import { getExchangeRate } from '../../services/exchangeService'
+import usFlag from '../../assets/flags/us.png'
+import cdFlag from '../../assets/flags/cd.png'
 
 function ConverterCard() {
-  const [amount, setAmount] = useState(100)
-
-  const [fromCurrency, setFromCurrency] =
-    useState('USD')
-
-  const [toCurrency, setToCurrency] =
-    useState('CDF')
-
-  const [exchangeRate, setExchangeRate] =
-    useState(0)
-
-  const [loading, setLoading] =
-    useState(true)
-
-  const [error, setError] =
-    useState(false)
-
-  const convertedAmount =
-    amount * exchangeRate
-
-  function switchCurrencies() {
-    setFromCurrency(toCurrency)
-
-    setToCurrency(fromCurrency)
-  }
-
-  function getCurrencyData(code: string) {
-    return currencies.find(
-      (currency) => currency.code === code
-    )
-  }
-
-  const fromCurrencyData =
-    getCurrencyData(fromCurrency)
-
-  const toCurrencyData =
-    getCurrencyData(toCurrency)
-
-  useEffect(() => {
-    async function fetchRate() {
-      setLoading(true)
-
-      const rate =
-        await getExchangeRate(
-          fromCurrency,
-          toCurrency
-        )
-
-      if (rate) {
-        setExchangeRate(rate)
-
-        setError(false)
-      } else {
-        setError(true)
-      }
-
-      setLoading(false)
-    }
-
-    fetchRate()
-  }, [fromCurrency, toCurrency])
-
   return (
-    <div className="bg-white/10 border border-white/20 backdrop-blur-xl rounded-[32px] p-5 sm:p-8 shadow-2xl transition hover:scale-[1.01] duration-300">
+    <div
+      className="
+        relative
 
-      {/* Envoi */}
-      <div className="flex justify-between items-center gap-4">
+        w-full
+        max-w-[520px]
 
-        <div className="flex-1">
+        rounded-[36px]
 
-          <p className="text-gray-300">
-            Vous envoyez
-          </p>
+        border
+        border-white/10
 
-          <input
-            type="number"
-            value={amount}
-            onChange={(event) =>
-              setAmount(
-                Number(event.target.value)
-              )
-            }
-            className="bg-transparent text-white text-4xl sm:text-5xl font-bold mt-4 outline-none w-full"
-          />
+        bg-white/[0.06]
 
-        </div>
+        backdrop-blur-2xl
 
-        {/* Devise départ */}
-        <div className="bg-white rounded-2xl px-4 py-3 min-w-[170px] shadow-md">
+        p-5
+        sm:p-7
+        lg:p-8
 
-          <div className="flex items-center gap-3">
+        shadow-[0_20px_80px_rgba(0,0,0,0.45)]
 
-            <span className="text-3xl">
-              {fromCurrencyData?.flag}
-            </span>
+        overflow-hidden
+      "
+    >
+      {/* Glow */}
+      <div
+        className="
+          absolute
+          inset-0
 
-            <div>
+          bg-gradient-to-br
+          from-blue-500/10
+          via-transparent
+          to-transparent
 
-              <p className="font-bold text-[#0B1020]">
-                {fromCurrency}
-              </p>
+          pointer-events-none
+        "
+      />
 
-              <p className="text-xs text-gray-500">
-                {fromCurrencyData?.name}
-              </p>
+      {/* Content */}
+      <div className="relative z-10">
+        {/* TOP */}
+        <div className="flex justify-between items-start gap-5">
+          {/* LEFT */}
+          <div className="flex-1">
+            <p
+              className="
+                text-white/60
 
-            </div>
+                text-sm
+                sm:text-base
 
-          </div>
-
-          <select
-            value={fromCurrency}
-            onChange={(event) =>
-              setFromCurrency(
-                event.target.value
-              )
-            }
-            className="bg-transparent text-sm outline-none w-full text-gray-700 mt-3"
-          >
-
-            {
-              currencies.map((currency) => (
-                <option
-                  key={currency.code}
-                  value={currency.code}
-                >
-                  {currency.code}
-                </option>
-              ))
-            }
-
-          </select>
-
-        </div>
-
-      </div>
-
-      {/* Switch */}
-      <div className="flex justify-center py-8">
-
-        <button
-          type="button"
-          onClick={switchCurrencies}
-          className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-white text-2xl shadow-lg hover:bg-blue-700 hover:rotate-180 transition duration-500"
-        >
-          ⇅
-        </button>
-
-      </div>
-
-      {/* Réception */}
-      <div className="flex justify-between items-center gap-4">
-
-        <div className="flex-1">
-
-          <p className="text-gray-300">
-            Vous recevez
-          </p>
-
-          <h2 className="text-blue-400 text-4xl sm:text-5xl font-bold mt-4 break-words">
-
-            {
-              loading
-                ? 'Chargement...'
-                : convertedAmount.toLocaleString(
-                    'fr-FR',
-                    {
-                      maximumFractionDigits: 2,
-                    }
-                  )
-            }
-
-          </h2>
-
-        </div>
-
-        {/* Devise arrivée */}
-        <div className="bg-white rounded-2xl px-4 py-3 min-w-[170px] shadow-md">
-
-          <div className="flex items-center gap-3">
-
-            <span className="text-3xl">
-              {toCurrencyData?.flag}
-            </span>
-
-            <div>
-
-              <p className="font-bold text-[#0B1020]">
-                {toCurrency}
-              </p>
-
-              <p className="text-xs text-gray-500">
-                {toCurrencyData?.name}
-              </p>
-
-            </div>
-
-          </div>
-
-          <select
-            value={toCurrency}
-            onChange={(event) =>
-              setToCurrency(
-                event.target.value
-              )
-            }
-            className="bg-transparent text-sm outline-none w-full text-gray-700 mt-3"
-          >
-
-            {
-              currencies.map((currency) => (
-                <option
-                  key={currency.code}
-                  value={currency.code}
-                >
-                  {currency.code}
-                </option>
-              ))
-            }
-
-          </select>
-
-        </div>
-
-      </div>
-
-      {/* Taux */}
-      <div className="mt-10 bg-white/10 rounded-2xl p-5 border border-white/10">
-
-        <p className="text-white text-lg">
-
-          1 {fromCurrency} ={' '}
-          {exchangeRate.toLocaleString(
-            'fr-FR',
-            {
-              maximumFractionDigits: 2,
-            }
-          )}{' '}
-          {toCurrency}
-
-        </p>
-
-        <p className="text-green-400 mt-2">
-          Temps réel
-        </p>
-
-        {
-          error && (
-            <p className="text-red-400 mt-4">
-
-              Impossible de charger les taux
-
+                mb-3
+              "
+            >
+              Vous envoyez
             </p>
-          )
-        }
 
+            <h2
+              className="
+                text-white
+
+                text-[52px]
+                sm:text-[68px]
+                lg:text-[74px]
+
+                leading-none
+                tracking-[-2px]
+
+                font-black
+              "
+            >
+              100
+            </h2>
+          </div>
+
+          {/* RIGHT */}
+          <div className="w-[190px]">
+            <CurrencySelect
+              selected={{
+                code: 'USD',
+                name: 'Dollar Américain',
+                flag: usFlag,
+              }}
+            />
+          </div>
+        </div>
+
+        {/* SWITCH */}
+        <div className="flex justify-center py-7">
+          <button
+            type="button"
+            className="
+              group
+
+              relative
+
+              w-20
+              h-20
+
+              rounded-full
+
+              flex
+              items-center
+              justify-center
+
+              bg-gradient-to-br
+              from-[#2563EB]
+              to-[#1D4ED8]
+
+              shadow-[0_0_40px_rgba(37,99,235,0.45)]
+
+              transition-all
+              duration-300
+
+              hover:scale-110
+            "
+          >
+            {/* Glow */}
+            <div
+              className="
+                absolute
+                inset-0
+
+                rounded-full
+
+                bg-blue-500/40
+
+                blur-2xl
+
+                opacity-70
+              "
+            />
+
+            <ArrowUpDown
+              size={30}
+              className="
+                relative
+                z-10
+
+                text-white
+
+                transition-transform
+                duration-300
+
+                group-hover:rotate-180
+              "
+            />
+          </button>
+        </div>
+
+        {/* BOTTOM */}
+        <div className="flex justify-between items-start gap-5">
+          {/* LEFT */}
+          <div className="flex-1">
+            <p
+              className="
+                text-white/60
+
+                text-sm
+                sm:text-base
+
+                mb-3
+              "
+            >
+              Vous recevez
+            </p>
+
+            <h2
+              className="
+                text-[#60A5FA]
+
+                text-[34px]
+                sm:text-[48px]
+                lg:text-[56px]
+
+                leading-none
+                tracking-[-1px]
+
+                font-black
+              "
+            >
+              223 234,58
+            </h2>
+          </div>
+
+          {/* RIGHT */}
+          <div className="w-[190px]">
+            <CurrencySelect
+              selected={{
+                code: 'CDF',
+                name: 'Franc Congolais',
+                flag: cdFlag,
+              }}
+            />
+          </div>
+        </div>
+
+        {/* RATE CARD */}
+        <div
+          className="
+            mt-8
+
+            rounded-[28px]
+
+            border
+            border-white/10
+
+            bg-white/[0.07]
+
+            backdrop-blur-xl
+
+            p-6
+
+            shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]
+          "
+        >
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <p
+                className="
+                  text-white
+
+                  text-xl
+                  font-semibold
+                "
+              >
+                1 USD = 2232,35 CDF
+              </p>
+
+              <div
+                className="
+                  mt-4
+
+                  flex
+                  items-center
+                  gap-2
+                "
+              >
+                <div
+                  className="
+                    w-2.5
+                    h-2.5
+
+                    rounded-full
+
+                    bg-green-400
+
+                    animate-pulse
+                  "
+                />
+
+                <p
+                  className="
+                    text-green-400
+
+                    text-sm
+                    font-semibold
+                  "
+                >
+                  Temps réel
+                </p>
+              </div>
+            </div>
+
+            {/* Small graph block */}
+            <div
+              className="
+                hidden
+                sm:flex
+
+                w-14
+                h-14
+
+                rounded-2xl
+
+                items-center
+                justify-center
+
+                bg-blue-500/10
+
+                border
+                border-blue-400/20
+              "
+            >
+              <div
+                className="
+                  text-blue-400
+
+                  text-2xl
+                "
+              >
+                ↗
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
   )
 }

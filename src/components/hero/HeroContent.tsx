@@ -1,56 +1,144 @@
 function HeroContent() {
   return (
-    <div>
-
+    <div className="relative z-20 max-w-[620px]">
       {/* Badge */}
-      <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white mb-8">
+      <div
+        className="
+          inline-flex
+          items-center
+          gap-3
 
-        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+          px-5
+          py-3
 
-        <span className="text-sm">
+          rounded-full
+
+          bg-white/10
+          backdrop-blur-xl
+
+          border
+          border-white/10
+
+          shadow-lg
+
+          mb-8
+        "
+      >
+        <div className="w-3 h-3 rounded-full bg-green-400" />
+
+        <span className="text-white font-medium text-sm sm:text-base">
           Taux en temps réel
         </span>
-
       </div>
 
-      {/* Titre */}
-      <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight">
+      {/* Title */}
+      <h1
+        className="
+          text-white
+          font-black
 
-        Convertissez vos devises en toute
+          text-[52px]
+          lg:text-7xl
 
-        <span className="text-blue-400">
-          {' '}simplicité
+          leading-[0.95]
+
+          tracking-[-2px]
+
+          max-w-[700px]
+        "
+      >
+        Convertissez vos devises en toute{' '}
+        <span className="text-blue-500">
+          simplicité
         </span>
-
       </h1>
 
       {/* Description */}
-      <p className="text-gray-300 text-xl mt-8 leading-relaxed max-w-xl">
+      <p
+        className="
+          mt-8
 
+          text-base
+          lg:text-lg
+
+          text-gray-300
+
+          leading-relaxed
+
+          max-w-[520px]
+        "
+      >
         Le convertisseur moderne conçu pour la République
         Démocratique du Congo.
-
       </p>
 
-      {/* Boutons */}
-      <div className="flex flex-col sm:flex-row gap-4 mt-10">
+      {/* Buttons */}
+      <div
+        className="
+          flex
+          flex-col
+          sm:flex-row
 
+          gap-4
+
+          mt-10
+        "
+      >
+        {/* Primary */}
         <button
-          type="button"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-semibold transition"
+  type="button"
+  className="
+            h-[60px]
+
+            px-8
+
+            rounded-2xl
+
+            bg-blue-600
+
+            text-white
+            font-semibold
+
+            shadow-[0_10px_40px_rgba(37,99,235,0.45)]
+
+            transition-all
+            duration-300
+
+            hover:scale-[1.02]
+            hover:bg-blue-500
+          "
         >
           Commencer
         </button>
 
+        {/* Secondary */}
         <button
-          type="button"
-          className="bg-white/10 border border-white/20 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-semibold transition hover:bg-white/20"
+  type="button"
+  className="
+            h-[60px]
+
+            px-8
+
+            rounded-2xl
+
+            bg-white/10
+            backdrop-blur-xl
+
+            border
+            border-white/10
+
+            text-white
+            font-semibold
+
+            transition-all
+            duration-300
+
+            hover:bg-white/20
+          "
         >
           Voir les taux
         </button>
-
       </div>
-
     </div>
   )
 }
