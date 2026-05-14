@@ -1,12 +1,19 @@
-import ConverterCard from "../converter/ConverterCard"
+import ConverterCard from '../converter/ConverterCard'
 
-import heroImage from "../../assets/images/Kinshasa.jpeg"
-import waxPattern from "../../assets/images/wax-pattern.png"
+import heroImage from '../../assets/images/Kinshasa.jpeg'
+import waxPattern from '../../assets/images/wax-pattern.png'
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#f8fafc]">
-      {/* Background image */}
+    <section
+      className="
+        relative
+        overflow-hidden
+
+        bg-[#020817]
+      "
+    >
+      {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
@@ -17,26 +24,36 @@ function HeroSection() {
 
             object-cover
 
-            brightness-110
-            saturate-125
+            brightness-[0.85]
+            saturate-[1.1]
           "
         />
 
-        {/* Light overlay */}
+        {/* PREMIUM DARK OVERLAY */}
         <div
           className="
             absolute
             inset-0
 
             bg-gradient-to-r
-            from-[#f8fafc]/95
-            via-[#f8fafc]/70
-            to-[#f8fafc]/20
+            from-[#020817]/78
+            via-[#020817]/52
+            to-[#020817]/15
+          "
+        />
+
+        {/* SOFT GLASS OVERLAY */}
+        <div
+          className="
+            absolute
+            inset-0
+
+            bg-black/10
           "
         />
       </div>
 
-      {/* Wax */}
+      {/* WAX LEFT */}
       <div
         className="
           absolute
@@ -45,7 +62,7 @@ function HeroSection() {
 
           hidden
           h-full
-          w-32
+          w-[130px]
 
           overflow-hidden
 
@@ -59,34 +76,17 @@ function HeroSection() {
             h-full
             w-full
 
-            object-cover
+            scale-[0.78]
 
-            opacity-95
+            object-cover
+            object-center
+
+            opacity-100
           "
         />
       </div>
 
-      {/* Glow */}
-      <div
-        className="
-          absolute
-          left-[20%]
-          top-1/2
-
-          h-[500px]
-          w-[500px]
-
-          -translate-y-1/2
-
-          rounded-full
-
-          bg-blue-500/20
-
-          blur-3xl
-        "
-      />
-
-      {/* Content */}
+      {/* CONTENT */}
       <div
         className="
           relative
@@ -100,7 +100,7 @@ function HeroSection() {
 
           items-center
 
-          gap-16
+          gap-20
 
           px-6
           py-24
@@ -110,7 +110,7 @@ function HeroSection() {
       >
         {/* LEFT */}
         <div>
-          {/* Badge */}
+          {/* BADGE */}
           <div
             className="
               mb-8
@@ -122,57 +122,60 @@ function HeroSection() {
               rounded-full
 
               border
-              border-slate-200
+              border-white/20
 
-              bg-white/80
+              bg-white/10
 
               px-6
               py-3
 
-              shadow-sm
+              shadow-[0_10px_30px_rgba(0,0,0,0.25)]
 
-              backdrop-blur-xl
+              backdrop-blur-2xl
             "
           >
             <div className="h-3 w-3 rounded-full bg-green-500" />
 
             <span
               className="
-                font-medium
+                text-sm
+                font-semibold
 
-                text-slate-700
+                text-white
               "
             >
               Taux en temps réel
             </span>
           </div>
 
-          {/* Title */}
+          {/* TITLE */}
           <h1
             className="
-              max-w-3xl
+              max-w-[620px]
 
               text-5xl
               font-black
 
-              leading-[0.95]
+              leading-[0.92]
               tracking-tight
 
-              text-slate-900
+              text-white
 
-              md:text-7xl
+              md:text-6xl
+              lg:text-[88px]
             "
           >
-            Convertissez vos
+            Convertissez
             <br />
-            devises avec
+            vos devises avec
             <br />
-            <span className="text-blue-600">
+
+            <span className="text-blue-500">
               élégance
             </span>
           </h1>
 
-          {/* Description */}
+          {/* DESCRIPTION */}
           <p
             className="
               mt-8
@@ -182,78 +185,118 @@ function HeroSection() {
               text-xl
               leading-9
 
-              text-slate-600
+              text-white/75
             "
           >
-            La plateforme moderne de conversion
-            pensée pour la République Démocratique
-            du Congo.
+            La plateforme moderne de conversion pensée
+            pour la République Démocratique du Congo.
           </p>
 
-          {/* Buttons */}
-          <div className="mt-12 flex flex-wrap gap-5">
+          {/* BUTTON */}
+          <div className="mt-10">
             <button
               type="button"
               className="
+                group
+
+                relative
+                overflow-hidden
+
                 rounded-2xl
 
-                bg-blue-600
+                border
+                border-white/20
+
+                bg-white/10
 
                 px-8
-                py-5
+                py-4
 
-                text-lg
+                text-base
                 font-semibold
 
                 text-white
 
-                shadow-[0_10px_30px_rgba(37,99,235,0.35)]
+                backdrop-blur-2xl
 
                 transition-all
                 duration-300
 
-                hover:scale-105
+                hover:-translate-y-1
+                hover:border-blue-400/40
+                hover:bg-white/15
+
+                hover:shadow-[0_10px_40px_rgba(37,99,235,0.20)]
               "
             >
-              Commencer
-            </button>
+              {/* Glow */}
+              <div
+                className="
+                  absolute
+                  inset-0
 
-            <button
-              type="button"
-              className="
-                rounded-2xl
+                  bg-gradient-to-r
+                  from-white/0
+                  via-white/10
+                  to-white/0
 
-                border
-                border-slate-200
+                  opacity-0
 
-                bg-white/80
+                  transition-opacity
+                  duration-500
 
-                px-8
-                py-5
+                  group-hover:opacity-100
+                "
+              />
 
-                text-lg
-                font-semibold
+              <span
+                className="
+                  relative
+                  z-10
 
-                text-slate-700
+                  flex
+                  items-center
+                  gap-3
+                "
+              >
+                Voir les taux
 
-                shadow-sm
+                <span
+                  className="
+                    text-lg
 
-                backdrop-blur-xl
+                    transition-transform
+                    duration-300
 
-                transition-all
-                duration-300
-
-                hover:bg-white
-              "
-            >
-              Voir les taux
+                    group-hover:translate-x-1
+                  "
+                >
+                  →
+                </span>
+              </span>
             </button>
           </div>
         </div>
 
         {/* RIGHT */}
-        <div className="flex justify-center lg:justify-end">
-          <ConverterCard />
+        <div
+          className="
+            flex
+            justify-center
+
+            lg:justify-end
+          "
+        >
+          <div
+            className="
+              transition-all
+              duration-500
+
+              hover:-translate-y-2
+            "
+          >
+            <ConverterCard />
+          </div>
         </div>
       </div>
     </section>

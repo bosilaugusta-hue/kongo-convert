@@ -78,16 +78,22 @@ function Navbar() {
             {/* Brand */}
             <div>
               <h1
-                className="
-                  text-[22px]
-                  font-black
-                  tracking-tight
+  className="
+    text-2xl
+    font-black
 
-                  text-slate-900
-                "
-              >
-                KongoConvert
-              </h1>
+    leading-none
+    tracking-[-0.03em]
+  "
+>
+  <span className="text-blue-600">
+    Kongo
+  </span>
+
+  <span className="text-red-500">
+    Convert
+  </span>
+</h1>
 
               <p
                 className="

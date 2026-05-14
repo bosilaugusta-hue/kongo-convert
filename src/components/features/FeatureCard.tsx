@@ -21,39 +21,73 @@ function FeatureCard({
       }}
       viewport={{ once: true }}
       whileHover={{
-        y: -14,
-        scale: 1.04,
-        rotateX: 4,
-        rotateY: -4,
+        y: -10,
+        scale: 1.02,
       }}
       className="
         group
         relative
+
         overflow-hidden
 
-        rounded-[32px]
+        rounded-[34px]
 
         border
-        border-white/15
+        border-white/20
 
-        hover:border-blue-400/40
+        bg-white/10
 
-        bg-[#020817]/55
-
-        backdrop-blur-xl
+        backdrop-blur-3xl
 
         p-8
 
         transition-all
         duration-500
 
-        hover:shadow-[0_20px_80px_rgba(37,99,235,0.25)]
+        hover:border-blue-400/30
+
+        shadow-[0_20px_60px_rgba(15,23,42,0.18)]
+
+        hover:shadow-[0_25px_80px_rgba(37,99,235,0.18)]
       "
       style={{
         transformStyle: 'preserve-3d',
       }}
     >
-      {/* Glow */}
+      {/* Glass reflection */}
+      <div
+        className="
+          absolute
+          inset-0
+
+          bg-gradient-to-br
+          from-white/20
+          via-white/5
+          to-transparent
+
+          opacity-80
+        "
+      />
+
+      {/* Blue glow */}
+      <div
+        className="
+          absolute
+          -right-24
+          -top-24
+
+          h-48
+          w-48
+
+          rounded-full
+
+          bg-blue-500/10
+
+          blur-3xl
+        "
+      />
+
+      {/* Hover glow */}
       <div
         className="
           absolute
@@ -73,71 +107,57 @@ function FeatureCard({
         "
       />
 
-      {/* Blur background */}
-      <div
-        className="
-          absolute
-          -top-24
-          -right-24
-
-          h-48
-          w-48
-
-          rounded-full
-
-          bg-blue-500/10
-
-          blur-3xl
-        "
-      />
-
       {/* Content */}
       <div className="relative z-10">
-        {/* Icon */}
+        {/* ICON */}
         <div
           className="
             mb-8
 
             flex
-            h-28
-            w-28
+            h-24
+            w-24
             items-center
             justify-center
 
             rounded-full
 
             border
-            border-white/10
+            border-white/20
 
-            bg-blue-500/20
+            bg-blue-500/15
 
-            shadow-[0_0_60px_rgba(37,99,235,0.45)]
+            backdrop-blur-xl
+
+            shadow-[0_0_50px_rgba(37,99,235,0.35)]
 
             transition-all
             duration-500
 
-            group-hover:scale-110
+            group-hover:scale-105
           "
         >
           <div
             className="
               flex
-              h-20
-              w-20
+              h-16
+              w-16
               items-center
               justify-center
 
               rounded-full
 
               bg-[#2563eb]
+
+              shadow-[0_10px_30px_rgba(37,99,235,0.35)]
             "
           >
             <img
               src={icon}
               alt={title}
               className="
-                h-12
-                w-12
+                h-9
+                w-9
 
                 object-contain
               "
@@ -145,29 +165,31 @@ function FeatureCard({
           </div>
         </div>
 
-        {/* Title */}
+        {/* TITLE */}
         <h3
           className="
             mb-4
 
-            text-[38px]
+            text-[34px]
             font-black
             leading-none
             tracking-tight
 
             text-white
+
+            drop-shadow-[0_4px_20px_rgba(0,0,0,0.25)]
           "
         >
           {title}
         </h3>
 
-        {/* Description */}
+        {/* DESCRIPTION */}
         <p
           className="
             text-lg
             leading-relaxed
 
-            text-white/70
+            text-white/75
           "
         >
           {description}
@@ -183,7 +205,8 @@ function FeatureCard({
 
             bg-gradient-to-r
             from-blue-400
-            to-cyan-400
+            via-cyan-300
+            to-transparent
 
             transition-all
             duration-500
