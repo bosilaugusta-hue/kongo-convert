@@ -24,34 +24,86 @@ function HeroSection() {
 
             object-cover
 
-            brightness-[0.85]
-            saturate-[1.1]
+            brightness-[1.02]
+            saturate-[1.05]
           "
         />
 
-        {/* PREMIUM DARK OVERLAY */}
+        {/* PREMIUM OVERLAY */}
         <div
           className="
             absolute
             inset-0
 
             bg-gradient-to-r
-            from-[#020817]/78
-            via-[#020817]/52
-            to-[#020817]/15
+            from-[#020817]/55
+            via-[#020817]/35
+            to-[#020817]/10
           "
         />
 
-        {/* SOFT GLASS OVERLAY */}
+        {/* LIGHT GLASS EFFECT */}
         <div
           className="
             absolute
             inset-0
 
-            bg-black/10
+            bg-white/5
           "
         />
       </div>
+
+      {/* BLUE CINEMATIC GLOW */}
+      <div
+        className="
+          absolute
+          left-[18%]
+          top-1/2
+
+         h-[260px]
+w-[260px]
+
+sm:h-[380px]
+sm:w-[380px]
+
+lg:h-[500px]
+lg:w-[500px]
+
+          -translate-y-1/2
+
+          rounded-full
+
+          bg-blue-600/20
+
+          blur-[140px]
+        "
+      />
+
+      {/* BLUE RIGHT GLOW */}
+      <div
+        className="
+          absolute
+          right-[8%]
+          top-1/2
+
+          h-[180px]
+w-[180px]
+
+sm:h-[240px]
+sm:w-[240px]
+
+lg:h-[320px]
+lg:w-[320px]
+
+          -translate-y-1/2
+
+          rounded-full
+
+          bg-blue-500/15
+
+          blur-[120px]
+        "
+      />
 
       {/* WAX LEFT */}
       <div
@@ -76,8 +128,6 @@ function HeroSection() {
             h-full
             w-full
 
-            scale-[0.78]
-
             object-cover
             object-center
 
@@ -93,23 +143,40 @@ function HeroSection() {
           z-10
 
           mx-auto
-          grid
 
-          min-h-screen
-          max-w-7xl
+          flex
+          flex-col
 
-          items-center
+          min-h-[100svh]
+          lg:min-h-screen
+          max-w-[1400px]
 
-          gap-20
+          justify-center
+
+          gap-16
 
           px-6
-          py-24
+          pt-32
+          pb-16
+          lg:py-24
 
+          sm:px-10
+
+          lg:grid
           lg:grid-cols-2
+          lg:items-center
+          lg:gap-20
+          lg:px-16
         "
       >
         {/* LEFT */}
-        <div>
+        <div
+          className="
+            text-center
+
+            lg:text-left
+          "
+        >
           {/* BADGE */}
           <div
             className="
@@ -122,16 +189,18 @@ function HeroSection() {
               rounded-full
 
               border
-              border-white/20
+              border-white/30
 
-              bg-white/10
+              bg-white/14
 
-              px-6
-              py-3
-
-              shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+              px-4
+py-2.5
+sm:px-6
+sm:py-3
 
               backdrop-blur-2xl
+
+              shadow-[0_8px_30px_rgba(0,0,0,0.25)]
             "
           >
             <div className="h-3 w-3 rounded-full bg-green-500" />
@@ -151,18 +220,24 @@ function HeroSection() {
           {/* TITLE */}
           <h1
             className="
+              mx-auto
+
               max-w-[620px]
 
-              text-5xl
-              font-black
+              text-[38px]
+              font-extrabold
 
-              leading-[0.92]
-              tracking-tight
+              leading-[0.95]
+              tracking-[-3px]
 
               text-white
 
+              drop-shadow-[0_8px_35px_rgba(0,0,0,0.35)]
+
+             sm:text-[52px]
               md:text-6xl
-              lg:text-[88px]
+              lg:mx-0
+              lg:text-[68px]
             "
           >
             Convertissez
@@ -170,7 +245,13 @@ function HeroSection() {
             vos devises avec
             <br />
 
-            <span className="text-blue-500">
+            <span
+              className="
+                text-blue-500
+
+                drop-shadow-[0_0_18px_rgba(37,99,235,0.45)]
+              "
+            >
               élégance
             </span>
           </h1>
@@ -178,14 +259,20 @@ function HeroSection() {
           {/* DESCRIPTION */}
           <p
             className="
+              mx-auto
               mt-8
 
               max-w-xl
 
-              text-xl
-              leading-9
+              text-base
+sm:text-lg
+              leading-8
 
               text-white/75
+
+              lg:mx-0
+              lg:text-xl
+              lg:leading-9
             "
           >
             La plateforme moderne de conversion pensée
@@ -193,7 +280,17 @@ function HeroSection() {
           </p>
 
           {/* BUTTON */}
-          <div className="mt-10">
+          <div
+            className="
+              mt-10
+
+              flex
+
+              justify-center
+
+              lg:justify-start
+            "
+          >
             <button
               type="button"
               className="
@@ -205,17 +302,20 @@ function HeroSection() {
                 rounded-2xl
 
                 border
-                border-white/20
+                border-white/30
 
-                bg-white/10
+                bg-white/22
 
-                px-8
-                py-4
+                px-6
+py-3.5
+
+sm:px-8
+sm:py-4
 
                 text-base
                 font-semibold
 
-                text-white
+                text-white/95
 
                 backdrop-blur-2xl
 
@@ -224,12 +324,12 @@ function HeroSection() {
 
                 hover:-translate-y-1
                 hover:border-blue-400/40
-                hover:bg-white/15
+                hover:bg-white/25
 
-                hover:shadow-[0_10px_40px_rgba(37,99,235,0.20)]
+                hover:shadow-[0_10px_40px_rgba(37,99,235,0.25)]
               "
             >
-              {/* Glow */}
+              {/* BUTTON GLOW */}
               <div
                 className="
                   absolute

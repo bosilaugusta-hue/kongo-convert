@@ -1,65 +1,134 @@
+import { useState } from "react"
+
 import {
   ArrowUpDown,
-  TrendingUp,
   Clock3,
-} from 'lucide-react'
+  TrendingUp,
+} from "lucide-react"
 
-import CurrencySelect from '../currency/CurrencySelect'
+import CurrencySelect from "../currency/CurrencySelect"
 
-import usFlag from '../../assets/flags/us.png'
-import cdFlag from '../../assets/flags/cd.png'
+import { currencies } from "../../data/currencies"
 
 function ConverterCard() {
+  /*
+   |------------------------------------------------------------------
+   | STATES
+   |------------------------------------------------------------------
+   */
+
+  const [amount, setAmount] = useState(100)
+
+  const [fromCurrency, setFromCurrency] =
+    useState("USD")
+
+  const [toCurrency, setToCurrency] =
+    useState("CDF")
+
+  /*
+   |------------------------------------------------------------------
+   | FIND CURRENCIES
+   |------------------------------------------------------------------
+   */
+
+  const fromCurrencyData = currencies.find(
+    (currency) => currency.code === fromCurrency
+  )
+
+  const toCurrencyData = currencies.find(
+    (currency) => currency.code === toCurrency
+  )
+
+  /*
+   |------------------------------------------------------------------
+   | SAFETY CHECK
+   |------------------------------------------------------------------
+   */
+
+  if (!fromCurrencyData || !toCurrencyData) {
+    return null
+  }
+
+  /*
+   |------------------------------------------------------------------
+   | CONVERSION
+   |------------------------------------------------------------------
+   */
+
+  const convertedAmount =
+    amount *
+    (fromCurrencyData.rate /
+      toCurrencyData.rate)
+
+  /*
+   |------------------------------------------------------------------
+   | SWAP FUNCTION
+   |------------------------------------------------------------------
+   */
+
+  const swapCurrencies = () => {
+    setFromCurrency(toCurrency)
+
+    setToCurrency(fromCurrency)
+  }
+
   return (
     <div
       className="
         relative
 
         w-full
-        max-w-[680px]
+       max-w-[420px]
+
+sm:max-w-[520px]
+lg:max-w-[620px]
 
         overflow-hidden
 
-        rounded-[40px]
+       rounded-[32px]
+
+sm:rounded-[40px]
 
         border
-        border-white/20
+        border-white/40
 
-        bg-white/10
+        bg-[#f4efe7]/38
+
+        p-4
+sm:p-6
+lg:p-10
 
         backdrop-blur-3xl
 
-        p-6
-        sm:p-8
-        lg:p-10
-
-        shadow-[0_25px_80px_rgba(15,23,42,0.28)]
+        shadow-[0_25px_80px_rgba(15,23,42,0.25)]
       "
     >
-      {/* GLASS REFLECTION */}
+      {/* GLASS LIGHT */}
+
       <div
         className="
           absolute
           inset-0
 
           bg-gradient-to-br
-          from-white/25
-          via-white/10
+          from-white/50
+          via-white/20
           to-transparent
-
-          opacity-90
         "
       />
 
       {/* BLUE GLOW */}
+
       <div
         className="
           absolute
-          -right-24
-          -top-24
+          -left-20
+          top-1/2
 
-          h-64
-          w-64
+          h-72
+          w-72
+
+          -translate-y-1/2
 
           rounded-full
 
@@ -69,7 +138,8 @@ function ConverterCard() {
         "
       />
 
-      {/* Accent border */}
+      {/* CONGO BORDER */}
+
       <div
         className="
           absolute
@@ -77,7 +147,7 @@ function ConverterCard() {
           top-0
 
           h-full
-          w-[6px]
+          w-[5px]
 
           bg-gradient-to-b
           from-blue-600
@@ -87,10 +157,13 @@ function ConverterCard() {
       />
 
       {/* CONTENT */}
+
       <div className="relative z-10">
         {/* TOP */}
+
         <div className="flex items-start justify-between gap-6">
           {/* LEFT */}
+
           <div className="flex-1">
             <p
               className="
@@ -99,15 +172,29 @@ function ConverterCard() {
                 text-base
                 font-medium
 
-                text-slate-500
+                text-slate-600
               "
             >
               Vous envoyez
             </p>
 
-            <h2
+            {/* INPUT */}
+
+            <input
+              type="number"
+              value={amount}
+              onChange={(e) =>
+                setAmount(Number(e.target.value))
+              }
               className="
-                text-[56px]
+                w-full
+
+                bg-transparent
+
+                text-[38px]
+
+sm:text-[48px]
+md:text-[56px]
                 font-black
 
                 leading-none
@@ -115,11 +202,11 @@ function ConverterCard() {
 
                 text-slate-900
 
+                outline-none
+
                 md:text-[64px]
               "
-            >
-              100,00
-            </h2>
+            />
 
             <p
               className="
@@ -130,28 +217,32 @@ function ConverterCard() {
                 text-slate-500
               "
             >
-              ≈ 100,00 USD
+              ≈{" "}
+              {amount.toLocaleString("fr-FR")}{" "}
+              {fromCurrencyData.code}
             </p>
           </div>
 
           {/* RIGHT */}
+
           <div className="w-[220px]">
             <CurrencySelect
-              selected={{
-                code: 'USD',
-                name: 'Dollar Américain',
-                flag: usFlag,
-              }}
+              selected={fromCurrencyData}
+              onSelect={setFromCurrency}
             />
           </div>
         </div>
 
         {/* DIVIDER */}
+
         <div className="relative my-10">
-          <div className="h-[1px] w-full bg-slate-300/60" />
+          <div className="h-[1px] w-full bg-slate-300/40" />
+
+          {/* SWAP BUTTON */}
 
           <button
             type="button"
+            onClick={swapCurrencies}
             className="
               absolute
               left-1/2
@@ -160,8 +251,10 @@ function ConverterCard() {
               flex
               h-20
               w-20
+
               -translate-x-1/2
               -translate-y-1/2
+
               items-center
               justify-center
 
@@ -172,7 +265,7 @@ function ConverterCard() {
 
               bg-blue-600
 
-              shadow-[0_10px_35px_rgba(37,99,235,0.35)]
+              shadow-[0_10px_35px_rgba(37,99,235,0.45)]
 
               transition-all
               duration-300
@@ -189,8 +282,10 @@ function ConverterCard() {
         </div>
 
         {/* BOTTOM */}
+
         <div className="mt-12 flex items-start justify-between gap-6">
           {/* LEFT */}
+
           <div className="flex-1">
             <p
               className="
@@ -199,7 +294,7 @@ function ConverterCard() {
                 text-base
                 font-medium
 
-                text-slate-500
+                text-slate-600
               "
             >
               Vous recevez
@@ -207,7 +302,10 @@ function ConverterCard() {
 
             <h2
               className="
-                text-[56px]
+                text-[38px]
+
+sm:text-[48px]
+md:text-[56px]
                 font-black
 
                 leading-none
@@ -218,35 +316,47 @@ function ConverterCard() {
                 md:text-[64px]
               "
             >
-              287 540,00
+              {convertedAmount.toLocaleString(
+                "fr-FR",
+                {
+                  maximumFractionDigits: 2,
+                }
+              )}
             </h2>
 
             <p
               className="
                 mt-3
 
-                text-xl
+                text-base
 
+sm:text-lg
                 text-slate-500
               "
             >
-              ≈ 287 540,00 CDF
+              ≈{" "}
+              {convertedAmount.toLocaleString(
+                "fr-FR",
+                {
+                  maximumFractionDigits: 2,
+                }
+              )}{" "}
+              {toCurrencyData.code}
             </p>
           </div>
 
           {/* RIGHT */}
+
           <div className="w-[220px]">
             <CurrencySelect
-              selected={{
-                code: 'CDF',
-                name: 'Franc Congolais',
-                flag: cdFlag,
-              }}
+              selected={toCurrencyData}
+              onSelect={setToCurrency}
             />
           </div>
         </div>
 
         {/* RATE CARD */}
+
         <div
           className="
             mt-10
@@ -254,28 +364,39 @@ function ConverterCard() {
             rounded-[28px]
 
             border
-            border-white/20
+            border-white/30
 
-            bg-white/20
+            bg-white/35
 
+            p-4
+
+sm:p-6
             backdrop-blur-2xl
-
-            p-6
           "
         >
           <div className="flex items-center justify-between gap-4">
             {/* LEFT */}
+
             <div>
               <div className="flex items-center gap-4">
                 <p
                   className="
-                    text-[26px]
+                   text-lg
+
+sm:text-2xl
                     font-black
 
                     text-slate-900
                   "
                 >
-                  1 USD = 2 875,40 CDF
+                  1 {fromCurrencyData.code} ={" "}
+                  {(
+                    fromCurrencyData.rate /
+                    toCurrencyData.rate
+                  ).toLocaleString("fr-FR", {
+                    maximumFractionDigits: 2,
+                  })}{" "}
+                  {toCurrencyData.code}
                 </p>
 
                 <p
@@ -317,23 +438,28 @@ function ConverterCard() {
             </div>
 
             {/* RIGHT */}
+
             <div
               className="
                 flex
-                h-16
-                w-16
+               h-12
+w-12
+
+sm:h-16
+sm:w-16
+
                 items-center
                 justify-center
 
                 rounded-2xl
 
-                bg-blue-100/80
+                bg-blue-500/15
 
                 backdrop-blur-xl
               "
             >
               <TrendingUp
-                size={30}
+                size={22}
                 className="text-blue-600"
               />
             </div>

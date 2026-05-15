@@ -1,32 +1,49 @@
 function HeroContent() {
   return (
-    <div className="relative z-20 max-w-[620px]">
+    <div
+      className="
+        relative
+        z-20
+
+        max-w-[540px]
+      "
+    >
       {/* Badge */}
       <div
         className="
+          mb-8
+
           inline-flex
           items-center
           gap-3
 
-          px-5
-          py-3
-
           rounded-full
-
-          bg-white/10
-          backdrop-blur-xl
 
           border
           border-white/10
 
-          shadow-lg
+          bg-white/12
 
-          mb-8
+          px-5
+          py-3
+
+          shadow-[0_10px_30px_rgba(0,0,0,0.18)]
+
+          backdrop-blur-xl
         "
       >
-        <div className="w-3 h-3 rounded-full bg-green-400" />
+        <div className="h-3 w-3 rounded-full bg-green-400" />
 
-        <span className="text-white font-medium text-sm sm:text-base">
+        <span
+          className="
+            text-sm
+            font-medium
+
+            text-white
+
+            sm:text-base
+          "
+        >
           Taux en temps réel
         </span>
       </div>
@@ -34,70 +51,84 @@ function HeroContent() {
       {/* Title */}
       <h1
         className="
-          text-white
+          max-w-[620px]
+
+          text-[58px]
           font-black
 
-          text-[52px]
+          leading-[0.92]
+          tracking-[-3px]
+
+          text-white
+
+          drop-shadow-[0_6px_30px_rgba(0,0,0,0.45)]
+
           lg:text-7xl
-
-          leading-[0.95]
-
-          tracking-[-2px]
-
-          max-w-[700px]
         "
       >
-        Convertissez vos devises en toute{' '}
-        <span className="text-blue-500">
-          simplicité
+        Convertissez
+        <br />
+        vos devises avec
+        <br />
+        <span
+          className="
+            text-blue-500
+
+            drop-shadow-[0_0_18px_rgba(37,99,235,0.45)]
+          "
+        >
+          élégance
         </span>
       </h1>
 
       {/* Description */}
       <p
         className="
-          mt-8
+          mt-10
+
+          max-w-[540px]
 
           text-base
-          lg:text-lg
-
-          text-gray-300
-
           leading-relaxed
 
-          max-w-[520px]
+          text-gray-200
+
+          drop-shadow-[0_4px_20px_rgba(0,0,0,0.25)]
+
+          lg:text-lg
         "
       >
-        Le convertisseur moderne conçu pour la République
-        Démocratique du Congo.
+        La plateforme moderne de conversion pensée pour la
+        République Démocratique du Congo.
       </p>
 
       {/* Buttons */}
       <div
         className="
+          mt-10
+
           flex
           flex-col
-          sm:flex-row
 
           gap-4
 
-          mt-10
+          sm:flex-row
         "
       >
-        {/* Primary */}
+        {/* Primary Button */}
         <button
-  type="button"
-  className="
+          type="button"
+          className="
             h-[60px]
-
-            px-8
 
             rounded-2xl
 
             bg-blue-600
 
-            text-white
+            px-8
+
             font-semibold
+            text-white
 
             shadow-[0_10px_40px_rgba(37,99,235,0.45)]
 
@@ -111,32 +142,34 @@ function HeroContent() {
           Commencer
         </button>
 
-        {/* Secondary */}
+        {/* Secondary Button */}
         <button
-  type="button"
-  className="
+          type="button"
+          className="
             h-[60px]
 
-            px-8
-
             rounded-2xl
-
-            bg-white/10
-            backdrop-blur-xl
 
             border
             border-white/10
 
-            text-white
+            bg-white/8
+
+            px-8
+
             font-semibold
+            text-white
+
+            backdrop-blur-xl
 
             transition-all
             duration-300
 
+            hover:border-white/30
             hover:bg-white/20
           "
         >
-          Voir les taux
+          Voir les taux →
         </button>
       </div>
     </div>

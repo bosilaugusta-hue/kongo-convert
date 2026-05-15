@@ -4,6 +4,7 @@ import FeaturesSection from "./components/features/FeaturesSection"
 import HeroSection from "./components/hero/HeroSection"
 import Navbar from "./components/navbar/Navbar"
 import RatesSection from "./components/rates/RatesSection"
+import BottomNav from "./components/navigation/BottomNav"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -18,6 +19,7 @@ function App() {
         <RatesSection />
 
         <FeaturesSection />
+        <BottomNav />
       </div>
     </div>
   )

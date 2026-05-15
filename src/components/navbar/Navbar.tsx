@@ -14,49 +14,61 @@ function Navbar() {
 
   return (
     <>
-      {/* Navbar */}
+      {/* NAVBAR */}
       <header
-        className="
-          fixed
-          left-0
-          top-5
-          z-50
+  className="
+    absolute
+    left-0
+    top-3
+    z-50
 
-          w-full
-        "
-      >
+    w-full
+
+    px-3
+    sm:px-5
+    lg:px-0
+  "
+>
         <div
           className="
-            mx-auto
+  mx-auto
 
-            flex
-            max-w-7xl
-            items-center
-            justify-between
+  flex
+  max-w-7xl
+  items-center
+  justify-between
 
-            rounded-full
+  rounded-[28px]
 
-            border
-            border-white/40
+  border
+  border-white/40
 
-            bg-white/75
+  bg-white/75
 
-            px-6
-            py-4
+  px-4
+  py-3
 
-            shadow-[0_10px_40px_rgba(15,23,42,0.08)]
+  shadow-[0_10px_40px_rgba(15,23,42,0.10)]
 
-            backdrop-blur-2xl
-          "
+  backdrop-blur-2xl
+
+  sm:px-6
+  lg:rounded-full
+  lg:px-6
+  lg:py-4
+"
         >
           {/* LEFT */}
-          <div className="flex items-center gap-4">
-            {/* Logo */}
+          <div className="flex items-center gap-3">
+            {/* LOGO */}
             <div
               className="
                 flex
-                h-12
-                w-12
+                h-10
+w-10
+
+sm:h-12
+sm:w-12
                 items-center
                 justify-center
 
@@ -75,30 +87,33 @@ function Navbar() {
               K
             </div>
 
-            {/* Brand */}
+            {/* BRAND */}
             <div>
               <h1
-  className="
-    text-2xl
-    font-black
+                className="
+                  text-xl
+sm:text-2xl
+                  font-black
 
-    leading-none
-    tracking-[-0.03em]
-  "
->
-  <span className="text-blue-600">
-    Kongo
-  </span>
+                  leading-none
+                  tracking-[-0.03em]
+                "
+              >
+                <span className="text-blue-600">
+                  Kongo
+                </span>
 
-  <span className="text-red-500">
-    Convert
-  </span>
-</h1>
+                <span className="text-red-500">
+                  Convert
+                </span>
+              </h1>
 
               <p
                 className="
-                  text-sm
+                  hidden
+text-sm
 
+sm:block
                   text-slate-500
                 "
               >
@@ -131,7 +146,7 @@ function Navbar() {
                   text-[15px]
                   font-semibold
 
-                  text-slate-600
+                  text-slate-700
 
                   transition-all
                   duration-300
@@ -146,7 +161,7 @@ function Navbar() {
 
           {/* RIGHT */}
           <div className="flex items-center gap-4">
-            {/* Country */}
+            {/* COUNTRY */}
             <button
               type="button"
               className="
@@ -213,7 +228,7 @@ function Navbar() {
               />
             </button>
 
-            {/* Mobile button */}
+            {/* MOBILE BUTTON */}
             <button
               type="button"
               onClick={() =>
@@ -223,8 +238,11 @@ function Navbar() {
               }
               className="
                 flex
-                h-12
-                w-12
+               h-10
+w-10
+
+sm:h-12
+sm:w-12
                 items-center
                 justify-center
 
@@ -263,7 +281,7 @@ function Navbar() {
             bg-[#f8fafc]/95
 
             px-8
-            pt-32
+            pt-28
 
             backdrop-blur-2xl
 
@@ -288,7 +306,8 @@ function Navbar() {
                 key={item}
                 href="/"
                 className="
-                  text-4xl
+                  text-3xl
+sm:text-4xl
                   font-black
 
                   text-slate-900

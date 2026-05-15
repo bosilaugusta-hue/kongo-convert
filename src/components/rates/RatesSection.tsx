@@ -48,8 +48,8 @@ function RatesSection() {
         relative
         overflow-hidden
 
-        py-28
-        lg:py-36
+        py-32
+        lg:py-40
       "
     >
       {/* BACKGROUND IMAGE */}
@@ -58,7 +58,7 @@ function RatesSection() {
           absolute
           inset-0
 
-          scale-105
+          scale-[1.02]
 
           bg-cover
           bg-center
@@ -69,53 +69,34 @@ function RatesSection() {
         }}
       />
 
-      {/* DARK OVERLAY */}
+      {/* LEFT DARK OVERLAY */}
       <div
         className="
           absolute
           inset-0
 
-          bg-[#020817]/60
+          bg-gradient-to-r
+          from-[#041226]/82
+          via-[#041226]/30
+          to-transparent
         "
       />
 
-      {/* BLUE GLOW */}
+      {/* BLUE LIGHT */}
       <div
         className="
           absolute
-          inset-0
+          left-[-120px]
+          top-[-120px]
 
-          bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.22),transparent_70%)]
-        "
-      />
-
-      {/* GLOBAL BLUR */}
-      <div
-        className="
-          absolute
-          inset-0
-
-          backdrop-blur-[3px]
-        "
-      />
-
-      {/* TOP GLOW */}
-      <div
-        className="
-          absolute
-          left-1/2
-          top-0
-
-          h-[500px]
-          w-[500px]
-
-          -translate-x-1/2
+          h-[420px]
+          w-[420px]
 
           rounded-full
 
-          bg-blue-500/10
+          bg-blue-500/20
 
-          blur-3xl
+          blur-[120px]
         "
       />
 
@@ -133,31 +114,44 @@ function RatesSection() {
       >
         {/* HEADER */}
         <div className="max-w-3xl">
-          <p
-            className="
-              mb-5
+          <div className="mb-6">
+            <p
+              className="
+                text-sm
+                font-semibold
+                uppercase
+                tracking-[0.28em]
 
-              text-sm
-              font-semibold
-              uppercase
-              tracking-[0.25em]
+                text-[#2563ff]
+              "
+            >
+              Marché des devises
+            </p>
 
-              text-blue-400
-            "
-          >
-            Marché des devises
-          </p>
+            <div
+              className="
+                mt-3
+
+                h-[3px]
+                w-24
+
+                rounded-full
+
+                bg-[#2563ff]
+              "
+            />
+          </div>
 
           <h2
             className="
-              text-5xl
+              text-6xl
               font-black
-              leading-tight
+              leading-[0.95]
               tracking-tight
 
               text-white
 
-              md:text-6xl
+              md:text-7xl
             "
           >
             Les taux les plus
@@ -167,14 +161,14 @@ function RatesSection() {
 
           <p
             className="
-              mt-7
+              mt-8
 
               max-w-2xl
 
-              text-xl
-              leading-9
+              text-2xl
+              leading-[1.7]
 
-              text-white/70
+              text-white/90
             "
           >
             Suivez les fluctuations des principales
@@ -199,63 +193,52 @@ function RatesSection() {
             <div
               key={rate.currency}
               className="
-                group
                 relative
 
                 overflow-hidden
 
-                rounded-[34px]
+                rounded-[36px]
 
                 border
-                border-white/10
+                border-white/25
 
-                bg-[#020817]/72
+                bg-white/[0.10]
 
-                backdrop-blur-2xl
+                backdrop-blur-[14px]
 
                 p-7
+
+                shadow-[0_10px_40px_rgba(0,0,0,0.20)]
 
                 transition-all
                 duration-500
 
-                hover:-translate-y-3
-                hover:scale-[1.02]
-
-                hover:border-blue-400/30
-
-                shadow-[0_20px_80px_rgba(0,0,0,0.35)]
-
-                hover:shadow-[0_25px_90px_rgba(37,99,235,0.20)]
+                hover:-translate-y-2
               "
             >
-              {/* CARD GLOW */}
-              <div
-                className="
-                  absolute
-                  -right-20
-                  -top-20
-
-                  h-40
-                  w-40
-
-                  rounded-full
-
-                  bg-blue-500/10
-
-                  blur-3xl
-                "
-              />
-
-              {/* GLASS EFFECT */}
+              {/* GLASS LIGHT */}
               <div
                 className="
                   absolute
                   inset-0
 
-                  bg-gradient-to-br
-                  from-white/5
+                  bg-gradient-to-b
+                  from-white/18
                   via-transparent
                   to-transparent
+                "
+              />
+
+              {/* WHITE BORDER LIGHT */}
+              <div
+                className="
+                  absolute
+                  inset-0
+
+                  rounded-[36px]
+
+                  border
+                  border-white/10
                 "
               />
 
@@ -272,31 +255,31 @@ function RatesSection() {
               >
                 <div>
                   {/* FLAG + LABEL */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-4">
                     <div
                       className="
                         flex
-                        h-12
-                        w-12
+                        h-14
+                        w-14
                         items-center
                         justify-center
 
                         rounded-full
 
                         border
-                        border-white/10
+                        border-white/30
 
-                        bg-white/5
+                        bg-white/20
 
-                        shadow-lg
+                        backdrop-blur-md
                       "
                     >
                       <img
                         src={rate.flag}
                         alt={rate.currency}
                         className="
-                          h-8
-                          w-8
+                          h-9
+                          w-9
 
                           rounded-full
                           object-cover
@@ -310,7 +293,7 @@ function RatesSection() {
                           text-sm
                           font-medium
 
-                          text-white/45
+                          text-white/70
                         "
                       >
                         Devise
@@ -318,7 +301,7 @@ function RatesSection() {
 
                       <p
                         className="
-                          text-xl
+                          text-2xl
                           font-bold
 
                           text-white
@@ -332,15 +315,17 @@ function RatesSection() {
                   {/* VALUE */}
                   <h3
                     className="
-                      mt-7
+                      mt-10
 
-                      text-[58px]
-                      font-black
+                      text-[34px]
+                      font-extrabold
 
                       leading-none
                       tracking-tight
 
                       text-white
+
+                      drop-shadow-[0_4px_20px_rgba(0,0,0,0.25)]
                     "
                   >
                     {rate.value}
@@ -351,8 +336,8 @@ function RatesSection() {
                 <div
                   className={`
                     flex
-                    h-12
-                    w-12
+                    h-14
+                    w-14
                     items-center
                     justify-center
 
@@ -360,17 +345,19 @@ function RatesSection() {
 
                     border
 
+                    backdrop-blur-md
+
                     ${
                       rate.positive
-                        ? 'border-green-400/20 bg-green-500/10 text-green-400'
-                        : 'border-red-400/20 bg-red-500/10 text-red-400'
+                        ? 'border-green-400/30 bg-green-400/10 text-green-300'
+                        : 'border-red-400/30 bg-red-400/10 text-red-300'
                     }
                   `}
                 >
                   {rate.positive ? (
-                    <ArrowUpRight size={20} />
+                    <ArrowUpRight size={22} />
                   ) : (
-                    <ArrowDownRight size={20} />
+                    <ArrowDownRight size={22} />
                   )}
                 </div>
               </div>
@@ -390,13 +377,13 @@ function RatesSection() {
               >
                 <p
                   className={`
-                    text-lg
+                    text-xl
                     font-bold
 
                     ${
                       rate.positive
-                        ? 'text-green-400'
-                        : 'text-red-400'
+                        ? 'text-green-300'
+                        : 'text-red-300'
                     }
                   `}
                 >
@@ -407,7 +394,7 @@ function RatesSection() {
                   className="
                     text-sm
 
-                    text-white/35
+                    text-white/70
                   "
                 >
                   Aujourd'hui
@@ -422,39 +409,22 @@ function RatesSection() {
 
                   mt-8
 
-                  h-24
+                  h-28
 
                   overflow-hidden
 
-                  rounded-2xl
+                  rounded-[24px]
 
                   border
-                  border-white/5
+                  border-white/20
 
-                  bg-white/5
+                  bg-white/[0.04]
+
+                  backdrop-blur-sm
+
+                  p-2
                 "
               >
-                {/* BOTTOM LINE */}
-                <div
-                  className={`
-                    absolute
-                    bottom-0
-                    left-0
-                    right-0
-
-                    h-[2px]
-
-                    ${
-                      rate.positive
-                        ? 'bg-green-400'
-                        : 'bg-red-400'
-                    }
-
-                    opacity-20
-                  `}
-                />
-
-                {/* SVG GRAPH */}
                 <svg
                   viewBox="0 0 300 80"
                   className="h-full w-full"
