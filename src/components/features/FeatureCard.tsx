@@ -4,14 +4,12 @@ type FeatureCardProps = {
   icon: string
   title: string
   description: string
-  number: string
 }
 
 function FeatureCard({
   icon,
   title,
   description,
-  number,
 }: FeatureCardProps) {
   return (
     <motion.div
@@ -23,109 +21,74 @@ function FeatureCard({
       }}
       viewport={{ once: true }}
       whileHover={{
-        y: -8,
+        y: -6,
       }}
       className="
-        group
         relative
+
+        min-h-[210px]
 
         overflow-hidden
 
         rounded-[30px]
 
         border
-        border-white/22
+        border-white/55
 
-        bg-white/[0.08]
+        bg-white/55
 
-        backdrop-blur-[16px]
+        p-6
 
-        p-7
+        backdrop-blur-xl
 
-        shadow-[0_10px_40px_rgba(0,0,0,0.22)]
+        shadow-[0_10px_35px_rgba(15,23,42,0.08)]
 
         transition-all
         duration-500
+
+        hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]
       "
     >
-      {/* GLASS LIGHT */}
+      {/* LIGHT EFFECT */}
       <div
         className="
           absolute
           inset-0
 
           bg-gradient-to-br
-          from-white/12
+          from-white/30
           via-transparent
           to-transparent
         "
       />
 
-      {/* TOP LIGHT */}
-      <div
-        className="
-          absolute
-          inset-x-0
-          top-0
-
-          h-[1px]
-
-          bg-white/30
-        "
-      />
-
-      {/* NUMBER */}
-      <div
-        className="
-          absolute
-          right-6
-          top-5
-
-          text-sm
-          font-bold
-
-          tracking-widest
-
-          text-white/75
-        "
-      >
-        {number}
-      </div>
-
       {/* CONTENT */}
       <div className="relative z-10">
-        {/* ICON CONTAINER */}
+        {/* ICON */}
         <div
           className="
-            mb-8
-
             flex
-            h-28
-            w-28
+            h-14
+            w-14
             items-center
             justify-center
 
             rounded-full
 
             border
-            border-[#3b82f6]/70
+            border-blue-500/70
 
             bg-transparent
 
-            shadow-[0_0_30px_rgba(37,99,235,0.25)]
-
-            transition-all
-            duration-500
-
-            group-hover:scale-105
+            shadow-[0_0_20px_rgba(37,99,235,0.15)]
           "
         >
           <img
             src={icon}
             alt={title}
             className="
-              h-16
-              w-16
+              h-9
+              w-9
 
               object-contain
             "
@@ -135,46 +98,43 @@ function FeatureCard({
         {/* TITLE */}
         <h3
           className="
-    mt-6
+            mt-5
 
-    text-[28px]
-    font-black
-    leading-none
-    tracking-[-0.02em]
+            text-[16px]
+            font-black
+            leading-tight
 
-    text-white
-
-    drop-shadow-[0_5px_18px_rgba(0,0,0,0.25)]
-  "
->
+            text-[#071133]
+          "
+        >
           {title}
         </h3>
 
         {/* DESCRIPTION */}
         <p
           className="
-            mt-5
+            mt-3
 
-            text-[17px]
-            leading-[1.9]
+            text-[13px]
+            leading-[1.8]
 
-            text-white/80
+            text-[#1E293B]
           "
         >
           {description}
         </p>
 
-        {/* BOTTOM LINE */}
+        {/* BLUE LINE */}
         <div
           className="
-            mt-8
+            mt-5
 
             h-[3px]
-            w-14
+            w-10
 
             rounded-full
 
-            bg-[#2596ff]
+            bg-blue-600
           "
         />
       </div>

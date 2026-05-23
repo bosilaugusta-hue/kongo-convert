@@ -3,7 +3,14 @@ import euFlag from '../assets/flags/eu.png'
 import gbFlag from '../assets/flags/gb.png'
 import cdFlag from '../assets/flags/cd.png'
 
-export const currencies = [
+export interface Currency {
+  code: string;
+  name: string;
+  flag: string; 
+  rate: number;
+}
+
+export const currencies: Currency[] = [
   {
     code: 'USD',
     name: 'Dollar Américain',

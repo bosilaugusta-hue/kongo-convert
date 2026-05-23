@@ -48,57 +48,46 @@ function RatesSection() {
         relative
         overflow-hidden
 
+        border
+        border-black/10
+
         py-32
         lg:py-40
       "
     >
       {/* BACKGROUND IMAGE */}
       <div
-        className="
-          absolute
-          inset-0
+       className="
+  absolute
+  inset-0
 
-          scale-[1.02]
+  scale-[1.03]
 
-          bg-cover
-          bg-center
-          bg-no-repeat
-        "
+  brightness-110
+  saturate-150
+  contrast-110
+
+  bg-cover
+  bg-center
+  bg-no-repeat
+"
         style={{
           backgroundImage: `url(${palaisImage})`,
         }}
       />
 
-      {/* LEFT DARK OVERLAY */}
-      <div
-        className="
-          absolute
-          inset-0
+      {/* LIGHT OVERLAY */}
+<div
+  className="
+    absolute
+    inset-0
 
-          bg-gradient-to-r
-          from-[#041226]/82
-          via-[#041226]/30
-          to-transparent
-        "
-      />
-
-      {/* BLUE LIGHT */}
-      <div
-        className="
-          absolute
-          left-[-120px]
-          top-[-120px]
-
-          h-[420px]
-          w-[420px]
-
-          rounded-full
-
-          bg-blue-500/20
-
-          blur-[120px]
-        "
-      />
+    bg-gradient-to-r
+    from-black/20
+    via-black/5
+    to-transparent
+  "
+/>
 
       {/* CONTENT */}
       <div
@@ -144,12 +133,12 @@ function RatesSection() {
 
           <h2
             className="
-              text-6xl
+              text-5xl
               font-black
               leading-[0.95]
               tracking-tight
 
-              text-white
+              text-[#0B132B]
 
               md:text-7xl
             "
@@ -160,17 +149,30 @@ function RatesSection() {
           </h2>
 
           <p
-            className="
-              mt-8
+  className="
+    mt-6
+    max-w-2xl
 
-              max-w-2xl
+    text-lg
+    leading-relaxed
+    font-medium
 
-              text-2xl
-              leading-[1.7]
+    text-[#0F172A]
 
-              text-white/90
-            "
-          >
+    bg-white/35
+    backdrop-blur-md
+
+    px-6
+    py-4
+
+    rounded-2xl
+
+    border
+    border-white/40
+
+    shadow-[0_10px_40px_rgba(15,23,42,0.08)]
+  "
+>
             Suivez les fluctuations des principales
             devises utilisées en République
             Démocratique du Congo.
@@ -200,20 +202,21 @@ function RatesSection() {
                 rounded-[36px]
 
                 border
-                border-white/25
+                border-white/40
 
-                bg-white/[0.10]
+                bg-white/35
 
-                backdrop-blur-[14px]
+                backdrop-blur-xl
 
                 p-7
 
-                shadow-[0_10px_40px_rgba(0,0,0,0.20)]
+                shadow-[0_20px_60px_rgba(15,23,42,0.15)]
 
                 transition-all
                 duration-500
 
                 hover:-translate-y-2
+                hover:scale-[1.02]
               "
             >
               {/* GLASS LIGHT */}
@@ -223,13 +226,13 @@ function RatesSection() {
                   inset-0
 
                   bg-gradient-to-b
-                  from-white/18
+                  from-white/20
                   via-transparent
                   to-transparent
                 "
               />
 
-              {/* WHITE BORDER LIGHT */}
+              {/* INNER BORDER */}
               <div
                 className="
                   absolute
@@ -238,7 +241,7 @@ function RatesSection() {
                   rounded-[36px]
 
                   border
-                  border-white/10
+                  border-white/20
                 "
               />
 
@@ -267,9 +270,9 @@ function RatesSection() {
                         rounded-full
 
                         border
-                        border-white/30
+                        border-white/40
 
-                        bg-white/20
+                        bg-white/30
 
                         backdrop-blur-md
                       "
@@ -293,7 +296,7 @@ function RatesSection() {
                           text-sm
                           font-medium
 
-                          text-white/70
+                          text-slate-500
                         "
                       >
                         Devise
@@ -304,7 +307,7 @@ function RatesSection() {
                           text-2xl
                           font-bold
 
-                          text-white
+                          text-[#0B132B]
                         "
                       >
                         {rate.currency}
@@ -323,13 +326,23 @@ function RatesSection() {
                       leading-none
                       tracking-tight
 
-                      text-white
-
-                      drop-shadow-[0_4px_20px_rgba(0,0,0,0.25)]
+                      text-[#0B132B]
                     "
                   >
                     {rate.value}
                   </h3>
+
+                  <p
+                    className="
+                      mt-2
+
+                      text-sm
+
+                      text-slate-500
+                    "
+                  >
+                    CDF
+                  </p>
                 </div>
 
                 {/* ICON */}
@@ -349,8 +362,8 @@ function RatesSection() {
 
                     ${
                       rate.positive
-                        ? 'border-green-400/30 bg-green-400/10 text-green-300'
-                        : 'border-red-400/30 bg-red-400/10 text-red-300'
+                        ? 'border-green-400/30 bg-green-400/10 text-green-500'
+                        : 'border-red-400/30 bg-red-400/10 text-red-500'
                     }
                   `}
                 >
@@ -382,8 +395,8 @@ function RatesSection() {
 
                     ${
                       rate.positive
-                        ? 'text-green-300'
-                        : 'text-red-300'
+                        ? 'text-green-500'
+                        : 'text-red-500'
                     }
                   `}
                 >
@@ -394,7 +407,7 @@ function RatesSection() {
                   className="
                     text-sm
 
-                    text-white/70
+                    text-slate-500
                   "
                 >
                   Aujourd'hui
@@ -416,9 +429,9 @@ function RatesSection() {
                   rounded-[24px]
 
                   border
-                  border-white/20
+                  border-white/40
 
-                  bg-white/[0.04]
+                  bg-white/30
 
                   backdrop-blur-sm
 

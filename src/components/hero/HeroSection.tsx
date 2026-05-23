@@ -1,406 +1,192 @@
-import ConverterCard from '../converter/ConverterCard'
+import ConverterCard from "../converter/ConverterCard";
 
-import heroImage from '../../assets/images/Kinshasa.jpeg'
-import waxPattern from '../../assets/images/wax-pattern.png'
+import heroImage from "../../assets/images/Kinshasa.png";
 
-function HeroSection() {
+import waxPattern from "../../assets/images/wax-pattern.png";
+
+import { translations } from "../../translations";
+
+interface HeroSectionProps {
+  langCode: "FR" | "EN" | "LN";
+}
+
+function HeroSection({
+  langCode,
+}: HeroSectionProps) {
+
+  const t = translations[langCode];
+
   return (
-    <section
-      className="
-        relative
-        overflow-hidden
+    <section className="relative w-full min-h-screen overflow-hidden border border-black/10 bg-white">
 
-        bg-[#020817]
-      "
-    >
-      {/* BACKGROUND IMAGE */}
-      <div className="absolute inset-0">
+      {/* WAX PATTERN BAS GAUCHE */}
+      <div className="absolute bottom-0 left-0 z-20 h-[420px] w-[90px] overflow-hidden rounded-tr-[30px] shadow-[5px_0_15px_rgba(0,0,0,0.1)] lg:h-[520px] lg:w-[110px]">
+        <div
+          className="h-full w-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${waxPattern})`,
+          }}
+        />
+      </div>
+
+      {/* IMAGE DE FOND */}
+      <div className="absolute inset-0 z-0">
+
         <img
           src={heroImage}
           alt="Kinshasa"
           className="
             h-full
             w-full
-
             object-cover
 
-            brightness-[1.02]
-            saturate-[1.05]
+            brightness-[1.05]
+            contrast-[1.08]
+            saturate-[1.15]
           "
         />
 
-        {/* PREMIUM OVERLAY */}
-        <div
-          className="
-            absolute
-            inset-0
-
-            bg-gradient-to-r
-            from-[#020817]/55
-            via-[#020817]/35
-            to-[#020817]/10
-          "
-        />
-
-        {/* LIGHT GLASS EFFECT */}
-        <div
-          className="
-            absolute
-            inset-0
-
-            bg-white/5
-          "
-        />
       </div>
 
-      {/* BLUE CINEMATIC GLOW */}
-      <div
-        className="
-          absolute
-          left-[18%]
-          top-1/2
+      {/* CONTENU */}
+      <div className="
+        relative
+        z-10
 
-         h-[260px]
-w-[260px]
+        mx-auto
 
-sm:h-[380px]
-sm:w-[380px]
+        flex
+        min-h-screen
+        max-w-[1400px]
+        items-center
+        justify-between
+        gap-16
 
-lg:h-[500px]
-lg:w-[500px]
+        px-8
+        lg:px-20
+      ">
 
-          -translate-y-1/2
+        {/* TEXTE */}
+        <div className="max-w-[520px]">
 
-          rounded-full
-
-          bg-blue-600/20
-
-          blur-[140px]
-        "
-      />
-
-      {/* BLUE RIGHT GLOW */}
-      <div
-        className="
-          absolute
-          right-[8%]
-          top-1/2
-
-          h-[180px]
-w-[180px]
-
-sm:h-[240px]
-sm:w-[240px]
-
-lg:h-[320px]
-lg:w-[320px]
-
-          -translate-y-1/2
-
-          rounded-full
-
-          bg-blue-500/15
-
-          blur-[120px]
-        "
-      />
-
-      {/* WAX LEFT */}
-      <div
-        className="
-          absolute
-          left-0
-          top-0
-
-          hidden
-          h-full
-          w-[130px]
-
-          overflow-hidden
-
-          lg:block
-        "
-      >
-        <img
-          src={waxPattern}
-          alt="Wax Congo"
-          className="
-            h-full
-            w-full
-
-            object-cover
-            object-center
-
-            opacity-100
-          "
-        />
-      </div>
-
-      {/* CONTENT */}
-      <div
-        className="
-          relative
-          z-10
-
-          mx-auto
-
-          flex
-          flex-col
-
-          min-h-[100svh]
-          lg:min-h-screen
-          max-w-[1400px]
-
-          justify-center
-
-          gap-16
-
-          px-6
-          pt-32
-          pb-16
-          lg:py-24
-
-          sm:px-10
-
-          lg:grid
-          lg:grid-cols-2
-          lg:items-center
-          lg:gap-20
-          lg:px-16
-        "
-      >
-        {/* LEFT */}
-        <div
-          className="
-            text-center
-
-            lg:text-left
-          "
-        >
           {/* BADGE */}
-          <div
-            className="
-              mb-8
+          <div className="
+            mb-6
 
-              inline-flex
-              items-center
-              gap-3
+            inline-flex
+            items-center
+            gap-2
 
-              rounded-full
+            rounded-full
 
-              border
-              border-white/30
+            border
+            border-blue-100
 
-              bg-white/14
+            bg-white/90
 
-              px-4
-py-2.5
-sm:px-6
-sm:py-3
+            px-4
+            py-1.5
 
-              backdrop-blur-2xl
+            shadow-sm
+            backdrop-blur-sm
+          ">
 
-              shadow-[0_8px_30px_rgba(0,0,0,0.25)]
-            "
-          >
-            <div className="h-3 w-3 rounded-full bg-green-500" />
+            <span className="h-2 w-2 rounded-full bg-green-500" />
 
-            <span
-              className="
-                text-sm
-                font-semibold
-
-                text-white
-              "
-            >
-              Taux en temps réel
+            <span className="
+              text-[10px]
+              font-bold
+              uppercase
+              text-blue-900
+            ">
+              {t.badge}
             </span>
+
           </div>
 
-          {/* TITLE */}
-          <h1
-            className="
-              mx-auto
+          {/* TITRE */}
+          <h1 className="
+            text-5xl
+            font-black
+            leading-[1.05]
+            tracking-tight
 
-              max-w-[620px]
+            text-slate-900
 
-              text-[38px]
-              font-extrabold
+            drop-shadow-[0_2px_10px_rgba(255,255,255,0.35)]
 
-              leading-[0.95]
-              tracking-[-3px]
-
-              text-white
-
-              drop-shadow-[0_8px_35px_rgba(0,0,0,0.35)]
-
-             sm:text-[52px]
-              md:text-6xl
-              lg:mx-0
-              lg:text-[68px]
-            "
-          >
-            Convertissez
-            <br />
-            vos devises avec
+            lg:text-7xl
+          ">
+            {t.title1}
             <br />
 
-            <span
-              className="
-                text-blue-500
+            {t.title2}
+            <br />
 
-                drop-shadow-[0_0_18px_rgba(37,99,235,0.45)]
-              "
-            >
-              élégance
+            <span className="text-blue-600">
+              {t.title3}
             </span>
+
           </h1>
 
           {/* DESCRIPTION */}
-          <p
-            className="
-              mx-auto
-              mt-8
+          <p className="
+            mt-8
+            max-w-md
 
-              max-w-xl
+            text-lg
+            leading-relaxed
 
-              text-base
-sm:text-lg
-              leading-8
-
-              text-white/75
-
-              lg:mx-0
-              lg:text-xl
-              lg:leading-9
-            "
-          >
-            La plateforme moderne de conversion pensée
-            pour la République Démocratique du Congo.
+            text-slate-700
+          ">
+            {t.description}
           </p>
 
           {/* BUTTON */}
-          <div
+          <button
+            type="button"
             className="
               mt-10
 
-              flex
+              rounded-2xl
 
-              justify-center
+              bg-blue-600
 
-              lg:justify-start
-            "
-          >
-            <button
-              type="button"
-              className="
-                group
+              px-8
+              py-4
 
-                relative
-                overflow-hidden
+              font-bold
+              text-white
 
-                rounded-2xl
+              shadow-[0_15px_40px_rgba(37,99,235,0.35)]
 
-                border
-                border-white/30
-
-                bg-white/22
-
-                px-6
-py-3.5
-
-sm:px-8
-sm:py-4
-
-                text-base
-                font-semibold
-
-                text-white/95
-
-                backdrop-blur-2xl
-
-                transition-all
-                duration-300
-
-                hover:-translate-y-1
-                hover:border-blue-400/40
-                hover:bg-white/25
-
-                hover:shadow-[0_10px_40px_rgba(37,99,235,0.25)]
-              "
-            >
-              {/* BUTTON GLOW */}
-              <div
-                className="
-                  absolute
-                  inset-0
-
-                  bg-gradient-to-r
-                  from-white/0
-                  via-white/10
-                  to-white/0
-
-                  opacity-0
-
-                  transition-opacity
-                  duration-500
-
-                  group-hover:opacity-100
-                "
-              />
-
-              <span
-                className="
-                  relative
-                  z-10
-
-                  flex
-                  items-center
-                  gap-3
-                "
-              >
-                Voir les taux
-
-                <span
-                  className="
-                    text-lg
-
-                    transition-transform
-                    duration-300
-
-                    group-hover:translate-x-1
-                  "
-                >
-                  →
-                </span>
-              </span>
-            </button>
-          </div>
-        </div>
-
-        {/* RIGHT */}
-        <div
-          className="
-            flex
-            justify-center
-
-            lg:justify-end
-          "
-        >
-          <div
-            className="
               transition-all
-              duration-500
+              duration-300
 
-              hover:-translate-y-2
+              hover:scale-105
+              hover:bg-blue-700
             "
           >
-            <ConverterCard />
-          </div>
+            {t.button}
+          </button>
+
         </div>
+
+        {/* CONVERTER */}
+        <div className="
+          flex
+          w-full
+          max-w-[620px]
+          justify-center
+        ">
+
+          <ConverterCard />
+
+        </div>
+
       </div>
     </section>
-  )
+  );
 }
 
-export default HeroSection
+export default HeroSection;

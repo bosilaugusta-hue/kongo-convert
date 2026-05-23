@@ -14,8 +14,8 @@ function FeaturesSection() {
         relative
         overflow-hidden
 
-        py-32
-        lg:py-40
+        py-24
+        lg:py-32
       "
     >
       {/* BACKGROUND IMAGE */}
@@ -35,37 +35,37 @@ function FeaturesSection() {
         }}
       />
 
-      {/* GLOBAL DARK OVERLAY */}
+      {/* LIGHT OVERLAY */}
       <div
         className="
           absolute
           inset-0
 
-          bg-[#041226]/22
+          bg-white/10
         "
       />
 
-      {/* LEFT CINEMATIC GRADIENT */}
+      {/* LEFT GRADIENT */}
       <div
         className="
           absolute
           inset-0
 
           bg-gradient-to-r
-          from-[#041226]/45
-          via-[#041226]/12
+          from-white/55
+          via-white/10
           to-transparent
         "
       />
 
-      {/* TOP LIGHT */}
+      {/* SOFT LIGHT */}
       <div
         className="
           absolute
           inset-0
 
           bg-gradient-to-b
-          from-white/5
+          from-white/10
           via-transparent
           to-transparent
         "
@@ -83,27 +83,9 @@ function FeaturesSection() {
 
           rounded-full
 
-          bg-blue-500/20
+          bg-blue-500/10
 
           blur-[120px]
-        "
-      />
-
-      {/* GOLD LIGHT */}
-      <div
-        className="
-          absolute
-          right-[-120px]
-          bottom-[-120px]
-
-          h-[320px]
-          w-[320px]
-
-          rounded-full
-
-          bg-yellow-400/10
-
-          blur-[100px]
         "
       />
 
@@ -119,146 +101,170 @@ function FeaturesSection() {
           px-6
         "
       >
-        {/* TOP CONTENT */}
+        {/* TOP SECTION */}
         <div
           className="
-            mx-auto
+            grid
+            items-center
+            gap-8
 
-            max-w-5xl
-
-            text-center
+            lg:grid-cols-2
           "
         >
-          {/* SMALL TITLE */}
-          <div className="mb-8 flex flex-col items-center">
-            <p
-              className="
-                text-sm
-                font-semibold
-                uppercase
-                tracking-[0.28em]
+          {/* LEFT CONTENT */}
+          <div>
+            {/* SMALL TITLE */}
+            <div className="mb-6">
+              <p
+                className="
+                  text-sm
+                  font-semibold
+                  uppercase
+                  tracking-[0.28em]
 
-                text-[#FFD84D]
+                  text-blue-600
+                "
+              >
+                Pourquoi KongoConvert ?
+              </p>
 
-                drop-shadow-[0_0_12px_rgba(255,216,77,0.35)]
-              "
-            >
-              Pourquoi KongoConvert ?
-            </p>
+              <div
+                className="
+                  mt-3
 
-            <div
-              className="
-                mt-3
+                  h-[3px]
+                  w-20
 
-                h-[3px]
-                w-24
+                  rounded-full
 
-                rounded-full
+                  bg-blue-600
+                "
+              />
+            </div>
 
-                bg-[#FFD84D]
-
-                shadow-[0_0_18px_rgba(255,216,77,0.45)]
-              "
-            />
-          </div>
-
-          {/* GLASS TEXT CONTAINER */}
-          <div
-            className="
-              inline-block
-
-              rounded-[34px]
-
-              bg-black/8
-
-              px-8
-              py-6
-
-              backdrop-blur-[4px]
-            "
-          >
             {/* MAIN TITLE */}
             <h2
               className="
-                text-5xl
+                max-w-[760px]
+
+                text-[52px]
                 font-black
-                leading-[0.92]
-                tracking-tight
+                leading-[0.95]
 
-                text-white
+                tracking-[-0.04em]
 
-                drop-shadow-[0_10px_35px_rgba(0,0,0,0.35)]
+                text-[#071133]
 
-                md:text-6xl
-                lg:text-7xl
+                md:text-[64px]
+                lg:text-[72px]
               "
             >
               Une expérience pensée
               <br />
-              pour la nouvelle génération
+              pour la{' '}
+              <span className="text-blue-600">
+                nouvelle génération
+              </span>
               <br />
               africaine
             </h2>
 
-            {/* DESCRIPTION */}
-            <p
+            {/* INFO BLOCK */}
+            <div
               className="
-                mx-auto
                 mt-10
 
-                max-w-3xl
+                flex
+                items-center
+                gap-4
 
-                text-lg
-                leading-[1.9]
+                rounded-[24px]
 
-                text-white/88
+                border
+                border-white/60
 
-                md:text-[22px]
+                bg-white/70
+
+                px-5
+                py-5
+
+                backdrop-blur-xl
+
+                shadow-[0_8px_30px_rgba(15,23,42,0.08)]
               "
             >
-              Une plateforme moderne inspirée des meilleures fintechs
-              mondiales, adaptée aux besoins de la RDC.
-            </p>
+              {/* ICON */}
+              <div
+                className="
+                  flex
+                  h-12
+                  w-12
+                  items-center
+                  justify-center
+
+                  rounded-full
+
+                  bg-white
+
+                  shadow-md
+                "
+              >
+                <span className="text-xl">🛡️</span>
+              </div>
+
+              {/* TEXT */}
+              <p
+                className="
+                  max-w-xl
+
+                  text-base
+                  font-medium
+                  leading-relaxed
+
+                  text-[#0F172A]
+                "
+              >
+                Une plateforme moderne inspirée des meilleures fintechs
+                mondiales, adaptée aux besoins de la RDC.
+              </p>
+            </div>
           </div>
+
+          {/* RIGHT SPACE */}
+          <div />
         </div>
 
         {/* CARDS */}
         <div
           className="
-            mx-auto
-            mt-20
+            mt-14
 
             grid
-            max-w-6xl
-gap-10
+            gap-6
 
             md:grid-cols-2
             xl:grid-cols-4
           "
         >
           <FeatureCard
-            number="01"
             icon={flashIcon}
             title="Rapide"
-            description="Des conversions instantanées avec des taux toujours à jour."
+            description="Des conversions instantanées avec les meilleurs taux toujours à jour."
           />
 
           <FeatureCard
-            number="02"
             icon={lockIcon}
             title="Sécurisé"
             description="Une plateforme fiable conçue pour protéger vos données."
           />
 
           <FeatureCard
-            number="03"
             icon={globeIcon}
             title="International"
             description="Suivez facilement les principales devises utilisées en RDC."
           />
 
           <FeatureCard
-            number="04"
             icon={phoneIcon}
             title="Mobile"
             description="Une expérience fluide et premium sur tous vos appareils."

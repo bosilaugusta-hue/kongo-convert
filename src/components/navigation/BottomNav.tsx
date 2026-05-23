@@ -1,14 +1,14 @@
-import {
-  BarChart3,
-  Home,
-  Repeat2,
-  User,
-} from "lucide-react"
+import { BarChart3, Home, User } from "lucide-react";
 
-function BottomNav() {
-  return (
-    <div
-      className="
+interface BottomNavProps {
+	activeTab: "accueil" | "taux" | "services" | "contact";
+	setActiveTab: (tab: "accueil" | "taux" | "services" | "contact") => void;
+}
+
+function BottomNav({ activeTab, setActiveTab }: BottomNavProps) {
+	return (
+		<div
+			className="
         fixed
         bottom-4
         left-1/2
@@ -21,7 +21,7 @@ function BottomNav() {
         -translate-x-1/2
 
         items-center
-        justify-between
+        justify-around
 
         rounded-[30px]
 
@@ -39,84 +39,44 @@ function BottomNav() {
 
         lg:hidden
       "
-    >
-      {/* HOME */}
-      <button
-        type="button"
-        className="
-          flex
-          flex-col
-          items-center
-          gap-1
+		>
+			{/* BOUTON ACCUEIL */}
+			<button
+				type="button"
+				onClick={() => setActiveTab("accueil")}
+				className={`flex flex-col items-center gap-1 ${
+					activeTab === "accueil" ? "text-blue-400" : "text-white/65"
+				}`}
+			>
+				<Home size={24} />
+				<span className="text-[11px] font-medium">Accueil</span>
+			</button>
 
-          text-blue-400
-        "
-      >
-        <Home size={24} />
+			{/* BOUTON TAUX */}
+			<button
+				type="button"
+				onClick={() => setActiveTab("taux")}
+				className={`flex flex-col items-center gap-1 ${
+					activeTab === "taux" ? "text-blue-400" : "text-white/65"
+				}`}
+			>
+				<BarChart3 size={24} />
+				<span className="text-[11px] font-medium">Taux</span>
+			</button>
 
-        <span className="text-[11px] font-medium">
-          Accueil
-        </span>
-      </button>
-
-      {/* CONVERT */}
-      <button
-        type="button"
-        className="
-          flex
-          flex-col
-          items-center
-          gap-1
-
-          text-white/65
-        "
-      >
-        <Repeat2 size={24} />
-
-        <span className="text-[11px] font-medium">
-          Convertir
-        </span>
-      </button>
-
-      {/* RATES */}
-      <button
-        type="button"
-        className="
-          flex
-          flex-col
-          items-center
-          gap-1
-
-          text-white/65
-        "
-      >
-        <BarChart3 size={24} />
-
-        <span className="text-[11px] font-medium">
-          Taux
-        </span>
-      </button>
-
-      {/* PROFILE */}
-      <button
-        type="button"
-        className="
-          flex
-          flex-col
-          items-center
-          gap-1
-
-          text-white/65
-        "
-      >
-        <User size={24} />
-
-        <span className="text-[11px] font-medium">
-          Profil
-        </span>
-      </button>
-    </div>
-  )
+			{/* BOUTON CONTACT */}
+			<button
+				type="button"
+				onClick={() => setActiveTab("contact")}
+				className={`flex flex-col items-center gap-1 ${
+					activeTab === "contact" ? "text-blue-400" : "text-white/65"
+				}`}
+			>
+				<User size={24} />
+				<span className="text-[11px] font-medium">Contact</span>
+			</button>
+		</div>
+	);
 }
 
-export default BottomNav
+export default BottomNav;

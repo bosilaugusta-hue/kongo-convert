@@ -1,42 +1,31 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 
-import { ChevronDown } from "lucide-react"
+import { ChevronDown } from "lucide-react";
 
-import { currencies } from "../../data/currencies"
+import { currencies } from "../../data/currencies";
 
 type Currency = {
-  code: string
-  name: string
-  flag: string
-  rate: number
-}
+  code: string;
+  name: string;
+  flag: string;
+  rate: number;
+};
 
 type CurrencySelectProps = {
-  selected: Currency
+  selected: Currency;
 
-  onSelect: (currencyCode: string) => void
-}
+  onSelect: (currencyCode: string) => void;
+};
 
 function CurrencySelect({
   selected,
   onSelect,
 }: CurrencySelectProps) {
-  /*
-   |------------------------------------------------------------------
-   | STATE
-   |------------------------------------------------------------------
-   */
 
-  const [isOpen, setIsOpen] = useState(false)
-
-  /*
-   |------------------------------------------------------------------
-   | CLOSE OUTSIDE
-   |------------------------------------------------------------------
-   */
+  const [isOpen, setIsOpen] = useState(false);
 
   const dropdownRef =
-    useRef<HTMLDivElement>(null)
+    useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(
@@ -48,27 +37,27 @@ function CurrencySelect({
           event.target as Node
         )
       ) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
     }
 
     document.addEventListener(
       "mousedown",
       handleClickOutside
-    )
+    );
 
     return () => {
       document.removeEventListener(
         "mousedown",
         handleClickOutside
-      )
-    }
-  }, [])
+      );
+    };
+  }, []);
 
   return (
     <div
       ref={dropdownRef}
-      className="relative"
+      className="relative w-full"
     >
       {/* SELECT BUTTON */}
 
@@ -77,79 +66,59 @@ function CurrencySelect({
         onClick={() => setIsOpen(!isOpen)}
         className="
           group
-
           flex
           w-full
           items-center
           justify-between
           gap-2
 
-sm:gap-4
+          rounded-[18px]
 
-          rounded-[20px]
+          bg-white
 
-sm:rounded-[28px]
+          px-3
+          py-2.5
 
-          border
-          border-white/15
-
-          bg-white/10
-
-         px-3
-py-2.5
-
-sm:px-5
-sm:py-4
-
-          backdrop-blur-2xl
+          shadow-[0_6px_20px_rgba(15,23,42,0.06)]
 
           transition-all
           duration-300
 
-          hover:bg-white/15
-          hover:border-white/25
+          hover:scale-[1.01]
         "
       >
         {/* LEFT */}
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2.5 min-w-0">
+
           <img
             src={selected.flag}
             alt={selected.code}
             className="
-              h-10
-w-10
+              h-9
+              w-9
 
-sm:h-12
-sm:w-12
-
-lg:h-14
-lg:w-14
+              flex-shrink-0
 
               rounded-full
 
-              border
-              border-white/10
-
               object-cover
 
-              shadow-lg
+              shadow-sm
             "
           />
 
-          <div className="text-left">
+          <div className="min-w-0 text-left">
+
             <p
               className="
+                truncate
+
                 text-sm
-
-sm:text-base
-
-lg:text-[18px]
-                font-black
-
+                font-bold
                 leading-none
 
-                text-white
+                text-[#0B132B]
               "
             >
               {selected.code}
@@ -157,19 +126,20 @@ lg:text-[18px]
 
             <p
               className="
-                mt-2
+                mt-1
 
-               text-[11px]
+                truncate
 
-sm:text-xs
+                text-[12px]
 
-lg:text-sm
+                leading-tight
 
-                text-white/65
+                text-[#7B849B]
               "
             >
               {selected.name}
             </p>
+
           </div>
         </div>
 
@@ -178,7 +148,9 @@ lg:text-sm
         <ChevronDown
           size={16}
           className={`
-            text-white/60
+            flex-shrink-0
+
+            text-[#7B849B]
 
             transition-all
             duration-300
@@ -199,7 +171,7 @@ lg:text-sm
           className="
             absolute
             left-0
-            top-[110%]
+            top-[108%]
 
             z-50
 
@@ -207,17 +179,14 @@ lg:text-sm
 
             overflow-hidden
 
-           rounded-[22px]
+            rounded-[20px]
 
-sm:rounded-[28px]
             border
-            border-white/10
+            border-[#E9EEF5]
 
-            bg-[#07111f]/95
+            bg-white
 
-            backdrop-blur-3xl
-
-            shadow-[0_20px_60px_rgba(0,0,0,0.45)]
+            shadow-[0_20px_50px_rgba(15,23,42,0.12)]
           "
         >
           {currencies.map((currency) => (
@@ -225,9 +194,9 @@ sm:rounded-[28px]
               key={currency.code}
               type="button"
               onClick={() => {
-                onSelect(currency.code)
+                onSelect(currency.code);
 
-                setIsOpen(false)
+                setIsOpen(false);
               }}
               className="
                 flex
@@ -236,18 +205,15 @@ sm:rounded-[28px]
                 gap-3
 
                 border-b
-                border-white/5
+                border-[#F1F5F9]
 
                 px-3
-py-3
-
-sm:px-5
-sm:py-4
+                py-3
 
                 transition-all
                 duration-200
 
-                hover:bg-white/10
+                hover:bg-[#F8FAFC]
               "
             >
               {/* FLAG */}
@@ -256,39 +222,25 @@ sm:py-4
                 src={currency.flag}
                 alt={currency.code}
                 className="
-                h-9
-w-9
-
-sm:h-11
-sm:w-11
-
-lg:h-12
-lg:w-12
+                  h-9
+                  w-9
 
                   rounded-full
-
-                  border
-                  border-white/10
                 "
               />
 
               {/* TEXT */}
 
-              <div className="text-left">
+              <div className="min-w-0 text-left">
+
                 <p
                   className="
-                    text-[11px]
+                    truncate
 
-sm:text-xs
-
-lg:text-sm
-
-sm:text-base
-
-lg:text-lg
+                    text-sm
                     font-bold
 
-                    text-white
+                    text-[#0B132B]
                   "
                 >
                   {currency.code}
@@ -296,20 +248,23 @@ lg:text-lg
 
                 <p
                   className="
-                    text-sm
+                    truncate
 
-                    text-white/60
+                    text-[12px]
+
+                    text-[#7B849B]
                   "
                 >
                   {currency.name}
                 </p>
+
               </div>
             </button>
           ))}
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default CurrencySelect
+export default CurrencySelect;

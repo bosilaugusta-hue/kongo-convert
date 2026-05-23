@@ -7,6 +7,7 @@ export default {
 
   theme: {
     extend: {
+      // 1. On garde tes superbes couleurs d'origine
       colors: {
         primary: "#2563FF",
         secondary: "#0F172A",
@@ -22,12 +23,31 @@ export default {
         cardBg: "#FFFFFF",
       },
 
+      // 2. On garde tes ombres premium
       boxShadow: {
         premium: "0 10px 40px rgba(0,0,0,0.08)",
       },
 
+      // 3. On garde tes arrondis premium
       borderRadius: {
         premium: "32px",
+      },
+
+      // 4. ON RAJOUTE LES ANIMATIONS SANS RIEN CASSER
+      animation: {
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'slide-up': 'slideUp 0.6s ease-out forwards',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
     },
   },
