@@ -6,6 +6,13 @@ import waxPattern from "../../assets/images/wax-pattern.png";
 
 import { translations } from "../../translations";
 
+import { motion } from "framer-motion";
+
+import {
+  fadeInUp,
+  floatingAnimation,
+} from "../../utils/animations";
+
 interface HeroSectionProps {
   langCode: "FR" | "EN" | "LN";
 }
@@ -13,110 +20,210 @@ interface HeroSectionProps {
 function HeroSection({
   langCode,
 }: HeroSectionProps) {
-
   const t = translations[langCode];
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden border border-black/10 bg-white">
+    <section
+      className="
+        relative
 
-      {/* WAX PATTERN BAS GAUCHE */}
-      <div className="absolute bottom-0 left-0 z-20 h-[420px] w-[90px] overflow-hidden rounded-tr-[30px] shadow-[5px_0_15px_rgba(0,0,0,0.1)] lg:h-[520px] lg:w-[110px]">
+        min-h-screen
+        w-full
+
+        overflow-hidden
+
+        border
+        border-black/10
+
+        bg-white
+      "
+    >
+      {/* WAX PATTERN */}
+     <div
+  className="
+    absolute
+    bottom-0
+    left-0
+
+    z-20
+
+    hidden
+
+    h-[280px]
+    w-[70px]
+
+    overflow-hidden
+
+    rounded-tr-[26px]
+
+    shadow-[5px_0_15px_rgba(0,0,0,0.1)]
+
+    sm:block
+    sm:h-[360px]
+    sm:w-[85px]
+
+    lg:h-[520px]
+    lg:w-[110px]
+  "
+>
         <div
-          className="h-full w-full bg-cover bg-center"
+          className="
+            h-full
+            w-full
+
+            bg-cover
+            bg-center
+          "
           style={{
             backgroundImage: `url(${waxPattern})`,
           }}
         />
       </div>
 
-      {/* IMAGE DE FOND */}
+      {/* BACKGROUND */}
       <div className="absolute inset-0 z-0">
-
         <img
           src={heroImage}
           alt="Kinshasa"
           className="
             h-full
             w-full
+
             object-cover
 
             brightness-[1.05]
             contrast-[1.08]
             saturate-[1.15]
+
+            scale-105
+
+            animate-[slowZoom_18s_ease-in-out_infinite_alternate]
           "
         />
 
+        {/* OVERLAY */}
+        <div
+          className="
+            absolute
+            inset-0
+
+            bg-white/30
+
+            backdrop-blur-[1px]
+          "
+        />
       </div>
 
-      {/* CONTENU */}
-      <div className="
-        relative
-        z-10
+      {/* CONTENT */}
+      <div
+        className="
+          relative
+          z-10
 
-        mx-auto
+          mx-auto
 
-        flex
-        min-h-screen
-        max-w-[1400px]
-        items-center
-        justify-between
-        gap-16
+          flex
+          flex-col
 
-        px-8
-        lg:px-20
-      ">
+          min-h-screen
+          max-w-[1400px]
 
+          items-center
+          justify-center
+
+          gap-10
+
+          px-5
+          pt-32
+          pb-24
+
+          sm:px-8
+          sm:pt-36
+
+          lg:flex-row
+          lg:items-center
+          lg:justify-between
+          lg:gap-16
+          lg:px-20
+          lg:pt-24
+          lg:pb-20
+        "
+      >
         {/* TEXTE */}
-        <div className="max-w-[520px]">
+        <div
+          className="
+            max-w-[560px]
 
+            text-center
+
+            lg:text-left
+          "
+        >
           {/* BADGE */}
-          <div className="
-            mb-6
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            className="
+              mb-5
 
-            inline-flex
-            items-center
-            gap-2
+              inline-flex
+              items-center
+              gap-2
 
-            rounded-full
+              rounded-full
 
-            border
-            border-blue-100
+              border
+              border-blue-100
 
-            bg-white/90
+              bg-white/90
 
-            px-4
-            py-1.5
+              px-4
+              py-1.5
 
-            shadow-sm
-            backdrop-blur-sm
-          ">
+              shadow-sm
 
+              backdrop-blur-sm
+            "
+          >
             <span className="h-2 w-2 rounded-full bg-green-500" />
 
-            <span className="
-              text-[10px]
-              font-bold
-              uppercase
-              text-blue-900
-            ">
+            <span
+              className="
+                text-[10px]
+                font-bold
+                uppercase
+
+                tracking-[0.15em]
+
+                text-blue-900
+              "
+            >
               {t.badge}
             </span>
+          </motion.div>
 
-          </div>
+          {/* TITLE */}
+          <motion.h1
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            className="
+              text-[44px]
+              font-black
 
-          {/* TITRE */}
-          <h1 className="
-            text-5xl
-            font-black
-            leading-[1.05]
-            tracking-tight
+              leading-[0.95]
+              tracking-[-0.04em]
 
-            text-slate-900
+              text-slate-900
 
-            drop-shadow-[0_2px_10px_rgba(255,255,255,0.35)]
+              drop-shadow-[0_2px_10px_rgba(255,255,255,0.35)]
 
-            lg:text-7xl
-          ">
+              sm:text-[58px]
+
+              lg:text-7xl
+            "
+          >
             {t.title1}
             <br />
 
@@ -126,35 +233,56 @@ function HeroSection({
             <span className="text-blue-600">
               {t.title3}
             </span>
-
-          </h1>
+          </motion.h1>
 
           {/* DESCRIPTION */}
-          <p className="
-            mt-8
-            max-w-md
+          <motion.p
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            transition={{
+              delay: 0.2,
+            }}
+            className="
+              mx-auto
+              mt-6
 
-            text-lg
-            leading-relaxed
+              max-w-md
 
-            text-slate-700
-          ">
+              text-[15px]
+              leading-relaxed
+
+              text-slate-700
+
+              sm:text-lg
+
+              lg:mx-0
+            "
+          >
             {t.description}
-          </p>
+          </motion.p>
 
           {/* BUTTON */}
-          <button
+          <motion.button
+            whileHover={{
+              scale: 1.05,
+              y: -3,
+            }}
+            whileTap={{
+              scale: 0.97,
+            }}
             type="button"
             className="
-              mt-10
+              mt-8
 
               rounded-2xl
 
               bg-blue-600
 
-              px-8
-              py-4
+              px-7
+              py-3.5
 
+              text-sm
               font-bold
               text-white
 
@@ -163,27 +291,40 @@ function HeroSection({
               transition-all
               duration-300
 
-              hover:scale-105
               hover:bg-blue-700
+
+              sm:px-8
+              sm:py-4
+              sm:text-base
             "
           >
             {t.button}
-          </button>
-
+          </motion.button>
         </div>
 
         {/* CONVERTER */}
-        <div className="
-          flex
-          w-full
-          max-w-[620px]
-          justify-center
-        ">
+        <motion.div
+          animate={floatingAnimation}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            flex
+            w-full
 
+            max-w-[360px]
+
+            justify-center
+
+            sm:max-w-[460px]
+
+            lg:max-w-[620px]
+          "
+        >
           <ConverterCard />
-
-        </div>
-
+        </motion.div>
       </div>
     </section>
   );

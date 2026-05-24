@@ -1,5 +1,10 @@
 import { motion } from 'framer-motion'
 
+import {
+  fadeInUp,
+  floatingAnimation,
+} from '../../utils/animations'
+
 type FeatureCardProps = {
   icon: string
   title: string
@@ -13,16 +18,18 @@ function FeatureCard({
 }: FeatureCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.6,
-        ease: 'easeOut',
-      }}
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
+
       whileHover={{
-        y: -6,
+        y: -10,
+        scale: 1.02,
       }}
+
+      transition={{ duration: 0.4 }}
+
       className="
         relative
 
@@ -65,7 +72,13 @@ function FeatureCard({
       {/* CONTENT */}
       <div className="relative z-10">
         {/* ICON */}
-        <div
+        <motion.div
+          animate={floatingAnimation}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
           className="
             flex
             h-14
@@ -93,7 +106,7 @@ function FeatureCard({
               object-contain
             "
           />
-        </div>
+        </motion.div>
 
         {/* TITLE */}
         <h3
