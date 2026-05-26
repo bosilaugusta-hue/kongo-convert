@@ -2,10 +2,13 @@ import usFlag from '../../assets/flags/us.png'
 import euFlag from '../../assets/flags/eu.png'
 import gbFlag from '../../assets/flags/gb.png'
 import aeFlag from '../../assets/flags/ae.png'
+import cnFlag from '../../assets/flags/cn.png'
+import zaFlag from '../../assets/flags/za.png'
 
 import {
   ArrowUpRight,
   ArrowDownRight,
+  TrendingUp,
 } from 'lucide-react'
 
 import palaisImage from '../../assets/images/PalaisDuPeuple-Kin.png'
@@ -14,6 +17,7 @@ function RatesSection() {
   const rates = [
     {
       currency: 'USD',
+      description: 'Très utilisé en RDC',
       value: '2 875,40',
       change: '+0.56%',
       positive: true,
@@ -21,6 +25,7 @@ function RatesSection() {
     },
     {
       currency: 'EUR',
+      description: 'Transactions européennes',
       value: '3 102,15',
       change: '+0.24%',
       positive: true,
@@ -28,13 +33,31 @@ function RatesSection() {
     },
     {
       currency: 'GBP',
+      description: 'Marchés internationaux',
       value: '3 540,22',
       change: '-0.18%',
       positive: false,
       flag: gbFlag,
     },
     {
+      currency: 'CNY',
+      description: 'Commerce Chine–Afrique',
+      value: '395,40',
+      change: '+0.12%',
+      positive: true,
+      flag: cnFlag,
+    },
+    {
+      currency: 'ZAR',
+      description: 'Afrique australe',
+      value: '157,80',
+      change: '+0.18%',
+      positive: true,
+      flag: zaFlag,
+    },
+    {
       currency: 'AED',
+      description: 'Import & business à Dubaï',
       value: '782,12',
       change: '+0.42%',
       positive: true,
@@ -47,71 +70,61 @@ function RatesSection() {
       className="
         relative
         overflow-hidden
-
-        border
-        border-black/10
-
-        py-32
-        lg:py-40
+        py-24
+        w-full
+        min-h-screen
+        flex
+        flex-col
+        justify-center
       "
     >
-      {/* BACKGROUND IMAGE */}
-      <div
-       className="
-  absolute
-  inset-0
-
-  scale-[1.03]
-
-  brightness-110
-  saturate-150
-  contrast-110
-
-  bg-cover
-  bg-center
-  bg-no-repeat
-"
-        style={{
-          backgroundImage: `url(${palaisImage})`,
-        }}
-      />
+      {/* BACKGROUND IMAGE CONTAINER - Correction définitive de la bande noire */}
+      <div className="absolute inset-0 w-full h-full min-h-full pointer-events-none z-0">
+        <img 
+          src={palaisImage} 
+          alt="Palais du Peuple Kinshasa" 
+          className="w-full h-full min-h-full object-cover object-center brightness-100 contrast-100 saturate-125"
+        />
+      </div>
 
       {/* LIGHT OVERLAY */}
-<div
-  className="
-    absolute
-    inset-0
+      <div className="absolute inset-0 bg-white/15 z-1" />
 
-    bg-gradient-to-r
-    from-black/20
-    via-black/5
-    to-transparent
-  "
-/>
+      {/* VIGNETTE GRADIENT */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-b
+          from-white/30
+          via-transparent
+          to-transparent
+          z-1
+        "
+      />
 
       {/* CONTENT */}
       <div
         className="
           relative
           z-10
-
+          
           mx-auto
-          max-w-7xl
-
+          max-w-[1180px]
           px-6
+          w-full
         "
       >
         {/* HEADER */}
         <div className="max-w-3xl">
-          <div className="mb-6">
+          <div className="mb-5">
             <p
               className="
                 text-sm
                 font-semibold
                 uppercase
                 tracking-[0.28em]
-
-                text-[#2563ff]
+                text-[#2563FF]
               "
             >
               Marché des devises
@@ -125,70 +138,69 @@ function RatesSection() {
                 w-24
 
                 rounded-full
-
-                bg-[#2563ff]
+                bg-[#2563FF]
               "
             />
           </div>
 
           <h2
             className="
-              text-5xl
+              text-[48px]
               font-black
               leading-[0.95]
               tracking-tight
-
-              text-[#0B132B]
-
-              md:text-7xl
+              text-[#071133]
+              md:text-[64px]
             "
           >
             Les taux les plus
             <br />
-            suivis en RDC
+            suivis <span className="text-[#2563FF]">en RDC</span>
           </h2>
 
-          <p
-  className="
-    mt-6
-    max-w-2xl
+          {/* DESCRIPTION */}
+          <div
+            className="
+              mt-7
+              max-w-2xl
+              rounded-[24px]
+              border
+              border-white/60
+              bg-white/75
+              p-4
+              backdrop-blur-md
+              shadow-[0_20px_60px_rgba(15,23,42,0.10)]
+              flex
+              items-center
+              gap-4
+            "
+          >
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#EBF1FF]">
+              <TrendingUp size={22} className="text-[#2563FF]" />
+            </div>
 
-    text-lg
-    leading-relaxed
-    font-medium
-
-    text-[#0F172A]
-
-    bg-white/35
-    backdrop-blur-md
-
-    px-6
-    py-4
-
-    rounded-2xl
-
-    border
-    border-white/40
-
-    shadow-[0_10px_40px_rgba(15,23,42,0.08)]
-  "
->
-            Suivez les fluctuations des principales
-            devises utilisées en République
-            Démocratique du Congo.
-          </p>
+            <p
+              className="
+                text-[16px]
+                leading-snug
+                font-medium
+                text-[#334155]
+              "
+            >
+              Suivez les fluctuations des principales devises utilisées en République Démocratique du Congo.
+            </p>
+          </div>
         </div>
 
-        {/* CARDS */}
+        {/* CARDS GRID */}
         <div
           className="
-            mt-20
-
+            mt-14
             grid
-            gap-8
-
+            gap-6
             md:grid-cols-2
-            xl:grid-cols-4
+            xl:grid-cols-3
+            lg:gap-8
           "
         >
           {rates.map((rate) => (
@@ -198,184 +210,144 @@ function RatesSection() {
                 relative
 
                 overflow-hidden
-
-                rounded-[36px]
-
+                min-h-[250px]
+                rounded-[24px]
                 border
-                border-white/40
-
-                bg-white/35
-
-                backdrop-blur-xl
-
-                p-7
-
-                shadow-[0_20px_60px_rgba(15,23,42,0.15)]
-
+                border-white/60
+                bg-white/70
+                backdrop-blur-md
+                p-6
+                shadow-[0_20px_60px_rgba(15,23,42,0.12)]
                 transition-all
-                duration-500
-
-                hover:-translate-y-2
-                hover:scale-[1.02]
+                duration-300
+                hover:-translate-y-1
+                flex
+                flex-col
+                justify-between
               "
             >
-              {/* GLASS LIGHT */}
+              {/* LIGHT EFFECT */}
               <div
                 className="
                   absolute
                   inset-0
 
                   bg-gradient-to-b
-                  from-white/20
+                  from-white/30
                   via-transparent
                   to-transparent
                 "
               />
 
-              {/* INNER BORDER */}
-              <div
-                className="
-                  absolute
-                  inset-0
-
-                  rounded-[36px]
-
-                  border
-                  border-white/20
-                "
-              />
-
-              {/* TOP */}
-              <div
-                className="
-                  relative
-                  z-10
-
-                  flex
-                  items-start
-                  justify-between
-                "
-              >
-                <div>
-                  {/* FLAG + LABEL */}
+              {/* TOP CONTENT */}
+              <div className="relative z-10">
+                <div className="flex items-start justify-between">
+                  {/* LEFT INFO */}
                   <div className="flex items-center gap-4">
+                    {/* FLAG */}
                     <div
                       className="
                         flex
-                        h-14
-                        w-14
+                        h-16
+                        w-16
+                        shrink-0
                         items-center
                         justify-center
 
                         rounded-full
-
+                        bg-white
                         border
-                        border-white/40
-
-                        bg-white/30
-
-                        backdrop-blur-md
+                        border-slate-100
+                        shadow-sm
+                        p-1
                       "
                     >
                       <img
                         src={rate.flag}
                         alt={rate.currency}
                         className="
-                          h-9
-                          w-9
-
+                          h-11
+                          w-11
                           rounded-full
-                          object-cover
+                          object-contain
                         "
                       />
                     </div>
 
-                    <div>
-                      <p
-                        className="
-                          text-sm
-                          font-medium
-
-                          text-slate-500
-                        "
-                      >
+                    {/* TEXT */}
+                    <div className="flex flex-col justify-center">
+                      <p className="text-[11px] uppercase tracking-wider font-semibold text-slate-400">
                         Devise
                       </p>
-
-                      <p
-                        className="
-                          text-2xl
-                          font-bold
-
-                          text-[#0B132B]
-                        "
-                      >
+                      <h3 className="text-[20px] font-bold text-[#071133] leading-tight">
                         {rate.currency}
+                      </h3>
+                      <p className="text-[13px] font-medium text-slate-500 mt-0.5">
+                        {rate.description}
                       </p>
                     </div>
                   </div>
 
-                  {/* VALUE */}
-                  <h3
-                    className="
-                      mt-10
-
-                      text-[34px]
-                      font-extrabold
-
-                      leading-none
-                      tracking-tight
-
-                      text-[#0B132B]
-                    "
+                  {/* TOP RIGHT ICON */}
+                  <div
+                    className={`
+                      flex
+                      h-11
+                      w-11
+                      items-center
+                      justify-center
+                      rounded-2xl
+                      border
+                      ${
+                        rate.positive
+                          ? 'border-green-200 bg-white/90 text-green-500'
+                          : 'border-red-200 bg-white/90 text-red-500'
+                      }
+                    `}
                   >
-                    {rate.value}
-                  </h3>
-
-                  <p
-                    className="
-                      mt-2
-
-                      text-sm
-
-                      text-slate-500
-                    "
-                  >
-                    CDF
-                  </p>
+                    {rate.positive ? (
+                      <ArrowUpRight size={18} />
+                    ) : (
+                      <ArrowDownRight size={18} />
+                    )}
+                  </div>
                 </div>
 
-                {/* ICON */}
-                <div
-                  className={`
-                    flex
-                    h-14
-                    w-14
-                    items-center
-                    justify-center
-
-                    rounded-2xl
-
-                    border
-
-                    backdrop-blur-md
-
-                    ${
-                      rate.positive
-                        ? 'border-green-400/30 bg-green-400/10 text-green-500'
-                        : 'border-red-400/30 bg-red-400/10 text-red-500'
-                    }
-                  `}
-                >
-                  {rate.positive ? (
-                    <ArrowUpRight size={22} />
-                  ) : (
-                    <ArrowDownRight size={22} />
-                  )}
+                {/* VALUE */}
+                <div className="mt-6 pl-1">
+                  <p className="text-[22px] font-black tracking-tight text-[#071133]">
+                    {rate.value}
+                    <span className="ml-2 text-[15px] font-bold text-slate-400">
+                      CDF
+                    </span>
+                  </p>
                 </div>
               </div>
 
-              {/* BOTTOM */}
+              {/* MIDDLE GRAPH */}
+              <div className="absolute inset-x-0 bottom-14 h-16 z-0 px-1 pointer-events-none">
+                <svg
+                  viewBox="0 0 300 100"
+                  className="h-full w-full"
+                  fill="none"
+                  preserveAspectRatio="none"
+                >
+                  <title>Graphique variation devise</title>
+                  <path
+                    d={
+                      rate.positive
+                        ? 'M0 75 C40 55, 70 85, 120 45 C170 10, 210 65, 250 35 C275 20, 285 40, 300 20'
+                        : 'M0 25 C40 45, 70 15, 120 55 C170 90, 210 35, 250 65 C275 80, 285 60, 300 80'
+                    }
+                    stroke={rate.positive ? '#22C55E' : '#EF4444'}
+                    strokeWidth="2.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              {/* BOTTOM METRICS */}
               <div
                 className="
                   relative
@@ -386,83 +358,30 @@ function RatesSection() {
                   flex
                   items-center
                   justify-between
+                  border-t border-slate-200/60
+                  pt-3
                 "
               >
                 <p
                   className={`
-                    text-xl
+                    text-[15px]
                     font-bold
-
-                    ${
-                      rate.positive
-                        ? 'text-green-500'
-                        : 'text-red-500'
-                    }
+                    flex
+                    items-center
+                    gap-1
+                    ${rate.positive ? 'text-[#22C55E]' : 'text-[#EF4444]'}
                   `}
                 >
                   {rate.change}
+                  <span className="text-[12px]">{rate.positive ? '▲' : '▼'}</span>
                 </p>
 
-                <p
-                  className="
-                    text-sm
-
-                    text-slate-500
-                  "
-                >
+                <p className="text-[13px] font-medium text-slate-400">
                   Aujourd'hui
                 </p>
               </div>
 
-              {/* GRAPH */}
-              <div
-                className="
-                  relative
-                  z-10
 
-                  mt-8
-
-                  h-28
-
-                  overflow-hidden
-
-                  rounded-[24px]
-
-                  border
-                  border-white/40
-
-                  bg-white/30
-
-                  backdrop-blur-sm
-
-                  p-2
-                "
-              >
-                <svg
-                  viewBox="0 0 300 80"
-                  className="h-full w-full"
-                  fill="none"
-                >
-                  <title>
-                    Graphique variation devise
-                  </title>
-
-                  <path
-                    d={
-                      rate.positive
-                        ? 'M0 60 C40 40, 80 50, 120 30 C160 10, 200 40, 240 20 C260 10, 280 15, 300 5'
-                        : 'M0 20 C40 30, 80 10, 120 40 C160 60, 200 30, 240 50 C260 60, 280 55, 300 70'
-                    }
-                    stroke={
-                      rate.positive
-                        ? '#22c55e'
-                        : '#ef4444'
-                    }
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
             </div>
           ))}
         </div>

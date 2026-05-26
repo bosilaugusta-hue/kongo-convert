@@ -24,20 +24,16 @@ function HeroSection({
 
   return (
     <section
-      className="
-        relative
-
-        min-h-screen
-        w-full
-
-        overflow-hidden
-
-        border
-        border-black/10
-
-        bg-white
-      "
-    >
+  className="
+    relative
+    min-h-screen
+    w-full
+    overflow-hidden
+    border
+    border-black/10
+    bg-white
+  "
+>
       {/* WAX PATTERN */}
      <div
   className="
@@ -80,39 +76,21 @@ function HeroSection({
         />
       </div>
 
-      {/* BACKGROUND */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Kinshasa"
-          className="
-            h-full
-            w-full
-
-            object-cover
-
-            brightness-[1.05]
-            contrast-[1.08]
-            saturate-[1.15]
-
-            scale-105
-
-            animate-[slowZoom_18s_ease-in-out_infinite_alternate]
-          "
-        />
-
-        {/* OVERLAY */}
-        <div
-          className="
-            absolute
-            inset-0
-
-            bg-white/30
-
-            backdrop-blur-[1px]
-          "
-        />
-      </div>
+     {/* BACKGROUND */}
+<div className="absolute inset-0 z-0">
+  <img
+    src={heroImage}
+    alt="Kinshasa"
+    className="
+      h-full
+      w-full
+      object-cover
+      brightness-[1.05]
+      contrast-[1.08]
+      saturate-[1.25]  {/* Augmente les couleurs vibrantes */}
+    "
+  />
+</div>
 
       {/* CONTENT */}
       <div

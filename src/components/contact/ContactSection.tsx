@@ -8,45 +8,55 @@ function ContactSection() {
   const [messageLength, setMessageLength] = useState(0);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-10 lg:px-16 overflow-hidden bg-white">
+    <section className="relative w-full min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-10 lg:px-16 overflow-hidden">
       
       {/* 1. COMPOSITE D'ARRIÈRE-PLAN */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none select-none">
-        
-        {/* La photo du Boulevard */}
         <img
           src={boulevardImg}
           alt="Kinshasa Background"
-          className="w-full h-full object-cover object-center brightness-[1.05] contrast-[1.05] saturate-[1.1]"
+          className="w-full h-full object-cover object-center brightness-100 contrast-100 saturate-125 scale-[1.01]"
         />
+      </div>
 
-       {/* LE BANDEAU WAX EN HAUT À DROITE MODERNE ET COMPLÈTEMENT ARRONDI */}
-<div className="absolute top-0 right-0 z-20 h-[220px] w-[90px] lg:h-[260px] lg:w-[110px] overflow-hidden rounded-bl-[30px] shadow-[-5px_0_15px_rgba(0,0,0,0.1)]">
+      {/* LIGHT OVERLAY */}
+      <div className="absolute inset-0 bg-white/15 z-1" />
+
+      {/* VIGNETTE GRADIENT */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-transparent z-1" />
+
+     {/* LE BANDEAU WAX EN HAUT À DROITE */}
+<div className="absolute top-0 right-0 z-20 h-[400px] w-[90px] lg:h-[500px] lg:w-[110px] overflow-hidden rounded-bl-[30px] shadow-[-5px_0_15px_rgba(0,0,0,0.1)]">
   <div
     className="h-full w-full bg-cover bg-center"
     style={{ backgroundImage: `url(${waxPattern})` }}
   />
 </div>
 
-      </div>
-
       {/* CONTAINER DU CONTENU EN GRILLE */}
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:pt-6">
         
         {/* COLONNE GAUCHE (Textes & Bouton LinkedIn) */}
         <div className="lg:col-span-5 text-left flex flex-col justify-center animate-slide-up">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 mb-3 block">
-            Contactez-moi
-          </span>
+          {/* SMALL TITLE HARMONISÉ */}
+          <div className="mb-5">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-blue-600">
+              Contactez-moi
+            </p>
+            <div className="mt-3 h-[3px] w-24 rounded-full bg-blue-600" />
+          </div>
           
-          <h2 className="text-[36px] sm:text-[46px] font-black leading-[1.1] text-slate-900 tracking-tight mb-6 drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">
+          <h2 className="text-[36px] sm:text-[46px] font-black leading-[1.1] text-[#071133] tracking-tight mb-6">
             Un projet ou <br />
             une <span className="text-blue-600 relative inline-block">question ?</span>
           </h2>
           
-          <p className="text-sm sm:text-base leading-relaxed text-slate-800 font-medium max-w-md mb-10 drop-shadow-[0_1px_4px_rgba(255,255,255,0.8)]">
-            Je suis à votre écoute pour toute demande d'information, partenariat ou collaboration. Je vous répondrai avec plaisir.
-          </p>
+          {/* TEXTE DESCRIPTION  */}
+          <div className="mb-10 max-w-md rounded-[20px] border border-white/60 bg-white/65 p-4 backdrop-blur-md shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
+            <p className="text-sm sm:text-[15px] leading-relaxed text-slate-700 font-semibold">
+              Je suis à votre écoute pour toute demande d'information, partenariat ou collaboration. Je vous répondrai avec plaisir.
+            </p>
+          </div>
 
           {/* LE BOUTON LINKEDIN */}
           <a
@@ -75,7 +85,7 @@ function ContactSection() {
 
         {/* COLONNE DROITE : LE FORMULAIRE */}
         <div className="lg:col-span-7 w-full flex justify-center lg:justify-end animate-fade-in">
-          <div className="w-full max-w-[620px] bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-10 border border-white/60 shadow-[0_20px_50px_rgba(15,23,42,0.06)]">
+          <div className="w-full max-w-[620px] bg-white/80 backdrop-blur-md rounded-[32px] p-6 sm:p-10 border border-white/60 shadow-[0_20px_60px_rgba(15,23,42,0.10)]">
             
             <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-8">
               Envoyez-<span className="text-blue-600">moi</span> un message
