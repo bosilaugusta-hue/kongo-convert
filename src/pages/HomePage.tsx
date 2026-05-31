@@ -1,17 +1,17 @@
-import { useState } from "react"
+import { useState } from "react";
 
-import { CalculatorWidget } from "../components/calculator/CalculatorWidget"
-import FeaturesSection from "../components/features/FeaturesSection"
-import HeroSection from "../components/hero/HeroSection"
-import Navbar from "../components/navbar/Navbar"
-import RatesSection from "../components/rates/RatesSection"
+import CalculatorWidget from "../components/calculator/CalculatorWidget";
+import FeaturesSection from "../components/features/FeaturesSection";
+import HeroSection from "../components/hero/HeroSection";
+import Navbar from "../components/navbar/Navbar";
+import RatesSection from "../components/rates/RatesSection";
 
 function HomePage() {
   const [activeTab, setActiveTab] = useState<
     "accueil" | "taux" | "services" | "contact"
-  >("accueil")
+  >("accueil");
 
-  const [langCode, setLangCode] = useState<"FR" | "EN" | "LN">("FR")
+  const [langCode, setLangCode] = useState<"FR" | "EN" | "LN">("FR");
 
   return (
     <main
@@ -46,13 +46,14 @@ function HomePage() {
         )}
 
         {activeTab === "taux" && <RatesSection />}
+
         {activeTab === "services" && <FeaturesSection />}
       </div>
+      
 
-      {/* 🚀 REMETS LA CALCULATRICE ICI JUSTE AVANT LA FIN DE MAIN */}
       <CalculatorWidget />
     </main>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;

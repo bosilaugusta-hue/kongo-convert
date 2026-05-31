@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { User, Mail, MessageSquare, FileText, Send, ShieldCheck } from "lucide-react";
+import { FileText, Mail, MessageSquare, Send, ShieldCheck, User } from "lucide-react";
 
 import boulevardImg from "../../assets/images/Boulevard_FleuveKinshasa.png";
 import waxPattern from "../../assets/images/wax-pattern.png";
@@ -25,13 +25,13 @@ function ContactSection() {
       {/* VIGNETTE GRADIENT */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-transparent z-1" />
 
-     {/* LE BANDEAU WAX EN HAUT À DROITE */}
-<div className="absolute top-0 right-0 z-20 h-[400px] w-[90px] lg:h-[500px] lg:w-[110px] overflow-hidden rounded-bl-[30px] shadow-[-5px_0_15px_rgba(0,0,0,0.1)]">
-  <div
-    className="h-full w-full bg-cover bg-center"
-    style={{ backgroundImage: `url(${waxPattern})` }}
-  />
-</div>
+      {/* LE BANDEAU WAX EN HAUT À DROITE */}
+      <div className="absolute top-0 right-0 z-20 h-[400px] w-[90px] lg:h-[500px] lg:w-[110px] overflow-hidden rounded-bl-[30px] shadow-[-5px_0_15px_rgba(0,0,0,0.1)]">
+        <div
+          className="h-full w-full bg-cover bg-center"
+          style={{ backgroundImage: `url(${waxPattern})` }}
+        />
+      </div>
 
       {/* CONTAINER DU CONTENU EN GRILLE */}
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:pt-6">
@@ -51,9 +51,9 @@ function ContactSection() {
             une <span className="text-blue-600 relative inline-block">question ?</span>
           </h2>
           
-          {/* TEXTE DESCRIPTION  */}
-          <div className="mb-10 max-w-md rounded-[20px] border border-white/60 bg-white/65 p-4 backdrop-blur-md shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
-            <p className="text-sm sm:text-[15px] leading-relaxed text-slate-700 font-semibold">
+          {/* TEXTE DESCRIPTION - AJUSTÉ POUR ÊTRE AUSSI VISIBLE QUE L'ACCUEIL */}
+          <div className="mb-10 max-w-md rounded-[20px] border border-white bg-white/95 p-5 shadow-[0_12px_40px_rgba(0,0,0,0.12)] backdrop-blur-md">
+            <p className="text-sm sm:text-[15px] leading-relaxed text-slate-900 font-medium">
               Je suis à votre écoute pour toute demande d'information, partenariat ou collaboration. Je vous répondrai avec plaisir.
             </p>
           </div>
@@ -69,6 +69,7 @@ function ContactSection() {
             <div className="flex items-center gap-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white duration-300">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <title>LinkedIn</title>
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </div>

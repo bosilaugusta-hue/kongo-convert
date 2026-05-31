@@ -82,25 +82,42 @@ function HeroContent() {
       </h1>
 
       {/* Description */}
-      <p
-        className="
-          mt-10
+<div
+  className="
+    mt-8
 
-          max-w-[540px]
+    max-w-[560px]
 
-          text-base
-          leading-relaxed
+    rounded-3xl
 
-          text-gray-200
+    bg-white/95
 
-          drop-shadow-[0_4px_20px_rgba(0,0,0,0.25)]
+    p-6
 
-          lg:text-lg
-        "
-      >
-        La plateforme moderne de conversion pensée pour la
-        République Démocratique du Congo.
-      </p>
+    shadow-[0_15px_40px_rgba(0,0,0,0.12)]
+
+    backdrop-blur-md
+  "
+>
+  <p
+    className="
+      text-lg
+
+      leading-9
+
+      font-medium
+
+      text-slate-800
+    "
+  >
+    La plateforme moderne de conversion pensée pour la
+
+    <span className="font-bold text-blue-600">
+      {" "}
+      République Démocratique du Congo.
+    </span>
+  </p>
+</div>
 
       {/* Buttons */}
       <div

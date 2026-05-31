@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import { 
-  Zap, 
-  ShieldCheck, 
   Globe2, 
+  ShieldCheck, 
   Smartphone, 
-  Sparkles 
+  Sparkles, 
+  Zap 
 } from 'lucide-react'
 
 import mausoleeImage from '../../assets/images/Mausolee-LaurentDesireKabila_Kinshasa.png'
@@ -41,7 +41,6 @@ function FeaturesSection() {
     },
   ]
 
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -51,7 +50,6 @@ function FeaturesSection() {
       },
     },
   }
-
 
   const cardVariants = {
     hidden: { 
@@ -74,7 +72,6 @@ function FeaturesSection() {
       className="
         relative
         overflow-hidden
-
         py-24
         w-full
         min-h-screen
@@ -100,7 +97,6 @@ function FeaturesSection() {
         className="
           absolute
           inset-0
-
           bg-gradient-to-b
           from-white/30
           via-transparent
@@ -114,10 +110,8 @@ function FeaturesSection() {
         className="
           relative
           z-10
-
           mx-auto
           max-w-7xl
-
           px-6
           w-full
         "
@@ -175,7 +169,7 @@ function FeaturesSection() {
             <span className="text-blue-600">nouvelle génération</span> africaine
           </h2>
 
-          {/* INFO BLOCK / BANNER */}
+          {/* INFO BLOCK / BANNER RENDU PLUS VISIBLE (Même style que l'accueil) */}
           <div
             className="
               mt-8
@@ -185,11 +179,11 @@ function FeaturesSection() {
               gap-4
               rounded-[24px]
               border
-              border-white/60
-              bg-white/75
-              p-4
+              border-white
+              bg-white/95
+              p-5
               backdrop-blur-xl
-              shadow-[0_20px_50px_rgba(15,23,42,0.06)]
+              shadow-[0_12px_40px_rgba(15,23,42,0.12)]
             "
           >
             <motion.div 
@@ -205,7 +199,7 @@ function FeaturesSection() {
                 text-[15px]
                 leading-snug
                 font-medium
-                text-[#334155]
+                text-slate-900
               "
             >
               Une plateforme moderne inspirée des meilleures fintechs
@@ -218,10 +212,8 @@ function FeaturesSection() {
         <motion.div
           className="
             mt-14
-
             grid
             gap-6
-
             md:grid-cols-2
             xl:grid-cols-4
             lg:gap-8
@@ -239,7 +231,7 @@ function FeaturesSection() {
                 variants={cardVariants}
                 whileHover={{ 
                   y: -8, 
-                  boxShadow: "0 30px 60px rgba(37, 99, 255, 0.15)",
+                  boxShadow: "0 30px 60px rgba(37, 99, 255, 0.18)",
                   transition: { type: "spring", stiffness: 400, damping: 10 }
                 }}
                 className="
@@ -248,11 +240,11 @@ function FeaturesSection() {
                   min-h-[260px]
                   rounded-[24px]
                   border
-                  border-white/60
-                  bg-white/75
+                  border-white
+                  bg-white/95
                   backdrop-blur-md
                   p-6
-                  shadow-[0_20px_60px_rgba(15,23,42,0.10)]
+                  shadow-[0_15px_45px_rgba(15,23,42,0.12)]
                   flex
                   flex-col
                   justify-between
@@ -282,7 +274,6 @@ function FeaturesSection() {
                         p-1
                       "
                     >
-                      {/* Simplification ici : injection directe de item.color pour éviter le bug visuel */}
                       <motion.div 
                         className={`flex h-11 w-11 items-center justify-center rounded-full ${item.color}`}
                         whileHover={{ scale: 1.12, rotate: 10 }}
@@ -292,15 +283,15 @@ function FeaturesSection() {
                     </div>
                   </div>
 
-                  {/* CARD TEXTS */}
+                  {/* CARD TEXTS RENDUS TRÈS LISIBLES */}
                   <div className="mt-6 pl-1">
-                    <p className="text-[11px] uppercase tracking-wider font-semibold text-slate-400">
+                    <p className="text-[11px] uppercase tracking-wider font-bold text-slate-400">
                       {item.subtitle}
                     </p>
                     <h3 className="text-[21px] font-black tracking-tight text-[#071133] mt-0.5 leading-tight">
                       {item.title}
                     </h3>
-                    <p className="text-[14px] font-medium text-slate-600 mt-2.5 leading-relaxed">
+                    <p className="text-[14px] font-medium text-slate-900 mt-2.5 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

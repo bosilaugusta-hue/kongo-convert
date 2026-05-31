@@ -6,47 +6,48 @@ import HeroSection from "./components/hero/HeroSection";
 import Navbar from "./components/navbar/Navbar";
 import BottomNav from "./components/navigation/BottomNav";
 import RatesSection from "./components/rates/RatesSection";
+import CalculatorWidget from "./components/calculator/CalculatorWidget";
+import Footer from "./components/footer/Footer"; // ✅ AJOUT
 
 function App() {
-	const [darkMode, setDarkMode] = useState(false);
-	const [activeTab, setActiveTab] = useState<"accueil" | "taux" | "services" | "contact">("accueil");
-	const [langCode, setLangCode] = useState<"FR" | "EN" | "LN">("FR");
+  const [darkMode, setDarkMode] = useState(false);
+  const [activeTab, setActiveTab] = useState<"accueil" | "taux" | "services" | "contact">("accueil");
+  const [langCode, setLangCode] = useState<"FR" | "EN" | "LN">("FR");
 
-	return (
-		<div className={darkMode ? "dark" : ""}>
-			<div className="min-h-screen w-full bg-[#020817] text-white flex flex-col relative overflow-x-hidden">
-				
-				{/* LA NAVBAR FLOATING */}
-				<div className="absolute top-4 left-0 right-0 w-full max-w-7xl mx-auto px-4 sm:px-6 z-50">
-					<Navbar
-						darkMode={darkMode}
-						setDarkMode={setDarkMode}
-						activeTab={activeTab}
-						setActiveTab={setActiveTab}
-						langCode={langCode}
-						setLangCode={setLangCode}
-					/>
-				</div>
+  return (
+    <div className={darkMode ? "dark" : ""}>
+      <div className="min-h-screen w-full bg-[#020817] text-white flex flex-col relative overflow-x-hidden">
 
-				{/* CORPS DE PAGE */}
-				<main className="w-full flex-1 flex flex-col justify-start">
-					{activeTab === "accueil" && (
-						<HeroSection langCode={langCode} />
-					)}
+        {/* NAVBAR */}
+        <div className="absolute top-4 left-0 right-0 w-full max-w-7xl mx-auto px-4 sm:px-6 z-50">
+          <Navbar
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            langCode={langCode}
+            setLangCode={setLangCode}
+          />
 
-					{activeTab !== "accueil" && (
-						<div className="w-full flex-1">
-							{activeTab === "taux" && <RatesSection />}
-							{activeTab === "services" && <FeaturesSection />}
-							{activeTab === "contact" && <ContactSection />}
-						</div>
-					)}
-				</main>
+        </div>
 
-				<BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
-			</div>
-		</div>
-	);
+        {/* CORPS */}
+        <main className="w-full flex-1 flex flex-col justify-start">
+          {activeTab === "accueil" && <HeroSection langCode={langCode} />}
+          {activeTab === "taux" && <RatesSection />}
+          {activeTab === "services" && <FeaturesSection />}
+          {activeTab === "contact" && <ContactSection />}
+        </main>
+
+        {/* ✅ FOOTER */}
+        <Footer langCode={langCode} setActiveTab={setActiveTab} />
+        <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
+        <CalculatorWidget />
+      </div>
+    </div>
+
+  );
+
 }
 
-export default App;
+export default App; 

@@ -1,13 +1,13 @@
-import usFlag from '../../assets/flags/us.png'
-import euFlag from '../../assets/flags/eu.png'
-import gbFlag from '../../assets/flags/gb.png'
 import aeFlag from '../../assets/flags/ae.png'
 import cnFlag from '../../assets/flags/cn.png'
+import euFlag from '../../assets/flags/eu.png'
+import gbFlag from '../../assets/flags/gb.png'
+import usFlag from '../../assets/flags/us.png'
 import zaFlag from '../../assets/flags/za.png'
 
 import {
-  ArrowUpRight,
   ArrowDownRight,
+  ArrowUpRight,
   TrendingUp,
 } from 'lucide-react'
 
@@ -78,7 +78,7 @@ function RatesSection() {
         justify-center
       "
     >
-      {/* BACKGROUND IMAGE CONTAINER - Correction définitive de la bande noire */}
+      {/* BACKGROUND IMAGE CONTAINER */}
       <div className="absolute inset-0 w-full h-full min-h-full pointer-events-none z-0">
         <img 
           src={palaisImage} 
@@ -108,7 +108,6 @@ function RatesSection() {
         className="
           relative
           z-10
-          
           mx-auto
           max-w-[1180px]
           px-6
@@ -133,10 +132,8 @@ function RatesSection() {
             <div
               className="
                 mt-3
-
                 h-[3px]
                 w-24
-
                 rounded-full
                 bg-[#2563FF]
               "
@@ -165,11 +162,11 @@ function RatesSection() {
               max-w-2xl
               rounded-[24px]
               border
-              border-white/60
-              bg-white/75
-              p-4
+              border-white
+              bg-white/95
+              p-5
               backdrop-blur-md
-              shadow-[0_20px_60px_rgba(15,23,42,0.10)]
+              shadow-[0_12px_40px_rgba(15,23,42,0.12)]
               flex
               items-center
               gap-4
@@ -184,7 +181,7 @@ function RatesSection() {
                 text-[16px]
                 leading-snug
                 font-medium
-                text-[#334155]
+                text-slate-900
               "
             >
               Suivez les fluctuations des principales devises utilisées en République Démocratique du Congo.
@@ -208,16 +205,15 @@ function RatesSection() {
               key={rate.currency}
               className="
                 relative
-
                 overflow-hidden
                 min-h-[250px]
                 rounded-[24px]
                 border
-                border-white/60
-                bg-white/70
+                border-white
+                bg-white/95
                 backdrop-blur-md
                 p-6
-                shadow-[0_20px_60px_rgba(15,23,42,0.12)]
+                shadow-[0_15px_45px_rgba(15,23,42,0.12)]
                 transition-all
                 duration-300
                 hover:-translate-y-1
@@ -231,7 +227,6 @@ function RatesSection() {
                 className="
                   absolute
                   inset-0
-
                   bg-gradient-to-b
                   from-white/30
                   via-transparent
@@ -253,7 +248,6 @@ function RatesSection() {
                         shrink-0
                         items-center
                         justify-center
-
                         rounded-full
                         bg-white
                         border
@@ -274,15 +268,14 @@ function RatesSection() {
                       />
                     </div>
 
-                    {/* TEXT */}
                     <div className="flex flex-col justify-center">
-                      <p className="text-[11px] uppercase tracking-wider font-semibold text-slate-400">
+                      <p className="text-[11px] uppercase tracking-wider font-bold text-slate-400">
                         Devise
                       </p>
                       <h3 className="text-[20px] font-bold text-[#071133] leading-tight">
                         {rate.currency}
                       </h3>
-                      <p className="text-[13px] font-medium text-slate-500 mt-0.5">
+                      <p className="text-[13px] font-semibold text-slate-900 mt-0.5">
                         {rate.description}
                       </p>
                     </div>
@@ -352,9 +345,7 @@ function RatesSection() {
                 className="
                   relative
                   z-10
-
                   mt-8
-
                   flex
                   items-center
                   justify-between
@@ -376,11 +367,10 @@ function RatesSection() {
                   <span className="text-[12px]">{rate.positive ? '▲' : '▼'}</span>
                 </p>
 
-                <p className="text-[13px] font-medium text-slate-400">
+                <p className="text-[13px] font-semibold text-slate-900">
                   Aujourd'hui
                 </p>
               </div>
-
 
             </div>
           ))}
@@ -390,4 +380,4 @@ function RatesSection() {
   )
 }
 
-export default RatesSection
+export default RatesSection;
