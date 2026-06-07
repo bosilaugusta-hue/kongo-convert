@@ -85,25 +85,33 @@ function FeaturesSection() {
         <img
           src={mausoleeImage}
           alt="Mausolée Kinshasa"
-          className="w-full h-full min-h-full object-cover object-center brightness-[0.95]
-contrast-[1.05] saturate-125"
+          className="
+w-full
+h-full
+min-h-full
+
+object-cover
+object-[58%_center]
+
+brightness-[0.9]
+contrast-[1]
+saturate-[1.05]
+"
         />
       </div>
 
-      {/* LIGHT OVERLAY */}
-      <div className="absolute inset-0 bg-white/15 z-1" />
-
-      {/* VIGNETTE GRADIENT */}
       <div
         className="
-          absolute
-          inset-0
-          bg-gradient-to-b
-          from-white/30
-          via-transparent
-          to-transparent
-          z-1
-        "
+    absolute
+    inset-0
+
+    bg-gradient-to-r
+    from-black/35
+    via-black/10
+    to-transparent
+
+    z-[1]
+  "
       />
 
       {/* CONTENT */}
@@ -157,7 +165,8 @@ contrast-[1.05] saturate-125"
               font-black
               leading-[1.12]
               tracking-tight
-              text-[#071133]
+              text-white
+drop-shadow-[0_4px_25px_rgba(0,0,0,0.55)]
               sm:text-[46px]
               md:text-[50px]
               lg:text-[54px]
@@ -170,7 +179,7 @@ contrast-[1.05] saturate-125"
             <span className="text-blue-600">nouvelle génération</span> africaine
           </h2>
 
-          {/* INFO BLOCK / BANNER RENDU PLUS VISIBLE (Même style que l'accueil) */}
+          {/* INFO BLOCK */}
           <div
             className="
               mt-8
@@ -178,13 +187,13 @@ contrast-[1.05] saturate-125"
               flex
               items-center
               gap-4
-              rounded-[24px]
+              rounded-[30px]
               border
-              border-white
-              bg-white/95
+              border-white/20
+              bg-white/8
               p-5
-              backdrop-blur-xl
-              shadow-[0_12px_40px_rgba(15,23,42,0.12)]
+              backdrop-blur-[28px]
+              shadow-[0_0_25px_rgba(59,130,246,0.12)]
             "
           >
             <motion.div
@@ -200,7 +209,7 @@ contrast-[1.05] saturate-125"
                 text-[15px]
                 leading-snug
                 font-medium
-                text-slate-900
+                text-white
               "
             >
               Une plateforme moderne inspirée des meilleures fintechs
@@ -212,7 +221,7 @@ contrast-[1.05] saturate-125"
         {/* CARDS GRID */}
         <motion.div
           className="
-            mt-14
+            mt-10
             grid
             gap-6
             md:grid-cols-2
@@ -240,11 +249,11 @@ contrast-[1.05] saturate-125"
                   overflow-hidden
                   min-h-[260px]
                   rounded-[24px]
-                  border border-white/40
-                  bg-white/75
-backdrop-blur-xl
+                  border border-white/20
+                  bg-white/5
+backdrop-blur-[28px]
                   p-6
-                  shadow-[0_15px_45px_rgba(15,23,42,0.12)]
+                  shadow-[0_20px_50px_rgba(0,0,0,0.18)]
                   flex
                   flex-col
                   justify-between
@@ -253,6 +262,21 @@ backdrop-blur-xl
               >
                 {/* INTERNAL LIGHT EFFECT */}
                 <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent" />
+                <div
+                  className="
+    absolute
+    inset-0
+
+    rounded-[24px]
+
+    border
+    border-blue-300/15
+
+    shadow-[0_0_35px_rgba(59,130,246,0.18)]
+
+    pointer-events-none
+  "
+                />
 
                 {/* TOP CONTENT */}
                 <div className="relative z-10">
@@ -267,9 +291,10 @@ backdrop-blur-xl
                         items-center
                         justify-center
                         rounded-full
-                        bg-white
+                        bg-white/15
+backdrop-blur-md
                         border
-                        border-blue-200/70
+                        border-white/20
                         shadow-sm
                         p-1
                       "
@@ -288,10 +313,10 @@ backdrop-blur-xl
                     <p className="text-[11px] uppercase tracking-wider font-bold text-slate-400">
                       {item.subtitle}
                     </p>
-                    <h3 className="text-[21px] font-black tracking-tight text-[#071133] mt-0.5 leading-tight">
+                    <h3 className="text-[21px] font-black tracking-tight text-white mt-0.5 leading-tight">
                       {item.title}
                     </h3>
-                    <p className="text-[14px] font-medium text-slate-900 mt-2.5 leading-relaxed">
+                    <p className="text-[14px] font-medium text-white/90 mt-2.5 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
