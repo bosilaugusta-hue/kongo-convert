@@ -80,15 +80,23 @@ function RatesSection() {
     >
       {/* BACKGROUND IMAGE CONTAINER */}
       <div className="absolute inset-0 w-full h-full min-h-full pointer-events-none z-0">
-        <img 
-          src={palaisImage} 
-          alt="Palais du Peuple Kinshasa" 
-          className="w-full h-full min-h-full object-cover object-center brightness-100 contrast-100 saturate-125"
+        <img
+          src={palaisImage}
+          alt="Palais du Peuple Kinshasa"
+          className="
+      h-full
+      w-full
+      object-cover
+      scale-105
+      brightness-[0.92]
+      contrast-[1.05]
+      saturate-[1.08]
+    "
         />
       </div>
 
       {/* LIGHT OVERLAY */}
-      <div className="absolute inset-0 bg-white/15 z-1" />
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
 
       {/* VIGNETTE GRADIENT */}
       <div
@@ -208,12 +216,11 @@ function RatesSection() {
                 overflow-hidden
                 min-h-[250px]
                 rounded-[24px]
-                border
-                border-white
-                bg-white/95
-                backdrop-blur-md
+                border border-white/50
+                bg-white/70
+backdrop-blur-xl
                 p-6
-                shadow-[0_15px_45px_rgba(15,23,42,0.12)]
+               shadow-[0_20px_50px_rgba(0,0,0,0.12)]
                 transition-all
                 duration-300
                 hover:-translate-y-1
@@ -291,10 +298,9 @@ function RatesSection() {
                       justify-center
                       rounded-2xl
                       border
-                      ${
-                        rate.positive
-                          ? 'border-green-200 bg-white/90 text-green-500'
-                          : 'border-red-200 bg-white/90 text-red-500'
+                      ${rate.positive
+                        ? 'border-green-200 bg-white/90 text-green-500'
+                        : 'border-red-200 bg-white/90 text-red-500'
                       }
                     `}
                   >

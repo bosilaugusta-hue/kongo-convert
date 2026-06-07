@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
-import { 
-  Globe2, 
-  ShieldCheck, 
-  Smartphone, 
-  Sparkles, 
-  Zap 
+import {
+  Globe2,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+  Zap
 } from 'lucide-react'
 
 import mausoleeImage from '../../assets/images/Mausolee-LaurentDesireKabila_Kinshasa.png'
@@ -52,12 +52,12 @@ function FeaturesSection() {
   }
 
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30 
+    hidden: {
+      opacity: 0,
+      y: 30
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         type: 'spring' as const,
@@ -82,10 +82,11 @@ function FeaturesSection() {
     >
       {/* BACKGROUND IMAGE CONTAINER */}
       <div className="absolute inset-0 w-full h-full min-h-full pointer-events-none z-0">
-        <img 
-          src={mausoleeImage} 
-          alt="Mausolée Kinshasa" 
-          className="w-full h-full min-h-full object-cover object-center brightness-100 contrast-100 saturate-125"
+        <img
+          src={mausoleeImage}
+          alt="Mausolée Kinshasa"
+          className="w-full h-full min-h-full object-cover object-center brightness-[0.95]
+contrast-[1.05] saturate-125"
         />
       </div>
 
@@ -117,7 +118,7 @@ function FeaturesSection() {
         "
       >
         {/* HEADER CONTENT */}
-        <motion.div 
+        <motion.div
           className="w-full"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +187,7 @@ function FeaturesSection() {
               shadow-[0_12px_40px_rgba(15,23,42,0.12)]
             "
           >
-            <motion.div 
+            <motion.div
               className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#EBF1FF]"
               animate={{ scale: [1, 1.08, 1] }}
               transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
@@ -229,8 +230,8 @@ function FeaturesSection() {
               <motion.div
                 key={item.title}
                 variants={cardVariants}
-                whileHover={{ 
-                  y: -8, 
+                whileHover={{
+                  y: -8,
                   boxShadow: "0 30px 60px rgba(37, 99, 255, 0.18)",
                   transition: { type: "spring", stiffness: 400, damping: 10 }
                 }}
@@ -239,10 +240,9 @@ function FeaturesSection() {
                   overflow-hidden
                   min-h-[260px]
                   rounded-[24px]
-                  border
-                  border-white
-                  bg-white/95
-                  backdrop-blur-md
+                  border border-white/40
+                  bg-white/75
+backdrop-blur-xl
                   p-6
                   shadow-[0_15px_45px_rgba(15,23,42,0.12)]
                   flex
@@ -274,7 +274,7 @@ function FeaturesSection() {
                         p-1
                       "
                     >
-                      <motion.div 
+                      <motion.div
                         className={`flex h-11 w-11 items-center justify-center rounded-full ${item.color}`}
                         whileHover={{ scale: 1.12, rotate: 10 }}
                       >

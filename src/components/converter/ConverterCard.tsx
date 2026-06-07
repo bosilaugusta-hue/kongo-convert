@@ -42,36 +42,34 @@ function ConverterCard() {
         y: -6,
       }}
       className="
-        relative
+relative
+w-full
+max-w-[620px]
 
-        w-full
-        max-w-[620px]
+scale-[0.92]
 
-        scale-[0.92]
+overflow-hidden
 
-        overflow-hidden
+rounded-[36px]
 
-        rounded-[30px]
+border
+border-white/35
 
-        border
-        border-white/50
+bg-white/22
 
-        bg-white/92
+p-4
 
-        p-4
+shadow-[0_20px_70px_rgba(15,23,42,0.18)]
 
-        shadow-[0_20px_70px_rgba(15,23,42,0.18)]
+backdrop-blur-xl
 
-        backdrop-blur-xl
+transition-all
+duration-500
 
-        transition-all
-        duration-500
-
-        sm:scale-100
-        sm:p-6
-
-        lg:rounded-[34px]
-      "
+sm:scale-100
+sm:p-6
+lg:rounded-[40px]
+"
     >
       {/* REFLET */}
       <div
@@ -80,9 +78,9 @@ function ConverterCard() {
           inset-0
 
           bg-gradient-to-br
-          from-white/70
-          via-white/20
-          to-transparent
+from-white/25
+via-white/10
+to-transparent
         "
       />
 
@@ -100,27 +98,55 @@ function ConverterCard() {
 
           rounded-full
 
-          bg-blue-500/10
-
-          blur-3xl
+        bg-blue-400/20
+blur-[120px]
         "
       />
 
-      {/* BARRE RDC */}
       <div
         className="
-          absolute
-          right-0
-          top-0
+    absolute
+    inset-0
 
-          h-full
-          w-[5px]
+    rounded-[40px]
 
-          bg-gradient-to-b
-          from-blue-600
-          via-yellow-400
-          to-red-500
-        "
+    border
+    border-blue-400/40
+
+   shadow-[0_0_60px_rgba(96,165,250,0.55)]
+
+    pointer-events-none
+  "
+      />
+      <div
+        className="
+    absolute
+
+    -inset-[3px]
+
+    rounded-[42px]
+
+    border
+    border-blue-300/25
+
+    blur-[4px]
+
+    pointer-events-none
+  "
+      />
+
+      <div
+        className="
+    pointer-events-none
+
+    absolute
+    inset-0
+
+    rounded-[40px]
+
+    border
+    border-white/20
+  "
       />
 
       <div className="relative z-10">
@@ -182,7 +208,7 @@ function ConverterCard() {
                 mt-2
 
                 text-xs
-                text-[#7B849B]
+                text-white/60
 
                 sm:text-sm
               "
@@ -205,7 +231,7 @@ function ConverterCard() {
 
         {/* SWITCH */}
         <div className="relative my-7 sm:my-8">
-          <div className="h-[1px] w-full bg-[#E9EEF5]" />
+          <div className="h-[1px] w-full bg-white/15" />
 
           <motion.button
             whileTap={{ scale: 0.92 }}
@@ -232,7 +258,7 @@ function ConverterCard() {
 
               bg-blue-600
 
-              shadow-[0_10px_35px_rgba(37,99,235,0.35)]
+              shadow-[0_0_60px_rgba(37,99,235,0.55)]
 
               transition-all
               duration-300
@@ -303,8 +329,7 @@ function ConverterCard() {
                 mt-2
 
                 text-xs
-                text-[#7B849B]
-
+                text-white/60
                 sm:text-sm
               "
             >
@@ -331,17 +356,20 @@ function ConverterCard() {
         {/* FOOTER */}
         <div
           className="
-            mt-7
+mt-7
 
-            rounded-[22px]
+rounded-[26px]
 
-            bg-[#F8FAFC]
+bg-white/18
+border
+border-white/20
+p-4
 
-            p-4
+backdrop-blur-xl
 
-            sm:mt-8
-            sm:p-5
-          "
+sm:mt-8
+sm:p-5
+"
         >
           <div
             className="
@@ -369,7 +397,7 @@ function ConverterCard() {
                     text-base
                     font-black
 
-                    text-[#0B132B]
+                    text-white
 
                     sm:text-xl
                   "
@@ -381,7 +409,7 @@ function ConverterCard() {
                       className="
                         text-sm
                         font-normal
-                        text-[#7B849B]
+                        text-white/60
                       "
                     >
                       Mise à jour...
@@ -449,7 +477,12 @@ function ConverterCard() {
 
                 rounded-2xl
 
-                bg-blue-500/10
+                bg-white/10
+
+border
+border-white/10
+
+backdrop-blur-md
 
                 sm:h-14
                 sm:w-14

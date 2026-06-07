@@ -14,11 +14,53 @@ function HeroSection({ langCode }: HeroSectionProps) {
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden border border-black/10 bg-white flex items-center justify-center">
-      {/* WAX PATTERN (Haut fixe et arrondi, bas étiré qui plonge vers le footer) */}
-      <div className="absolute top-[35%] bottom-0 -mb-20 left-0 z-20 hidden w-[70px] overflow-hidden rounded-tr-[26px] shadow-[5px_0_15px_rgba(0,0,0,0.1)] sm:block sm:w-[85px] lg:w-[110px]">
+
+      <div
+        className="
+    absolute
+
+    top-0
+    bottom-0
+
+    -left-8
+
+    z-20
+
+    hidden
+
+    w-[75px]
+
+    overflow-hidden
+
+    sm:block
+    lg:w-[90px]
+  "
+      >
         <div
-          className="h-full w-full bg-cover bg-repeat-y bg-top"
-          style={{ backgroundImage: `url(${waxPattern})` }}
+          className="
+    h-full
+    w-full
+
+    opacity-90
+
+    bg-cover
+    bg-repeat-y
+    bg-center
+  "
+          style={{
+            backgroundImage: `url(${waxPattern})`,
+          }}
+        />
+        <div
+          className="
+    absolute
+    inset-0
+
+    bg-gradient-to-r
+    from-black/35
+    via-black/10
+    to-transparent
+  "
         />
       </div>
 
@@ -27,7 +69,31 @@ function HeroSection({ langCode }: HeroSectionProps) {
         <img
           src={heroImage}
           alt="Kinshasa"
-          className="h-full w-full object-cover brightness-[1.05] contrast-[1.08] saturate-[1.25]"
+          className="
+h-full
+w-full
+
+object-cover scale-[1.08]
+
+scale-[1.03]
+
+brightness-[0.95]
+
+contrast-[1.08]
+
+saturate-[1.10]
+"
+        />
+        <div
+          className="
+    absolute
+    inset-0
+
+    bg-gradient-to-r
+    from-black/35
+    via-black/10
+    to-transparent
+  "
         />
       </div>
 
@@ -40,10 +106,29 @@ function HeroSection({ langCode }: HeroSectionProps) {
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/90 px-4 py-1.5 shadow-sm backdrop-blur-sm"
+            className="
+mb-6
+inline-flex
+items-center
+gap-2
+
+rounded-full
+
+border
+border-white/30
+
+bg-white/20
+
+px-4
+py-2
+
+backdrop-blur-xl
+
+shadow-[0_8px_25px_rgba(0,0,0,0.12)]
+"
           >
             <span className="h-2 w-2 rounded-full bg-green-500" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-900">
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-900">
               {t.badge}
             </span>
           </motion.div>
@@ -53,7 +138,7 @@ function HeroSection({ langCode }: HeroSectionProps) {
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="text-[44px] font-black leading-[0.95] tracking-[-0.04em] text-slate-900 drop-shadow-[0_2px_10px_rgba(255,255,255,0.35)] sm:text-[58px] lg:text-7xl"
+            className="text-[44px] font-black leading-[0.95] tracking-[-0.04em] text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.25)] sm:text-[58px] lg:text-7xl"
           >
             {t.title1}
             <br />
@@ -68,9 +153,29 @@ function HeroSection({ langCode }: HeroSectionProps) {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.2 }}
-            className="mx-auto mt-8 max-w-md rounded-2xl border border-white bg-white/95 px-6 py-5 shadow-[0_12px_40px_rgba(0,0,0,0.12)] backdrop-blur-md lg:mx-0"
+            className="
+mx-auto
+mt-8
+max-w-md
+
+rounded-[30px]
+
+border
+border-white/20
+
+bg-white/10
+
+px-6
+py-5
+
+backdrop-blur-xl
+
+shadow-[0_20px_50px_rgba(0,0,0,0.15)]
+
+lg:mx-0
+"
           >
-            <p className="text-[15px] leading-relaxed text-slate-900 font-medium sm:text-base">
+            <p className="text-[15px] leading-relaxed text-white font-medium sm:text-base">
               {t.description}
             </p>
           </motion.div>
