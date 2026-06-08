@@ -8,9 +8,10 @@ function ContactSection() {
   const [messageLength, setMessageLength] = useState(0);
 
   return (
+
     <section className="relative w-full min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-10 lg:px-16 overflow-hidden">
       
-      {/* 1. COMPOSITE D'ARRIÈRE-PLAN */}
+      {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none select-none">
         <img
           src={boulevardImg}
@@ -19,52 +20,96 @@ function ContactSection() {
         />
       </div>
 
-      {/* LIGHT OVERLAY */}
-      <div className="absolute inset-0 bg-white/15 z-1" />
+      {/* DARK OVERLAY*/}
+      <div className="absolute inset-0 bg-black/25 z-1" />
 
-      {/* VIGNETTE GRADIENT */}
+      {/* TOP LIGHT GRADIENT */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-transparent z-1" />
 
-      {/* LE BANDEAU WAX EN HAUT À DROITE */}
-      <div className="absolute top-0 right-0 z-20 h-[400px] w-[90px] lg:h-[500px] lg:w-[110px] overflow-hidden rounded-bl-[30px] shadow-[-5px_0_15px_rgba(0,0,0,0.1)]">
+      {/* WAX DECORATION */}
+      <div className="absolute top-0 right-0 z-20 h-[400px] w-[60px] lg:h-[500px] lg:w-[110px] overflow-hidden rounded-bl-[30px] shadow-[-5px_0_15px_rgba(0,0,0,0.1)]">
         <div
-          className="h-full w-full bg-cover bg-center"
+  className="
+    h-full
+    w-full
+
+    bg-cover
+    bg-center
+
+    opacity-80
+  "
           style={{ backgroundImage: `url(${waxPattern})` }}
         />
       </div>
 
-      {/* CONTAINER DU CONTENU EN GRILLE */}
+      {/* MAIN CONTENT */}
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:pt-6">
         
-        {/* COLONNE GAUCHE (Textes & Bouton LinkedIn) */}
+        {/* LEFT COLUMN */}
         <div className="lg:col-span-5 text-left flex flex-col justify-center animate-slide-up">
-          {/* SMALL TITLE HARMONISÉ */}
+           {/* Section Label */}
           <div className="mb-5">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-blue-600">
               Contactez-moi
             </p>
             <div className="mt-3 h-[3px] w-24 rounded-full bg-blue-600" />
           </div>
-          
-          <h2 className="text-[36px] sm:text-[46px] font-black leading-[1.1] text-[#071133] tracking-tight mb-6">
+
+          {/* Main Title */}
+          <h2
+  className="
+    text-[36px]
+    sm:text-[52px]
+
+    font-black
+
+    leading-[1.05]
+
+    tracking-tight
+
+    text-white
+
+    drop-shadow-[0_4px_20px_rgba(0,0,0,0.35)]
+
+    mb-6
+  "
+>
             Un projet ou <br />
             une <span className="text-blue-600 relative inline-block">question ?</span>
           </h2>
           
-          {/* TEXTE DESCRIPTION - AJUSTÉ POUR ÊTRE AUSSI VISIBLE QUE L'ACCUEIL */}
-          <div className="mb-10 max-w-md rounded-[20px] border border-white bg-white/95 p-5 shadow-[0_12px_40px_rgba(0,0,0,0.12)] backdrop-blur-md">
-            <p className="text-sm sm:text-[15px] leading-relaxed text-slate-900 font-medium">
+           {/* Description Card */}
+         <div
+  className="
+    mb-10
+    max-w-md
+
+    rounded-[24px]
+
+    border
+    border-white/20
+
+    bg-white/15
+
+    backdrop-blur-xl
+
+    p-5
+
+    shadow-[0_10px_40px_rgba(0,0,0,0.15)]
+  "
+>
+            <p className="text-sm sm:text-[15px] leading-relaxed text-white/90 font-medium">
               Je suis à votre écoute pour toute demande d'information, partenariat ou collaboration. Je vous répondrai avec plaisir.
             </p>
           </div>
 
-          {/* LE BOUTON LINKEDIN */}
+{/* LinkedIn Card */}
           <a
             href="https://www.linkedin.com/in/bosila-augusta/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Suivez-moi sur LinkedIn"
-            className="group flex items-center justify-between max-w-xs w-full bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-slate-100 shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(37,99,235,0.1)]"
+            className="group flex items-center justify-between max-w-xs w-full bg-white/15 backdrop-blur-xl rounded-2xl p-4 border border-white/20 shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(37,99,235,0.1)]"
           >
             <div className="flex items-center gap-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white duration-300">
@@ -74,8 +119,8 @@ function ContactSection() {
                 </svg>
               </div>
               <div className="text-left">
-                <span className="block text-xs font-bold text-slate-900">Suivez-moi sur LinkedIn</span>
-                <span className="block text-[11px] font-medium text-slate-400">Restons connectés !</span>
+                <span className="block text-xs font-bold text-white">Suivez-moi sur LinkedIn</span>
+                <span className="block text-[11px] font-medium text-white/70">Restons connectés !</span>
               </div>
             </div>
             <div className="text-slate-400 group-hover:text-blue-600 transition-colors duration-300 pr-1">
@@ -84,11 +129,64 @@ function ContactSection() {
           </a>
         </div>
 
-        {/* COLONNE DROITE : LE FORMULAIRE */}
+  {/*  BLUE GLOW EFFECT */}
+
+<div
+  className="
+    absolute
+    top-1/2
+    right-0
+    -translate-y-1/2
+
+    h-[500px]
+    w-[500px]
+
+    rounded-full
+
+    bg-blue-500/10
+
+    blur-[120px]
+
+    pointer-events-none
+  "
+/>
+        {/*  RIGHT COLUMN - CONTACT FORM */}
         <div className="lg:col-span-7 w-full flex justify-center lg:justify-end animate-fade-in">
-          <div className="w-full max-w-[620px] bg-white/80 backdrop-blur-md rounded-[32px] p-6 sm:p-10 border border-white/60 shadow-[0_20px_60px_rgba(15,23,42,0.10)]">
+          <div
+  className="
+    w-full
+    max-w-[620px]
+
+    rounded-[32px]
+
+    border
+    border-white/20
+
+    bg-white/10
+
+    backdrop-blur-xl
+
+    p-6
+    sm:p-10
+
+    shadow-[0_20px_60px_rgba(0,0,0,0.20)]
+  "
+>
             
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-8">
+            <h3
+  className="
+    mb-8
+
+    text-xl
+    sm:text-2xl
+
+    font-black
+
+    text-white
+
+    drop-shadow-[0_2px_10px_rgba(0,0,0,0.25)]
+  "
+>
               Envoyez-<span className="text-blue-600">moi</span> un message
             </h3>
 
