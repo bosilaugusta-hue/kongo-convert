@@ -84,31 +84,38 @@ function RatesSection() {
           src={palaisImage}
           alt="Palais du Peuple Kinshasa"
           className="
-      h-full
-      w-full
-      object-cover
-      scale-105
-      brightness-[0.92]
-      contrast-[1.05]
-      saturate-[1.08]
-    "
+w-full
+h-full
+object-cover
+
+brightness-[1.12]
+contrast-[1.30]
+saturate-[1.90]
+
+scale-[1.03]
+"
         />
       </div>
-
-      {/* LIGHT OVERLAY */}
-      <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
-
-      {/* VIGNETTE GRADIENT */}
       <div
         className="
-          absolute
-          inset-0
-          bg-gradient-to-b
-          from-white/30
-          via-transparent
-          to-transparent
-          z-1
-        "
+absolute
+inset-0
+
+bg-gradient-to-br
+
+from-[#0A4DFF]/12
+via-transparent
+to-[#38BDF8]/8
+"
+      />
+
+      <div
+        className="
+absolute
+inset-0
+
+bg-black/8
+"
       />
 
       {/* CONTENT */}
@@ -154,7 +161,7 @@ function RatesSection() {
               font-black
               leading-[0.95]
               tracking-tight
-              text-[#071133]
+              text-white
               md:text-[64px]
             "
           >
@@ -166,19 +173,25 @@ function RatesSection() {
           {/* DESCRIPTION */}
           <div
             className="
-              mt-7
-              max-w-2xl
-              rounded-[24px]
-              border
-              border-white
-              bg-white/95
-              p-5
-              backdrop-blur-md
-              shadow-[0_12px_40px_rgba(15,23,42,0.12)]
-              flex
-              items-center
-              gap-4
-            "
+mt-8
+max-w-xl
+
+flex
+items-center
+gap-4
+
+rounded-[28px]
+
+border
+border-white/25
+
+bg-white/12
+p-5
+
+backdrop-blur-xl
+
+shadow-[0_0_35px_rgba(59,130,246,0.18)]
+"
           >
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#EBF1FF]">
               <TrendingUp size={22} className="text-[#2563FF]" />
@@ -189,7 +202,7 @@ function RatesSection() {
                 text-[16px]
                 leading-snug
                 font-medium
-                text-slate-900
+                text-white
               "
             >
               Suivez les fluctuations des principales devises utilisées en République Démocratique du Congo.
@@ -216,11 +229,11 @@ function RatesSection() {
                 overflow-hidden
                 min-h-[250px]
                 rounded-[24px]
-                border border-white/50
-                bg-white/70
-backdrop-blur-xl
+                border border-white/20
+                bg-[#173A63]/28
+backdrop-blur-2xl
                 p-6
-               shadow-[0_20px_50px_rgba(0,0,0,0.12)]
+               shadow-[0_20px_60px_rgba(0,0,0,0.25)]
                 transition-all
                 duration-300
                 hover:-translate-y-1
@@ -240,6 +253,20 @@ backdrop-blur-xl
                   to-transparent
                 "
               />
+              <div
+                className="
+    absolute
+    inset-0
+
+    rounded-[24px]
+
+    border
+    border-blue-400/40
+
+    shadow-[0_0_50px_rgba(59,130,246,0.65)]
+    pointer-events-none
+  "
+              />
 
               {/* TOP CONTENT */}
               <div className="relative z-10">
@@ -249,40 +276,39 @@ backdrop-blur-xl
                     {/* FLAG */}
                     <div
                       className="
-                        flex
-                        h-16
-                        w-16
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-white
-                        border
-                        border-slate-100
-                        shadow-sm
-                        p-1
-                      "
+    flex
+    h-14
+    w-14
+    items-center
+    justify-center
+
+    rounded-full
+
+    bg-white/10
+
+    backdrop-blur-md
+  "
                     >
                       <img
                         src={rate.flag}
                         alt={rate.currency}
                         className="
-                          h-11
-                          w-11
+                          h-[72px]
+w-[72px]
                           rounded-full
-                          object-contain
+                          object-cover
                         "
                       />
                     </div>
 
                     <div className="flex flex-col justify-center">
-                      <p className="text-[11px] uppercase tracking-wider font-bold text-slate-400">
+                      <p className="text-[11px] uppercase tracking-wider font-bold text-white">
                         Devise
                       </p>
-                      <h3 className="text-[20px] font-bold text-[#071133] leading-tight">
+                      <h3 className="text-[20px] font-bold text-white leading-tight">
                         {rate.currency}
                       </h3>
-                      <p className="text-[13px] font-semibold text-slate-900 mt-0.5">
+                      <p className="text-[13px] font-semibold text-white mt-0.5">
                         {rate.description}
                       </p>
                     </div>
@@ -314,7 +340,7 @@ backdrop-blur-xl
 
                 {/* VALUE */}
                 <div className="mt-6 pl-1">
-                  <p className="text-[22px] font-black tracking-tight text-[#071133]">
+                  <p className="text-[22px] font-black tracking-tight text-white">
                     {rate.value}
                     <span className="ml-2 text-[15px] font-bold text-slate-400">
                       CDF

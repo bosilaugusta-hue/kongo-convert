@@ -23,14 +23,14 @@ function RateCard({
 
         overflow-hidden
 
-        rounded-[32px]
+        rounded-[30px]
 
         border
-        border-white/15
+        border-white/30
 
-        bg-[#020817]/72
+       bg-white/12
 
-        backdrop-blur-2xl
+        backdrop-blur-xl
 
         p-7
 
@@ -42,43 +42,42 @@ function RateCard({
 
         hover:border-blue-400/30
 
-        shadow-[0_20px_80px_rgba(0,0,0,0.35)]
+        shadow-[0_0_35px_rgba(59,130,246,0.22)]
 
-        hover:shadow-[0_25px_90px_rgba(37,99,235,0.20)]
+hover:shadow-[0_0_50px_rgba(59,130,246,0.35)]
       "
     >
-      {/* Blue glow */}
+
       <div
         className="
-          absolute
-          -top-10
-          -right-10
-
-          h-44
-          w-44
-
-          rounded-full
-
-          bg-blue-500/10
-
-          blur-3xl
-        "
-      />
-
-      {/* Glass reflection */}
-     <div
-  className="
     absolute
     inset-0
 
-    bg-gradient-to-b
-    from-[#020817]/70
-    via-[#020817]/60
-    to-[#020817]/80
+    rounded-[30px]
+
+    border
+    border-blue-400/40
+
+    shadow-[0_0_25px_rgba(59,130,246,0.35)]
+
+    pointer-events-none
+  "
+      />
+
+      {/* Glass reflection */}
+      <div
+        className="
+    absolute
+    inset-0
+
+    bg-gradient-to-br
+from-white/25
+via-white/10
+to-transparent
 
     backdrop-blur-[2px]
   "
-/>
+      />
 
       {/* Content */}
       <div className="relative z-10">
@@ -96,8 +95,8 @@ function RateCard({
             <div
               className="
                 flex
-                h-14
-                w-14
+                h-17
+                w-17
                 items-center
                 justify-center
 
@@ -115,8 +114,8 @@ function RateCard({
                 src={flag}
                 alt={pair}
                 className="
-                  h-9
-                  w-9
+                  h-14
+                  w-14
 
                   rounded-full
 
@@ -132,7 +131,7 @@ function RateCard({
                   text-sm
                   tracking-wide
 
-                  text-white/45
+                  text-slate-400
                 "
               >
                 Devise
@@ -143,11 +142,25 @@ function RateCard({
                   text-xl
                   font-bold
 
-                  text-white
+                  text-[#071133]
                 "
               >
                 {pair}
               </h3>
+              <p
+                className="
+    mt-1
+    text-sm
+    text-slate-600
+  "
+              >
+                {pair === "USD" && "Très utilisé en RDC"}
+                {pair === "EUR" && "Transactions européennes"}
+                {pair === "GBP" && "Marchés internationaux"}
+                {pair === "CNY" && "Commerce Chine–Afrique"}
+                {pair === "ZAR" && "Afrique australe"}
+                {pair === "AED" && "Import & business à Dubaï"}
+              </p>
             </div>
           </div>
 
@@ -164,10 +177,9 @@ function RateCard({
 
               border
 
-              ${
-                positive
-                  ? 'border-green-400/20 bg-green-500/10 text-green-400'
-                  : 'border-red-400/20 bg-red-500/10 text-red-400'
+              ${positive
+                ? 'border-green-400/20 bg-green-500/10 text-green-400'
+                : 'border-red-400/20 bg-red-500/10 text-red-400'
               }
             `}
           >
@@ -190,7 +202,7 @@ function RateCard({
               leading-none
               tracking-tight
 
-              text-white
+              text-[#071133]
             "
           >
             {rate}
@@ -211,10 +223,9 @@ function RateCard({
                 text-base
                 font-semibold
 
-                ${
-                  positive
-                    ? 'text-green-400'
-                    : 'text-red-400'
+                ${positive
+                  ? 'text-green-400'
+                  : 'text-red-400'
                 }
               `}
             >
@@ -225,7 +236,7 @@ function RateCard({
               className="
                 text-sm
 
-                text-white/40
+                text-slate-500
               "
             >
               Aujourd'hui
@@ -247,9 +258,9 @@ function RateCard({
             rounded-2xl
 
             border
-            border-white/5
+            border-white/15
 
-            bg-white/5
+            bg-white/8
           "
         >
           {/* Bottom line */}
@@ -262,10 +273,9 @@ function RateCard({
 
               h-[2px]
 
-              ${
-                positive
-                  ? 'bg-green-400'
-                  : 'bg-red-400'
+              ${positive
+                ? 'bg-green-400'
+                : 'bg-red-400'
               }
 
               opacity-20
