@@ -145,36 +145,55 @@ function Navbar({
 								</span>
 							</h1>
 
-							<p className="hidden text-sm text-slate-500 md:block">
-								Fintech RDC
-							</p>
+
 						</div>
 					</div>
 
 					{/* NAVIGATION DESKTOP */}
 					<nav className="hidden items-center gap-10 lg:flex">
 						{navigationItems.map((item) => (
-							<button
-								key={item.id}
-								type="button"
-								onClick={() => setActiveTab(item.id)}
-								className={`
-									text-[15px]
-									font-semibold
+  <button
+    key={item.id}
+    type="button"
+    onClick={() => setActiveTab(item.id)}
+    className={`
+      relative
 
-									transition-all
-									duration-300
+      py-2
 
-									${
-										activeTab === item.id
-											? "scale-105 text-blue-600"
-											: "text-slate-700 hover:text-blue-600"
-									}
-								`}
-							>
-								{item.name}
-							</button>
-						))}
+      text-[15px]
+      font-semibold
+
+      transition-all
+      duration-300
+
+      ${
+        activeTab === item.id
+          ? "text-blue-600"
+          : "text-slate-700 hover:text-blue-600"
+      }
+    `}
+  >
+    {item.name}
+
+    {activeTab === item.id && (
+      <span
+        className="
+          absolute
+          left-0
+          -bottom-1
+
+          h-[3px]
+          w-full
+
+          rounded-full
+
+          bg-blue-600
+        "
+      />
+    )}
+  </button>
+))}
 					</nav>
 
 					{/* RIGHT SIDE */}

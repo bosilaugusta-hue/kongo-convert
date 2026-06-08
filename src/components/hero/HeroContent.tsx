@@ -9,44 +9,55 @@ function HeroContent() {
       "
     >
       {/* Badge */}
-      <div
-        className="
-          mb-8
+     <div
+  className="
+    inline-flex
+    items-center
+    gap-3
 
-          inline-flex
-          items-center
-          gap-3
+    rounded-full
 
-          rounded-full
+    border
+    border-emerald-400/30
 
-          border
-          border-white/10
+    bg-emerald-500/15
 
-          bg-white/12
+    backdrop-blur-xl
 
-          px-5
-          py-3
+    px-5
+    py-3
 
-          shadow-[0_10px_30px_rgba(0,0,0,0.18)]
+    shadow-[0_8px_25px_rgba(16,185,129,0.25)]
+  "
+>
+  <span
+  className="
+    h-2.5
+    w-2.5
 
-          backdrop-blur-xl
-        "
-      >
-        <div className="h-3 w-3 rounded-full bg-green-400" />
+    rounded-full
 
-        <span
-          className="
-            text-sm
-            font-medium
+    bg-emerald-400
 
-            text-white
+    animate-pulse
 
-            sm:text-base
-          "
-        >
-          Taux en temps réel
-        </span>
-      </div>
+    shadow-[0_0_12px_rgba(52,211,153,0.9)]
+  "
+/>
+
+  <span
+    className="
+      text-[12px]
+      font-extrabold
+      uppercase
+      tracking-[0.25em]
+
+      text-white
+    "
+  >
+    TAUX EN TEMPS RÉEL
+  </span>
+</div>
 
       {/* Title */}
       <h1

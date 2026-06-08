@@ -80,18 +80,21 @@ function RatesSection() {
     >
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 h-full w-full pointer-events-none">
-        <img
-          src={palaisImage}
-          alt="Palais du Peuple Kinshasa"
-          className="
-            h-full
-            w-full
-            object-cover
-            brightness-[0.75]
-            contrast-[1.2]
-            saturate-[1.35]
-          "
-        />
+       <img
+  src={palaisImage}
+  alt="Palais du Peuple Kinshasa"
+ className="
+  h-full
+  w-full
+  object-cover
+
+  brightness-[0.9]
+  contrast-[1.3]
+  saturate-[1.9]
+
+  scale-[1.03]
+"
+/>
       </div>
 
       {/* OVERLAYS */}
@@ -106,13 +109,7 @@ function RatesSection() {
         "
       />
 
-      <div
-        className="
-          absolute
-          inset-0
-          bg-black/25
-        "
-      />
+      <div className="absolute inset-0 bg-black/5" />
 
       {/* CONTENT */}
       <div

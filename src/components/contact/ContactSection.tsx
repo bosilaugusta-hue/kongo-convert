@@ -27,7 +27,26 @@ function ContactSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-transparent z-1" />
 
       {/* WAX DECORATION */}
-      <div className="absolute top-0 right-0 z-20 h-[400px] w-[60px] lg:h-[500px] lg:w-[110px] overflow-hidden rounded-bl-[30px] shadow-[-5px_0_15px_rgba(0,0,0,0.1)]">
+     <div
+  className="
+    absolute
+    top-0
+    right-0
+    z-20
+
+    h-[50px]
+    w-[50px]
+
+    lg:h-[500px]
+    lg:w-[50px]
+
+    overflow-hidden
+
+    rounded-bl-[30px]
+
+    shadow-[-5px_0_15px_rgba(0,0,0,0.08)]
+  "
+>
         <div
   className="
     h-full
