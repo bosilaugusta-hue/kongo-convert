@@ -61,17 +61,82 @@ function Footer({ langCode, setActiveTab }: FooterProps) {
 
   const t = footerLinks[langCode] || footerLinks.FR;
 
+  <div
+  className="
+    h-px
+    w-full
+
+    bg-gradient-to-r
+    from-transparent
+    via-blue-500/20
+    to-transparent
+  "
+/>
+
   return (
-    <footer className="relative z-20 bg-white pt-16 pb-8">
+   <footer
+  className="
+    relative
+    z-20
+
+    bg-gradient-to-b
+    from-white
+    to-slate-50
+
+    pt-12
+    pb-8
+  "
+>
+{/* BLUE GLOW */}
+
+<div
+  className="
+    pointer-events-none
+
+    absolute
+    left-1/2
+    top-0
+
+    h-[300px]
+    w-[600px]
+
+    -translate-x-1/2
+
+    rounded-full
+
+    bg-blue-500/10
+
+    blur-[120px]
+  "
+/>
+
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         
         {/* GRID PRINCIPAL */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 pb-12 items-start">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-12 pb-8 items-start">
           
           {/* LOGO + DESCRIPTION */}
-          <div className="lg:col-span-4 flex flex-col space-y-4">
+          <div className="lg:col-span-4 flex flex-col space-y-3">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-xl font-black text-white shadow-sm">
+              <div
+  className="
+    flex
+    h-14
+    w-14
+    items-center
+    justify-center
+
+    rounded-2xl
+
+    bg-blue-600
+
+    text-xl
+    font-black
+    text-white
+
+    shadow-[0_10px_25px_rgba(37,99,235,0.25)]
+  "
+>
                 K
               </div>
               <div>
@@ -107,7 +172,30 @@ function Footer({ langCode, setActiveTab }: FooterProps) {
           </div>
 
           {/* NAVIGATION */}
-          <div className="lg:col-span-3 flex flex-col space-y-5 lg:pl-6">
+          <div
+  className="
+    lg:col-span-3
+
+    flex
+    flex-col
+    space-y-5
+
+    lg:pl-6
+
+    rounded-[24px]
+
+    border
+    border-white/20
+
+    bg-white/40
+
+    p-5
+
+    backdrop-blur-xl
+
+    shadow-[0_10px_30px_rgba(0,0,0,0.05)]
+  "
+>
             <h4 className="text-xs font-bold uppercase tracking-wider text-blue-600">
               {t.navigation}
             </h4>
@@ -117,7 +205,7 @@ function Footer({ langCode, setActiveTab }: FooterProps) {
                 onClick={() => setActiveTab("accueil")}
                 className="flex items-center gap-3.5 text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors text-left"
               >
-                <Home className="h-4 w-4 text-slate-800" />
+                <Home className="h-4 w-4 text-blue-600" />
                 {t.accueil}
               </button>
 
@@ -126,7 +214,7 @@ function Footer({ langCode, setActiveTab }: FooterProps) {
                 onClick={() => setActiveTab("taux")}
                 className="flex items-center gap-3.5 text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors text-left border-t border-slate-100 pt-3"
               >
-                <TrendingUp className="h-4 w-4 text-slate-800" />
+                <TrendingUp className="h-4 w-4 text-blue-600" />
                 {t.taux}
               </button>
 
@@ -135,7 +223,7 @@ function Footer({ langCode, setActiveTab }: FooterProps) {
                 onClick={() => setActiveTab("services")}
                 className="flex items-center gap-3.5 text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors text-left border-t border-slate-100 pt-3"
               >
-                <Grid className="h-4 w-4 text-slate-800" />
+               <Grid className="h-4 w-4 text-blue-600" />
                 {t.services}
               </button>
 
@@ -144,14 +232,35 @@ function Footer({ langCode, setActiveTab }: FooterProps) {
                 onClick={() => setActiveTab("contact")}
                 className="flex items-center gap-3.5 text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors text-left border-t border-slate-100 pt-3"
               >
-                <Mail className="h-4 w-4 text-slate-800" />
+               <Mail className="h-4 w-4 text-blue-600" />
                 {t.contact}
               </button>
             </div>
           </div>
 
           {/* LÉGAL */}
-          <div className="lg:col-span-3 flex flex-col space-y-5">
+          <div
+  className="
+    lg:col-span-3
+
+    flex
+    flex-col
+    space-y-5
+
+    rounded-[24px]
+
+    border
+    border-white/20
+
+    bg-white/40
+
+    p-5
+
+    backdrop-blur-xl
+
+    shadow-[0_10px_30px_rgba(0,0,0,0.05)]
+  "
+>
             <h4 className="text-xs font-bold uppercase tracking-wider text-blue-600">
               {t.legal}
             </h4>
@@ -183,7 +292,28 @@ function Footer({ langCode, setActiveTab }: FooterProps) {
           </div>
 
           {/* SUIVEZ-NOUS */}
-          <div className="lg:col-span-2 flex flex-col space-y-5">
+          <div
+  className="
+    lg:col-span-2
+
+    flex
+    flex-col
+    space-y-5
+
+    rounded-[24px]
+
+    border
+    border-white/20
+
+    bg-white/40
+
+    p-5
+
+    backdrop-blur-xl
+
+    shadow-[0_10px_30px_rgba(0,0,0,0.05)]
+  "
+>
             <h4 className="text-xs font-bold uppercase tracking-wider text-blue-600">
               {t.followUs}
             </h4>
@@ -192,7 +322,30 @@ function Footer({ langCode, setActiveTab }: FooterProps) {
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 text-blue-600 transition-colors hover:bg-slate-100"
+                className="
+flex
+h-11
+w-11
+items-center
+justify-center
+
+rounded-xl
+
+border
+border-white/30
+
+bg-white/60
+
+backdrop-blur-md
+
+text-blue-600
+
+shadow-[0_10px_25px_rgba(37,99,235,0.15)]
+
+transition-all
+
+hover:scale-105
+"
                 aria-label="LinkedIn"
               >
                 <svg
@@ -210,7 +363,23 @@ function Footer({ langCode, setActiveTab }: FooterProps) {
 
         {/* BAS DU FOOTER */}
         <div className="mt-4">
-          <div className="rounded-2xl bg-slate-50 px-6 py-5 shadow-sm">
+          <div
+  className="
+    rounded-full
+
+    border
+    border-white/30
+
+    bg-white/50
+
+    px-6
+    py-5
+
+    backdrop-blur-xl
+
+    shadow-[0_10px_30px_rgba(0,0,0,0.05)]
+  "
+>
             <div className="flex flex-col items-center gap-4 text-xs font-medium text-slate-600 lg:flex-row lg:justify-between w-full">
               
               {/* Copyright */}
